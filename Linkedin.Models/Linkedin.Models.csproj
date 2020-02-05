@@ -73,7 +73,7 @@
     <Compile Include="Entites\Project.cs" />
     <Compile Include="Entites\Language.cs" />
     <Compile Include="Enum\Degree.cs" />
-    <Compile Include="Entites\Education.cs" />
+    <Compile Include="Entites\EducationExperience.cs" />
     <Compile Include="Entites\WorkExperience.cs" />
     <Compile Include="Enum\PlaceType.cs" />
     <Compile Include="Entites\SavedPlace.cs" />
