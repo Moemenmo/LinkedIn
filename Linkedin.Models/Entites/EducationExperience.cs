@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Linkedin.Models.Entites
 {
-    [Table("Education")]
-    public class Education
+    [Table("EducationExperience")]
+    public class EducationExperience
     {
         [Key]
         public Guid Id { get; set; }
