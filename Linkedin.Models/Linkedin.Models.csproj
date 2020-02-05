@@ -64,6 +64,8 @@
     <Compile Include="Entites\ApplicationUser.cs" />
     <Compile Include="Entites\Comment.cs" />
     <Compile Include="Entites\Course.cs" />
+    <Compile Include="Entites\Experience.cs" />
+    <Compile Include="Enum\ExperienceType.cs" />
     <Compile Include="Entites\Patent.cs" />
     <Compile Include="Entites\Post.cs" />
     <Compile Include="Entites\Publication.cs" />
@@ -77,13 +79,12 @@
     <Compile Include="Entites\WorkExperience.cs" />
     <Compile Include="Enum\PlaceType.cs" />
     <Compile Include="Entites\SavedPlace.cs" />
-    <Compile Include="Entites\Award.cs"/>
+    <Compile Include="Entites\Award.cs" />
     <Compile Include="Enum\Country.cs" />
     <Compile Include="Enum\EmploymentType.cs" />
     <Compile Include="Enum\Gender.cs" />
     <Compile Include="Enum\Indstry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
