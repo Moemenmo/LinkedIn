@@ -13,15 +13,16 @@ namespace Linkedin.Models.Entites
     {
         public Comment()
         {
+            Id = Guid.NewGuid();
             Likes = new HashSet<ApplicationUser>();
             Replies = new HashSet<Comment>(); 
         }
         [Key]
         public Guid Id { get; set; }
         public string Content { get; set; }
+        public string PicURL { get; set; }
         [ForeignKey("Author")]
         public string AuthorId { get; set; }
-        public string PicURL { get; set; }
         public virtual ApplicationUser Author { get; set; }
         public virtual ICollection<Comment> Replies { get; set; }
         public ICollection<ApplicationUser> Likes { get; set; }

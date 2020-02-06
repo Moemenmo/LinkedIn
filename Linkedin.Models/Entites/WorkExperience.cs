@@ -11,6 +11,10 @@ namespace Linkedin.Models.Entites
     [Table("WorkExperience")]
     public class WorkExperience
     {
+        public WorkExperience()
+        {
+            Id = Guid.NewGuid();
+        }
         [Key]
         public Guid Id { get; set; }
         [Required]
@@ -19,6 +23,7 @@ namespace Linkedin.Models.Entites
         [ForeignKey("Company")]
         public Guid CompanyId { get; set; }
         public virtual SavedPlace Company { get; set; }
+        public virtual ApplicationUser User{ get; set; }
         public string Location { get; set; }
         public string Headline { get; set; }
         public string Description { get; set; }

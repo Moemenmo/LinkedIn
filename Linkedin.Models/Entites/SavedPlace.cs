@@ -11,12 +11,17 @@ namespace Linkedin.Models.Entites
     [Table("SavedPlace")]
     public class SavedPlace
     {
+        public SavedPlace()
+        {
+            Id = Guid.NewGuid();
+        }
         [Key]
         public Guid Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
         public PlaceType PlaceType { get; set; }
-        //pic
+        [DataType(DataType.ImageUrl)]
+        public string ImageUrl { get; set; }
     }
 }

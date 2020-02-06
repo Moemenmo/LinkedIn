@@ -11,12 +11,15 @@ namespace Linkedin.Models.Entites
     [Table("Course")]
     public class Course
     {
+        public Course()
+        {
+            Id = Guid.NewGuid();
+        }
         [Key]
         public Guid Id { get; set; }
         [Required]
         public string Name { get; set; }
         public string Number { get; set; }
-        // public SavedPlace AssociatedWith { get; set; }
         [ForeignKey("User")]
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
