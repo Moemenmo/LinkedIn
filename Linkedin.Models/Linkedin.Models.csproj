@@ -66,6 +66,7 @@
     <Compile Include="Entites\Course.cs" />
     <Compile Include="Entites\Experience.cs" />
     <Compile Include="Enum\ExperienceType.cs" />
+    <Compile Include="Enum\Level.cs" />
     <Compile Include="Entites\Patent.cs" />
     <Compile Include="Entites\Post.cs" />
     <Compile Include="Entites\Publication.cs" />

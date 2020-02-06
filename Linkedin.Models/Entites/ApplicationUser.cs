@@ -14,13 +14,6 @@ namespace Linkedin.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public ApplicationUser()
-        {
-            WorkExperiences = new HashSet<WorkExperience>();
-            Skills = new HashSet<Skill>();
-            Posts = new HashSet<Post>();
-            LikedPosts = new HashSet<Post>();
-        }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Country Country { get; set; }
@@ -36,6 +29,47 @@ namespace Linkedin.Models
         public virtual ICollection<Post> Posts{ get; set; }
         public virtual ICollection<Post> LikedPosts { get; set; }
         public virtual ICollection<Skill> Skills { get; set; }
+        public virtual ICollection<Award> Awards { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<EducationExperience> EducationExperiences { get; set; }
+        public virtual ICollection<Language> Languages { get; set; }
+        public virtual ICollection<Patent> Patents { get; set; }
+        public virtual ICollection<Project> Projects { get; set; }
+        public virtual ICollection<Publication> Publications { get; set; }
+        public virtual ICollection<VolunteerExperience> VolunteerExperiences { get; set; }
+        public virtual ICollection<TestScore> TestScores { get; set; }
+        public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; }
+
+
+        public ApplicationUser()
+        {
+            WorkExperiences = new HashSet<WorkExperience>();
+            Skills = new HashSet<Skill>();
+            Posts = new HashSet<Post>();
+            LikedPosts = new HashSet<Post>();
+            Awards = new HashSet<Award>();
+            VolunteerExperiences = new HashSet<VolunteerExperience>();
+            Projects= new HashSet<Project>();
+            Patents = new HashSet<Patent>();
+            Languages = new HashSet<Language>();
+            Courses = new HashSet<Course>();
+            EducationExperiences= new HashSet<EducationExperience>();
+            Publications = new HashSet<Publication>();
+            TestScores= new HashSet<TestScore>();
+            ApplicationUsers = new HashSet<ApplicationUser>();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
