@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Linkedin.Models.Entites
 {
-    class Language
+    public class Language
     {
         [Key]
         public Guid Id { get; set; }

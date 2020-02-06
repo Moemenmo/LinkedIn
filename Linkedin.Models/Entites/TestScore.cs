@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Linkedin.Models.Entites
 {
     [Table("TestScore")]
-    class TestScore
+   public class TestScore
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
