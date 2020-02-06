@@ -11,16 +11,21 @@ namespace Linkedin.Models.Entites
     [Table("Project")]
   public  class Project
     {
+        public Project()
+        {
+            Id = Guid.NewGuid();
+            Creators = new HashSet<ApplicationUser>();
+        }
         public Guid Id { get; set; }
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public bool IsPresent { get; set; }
-        //list of users
-        [ForeignKey("WorkExperience")]
-        public WorkExperience Associated { get; set; }
         [DataType(DataType.Url)]
         public string URL { get; set; }
         public string Description { get; set; }
+        [ForeignKey("Creator")]
+        public Guid CreatorId { get; set; }
+        public virtual ApplicationUser Creator { get; set; }
+        public virtual ICollection<ApplicationUser> Creators { get; set; }
     }
 }

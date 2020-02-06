@@ -14,6 +14,7 @@ namespace Linkedin.Models.Entites
         public Publication()
         {
             Authors = new HashSet<ApplicationUser>();
+            Id = Guid.NewGuid();
         }
         [Key]
         public Guid Id { get; set; }

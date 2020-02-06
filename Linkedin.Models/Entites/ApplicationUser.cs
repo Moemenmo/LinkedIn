@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -14,8 +15,11 @@ namespace Linkedin.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public Country Country { get; set; }
         public string Address { get; set; }
         public string About { get; set; }
@@ -23,7 +27,9 @@ namespace Linkedin.Models
         public string HeadLine { get; set; }
         public Gender Gender{ get; set; }
         public Indstry Indstry { get; set; }
+        [DataType(DataType.ImageUrl)]
         public string ProfilePicURL { get; set; }
+        [DataType(DataType.ImageUrl)]
         public string CoverPicURL { get; set; }
         public virtual ICollection<WorkExperience> WorkExperiences { get; set; }
         public virtual ICollection<Post> Posts{ get; set; }
@@ -38,7 +44,9 @@ namespace Linkedin.Models
         public virtual ICollection<Publication> Publications { get; set; }
         public virtual ICollection<VolunteerExperience> VolunteerExperiences { get; set; }
         public virtual ICollection<TestScore> TestScores { get; set; }
-        public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; }
+        public virtual ICollection<ApplicationUser> Connections { get; set; }
+        public virtual ICollection<ApplicationUser> Requests { get; set; }
+
 
 
         public ApplicationUser()
@@ -56,7 +64,9 @@ namespace Linkedin.Models
             EducationExperiences= new HashSet<EducationExperience>();
             Publications = new HashSet<Publication>();
             TestScores= new HashSet<TestScore>();
-            ApplicationUsers = new HashSet<ApplicationUser>();
+            Connections = new HashSet<ApplicationUser>();
+            Requests = new HashSet<ApplicationUser>();
+
         }
 
 

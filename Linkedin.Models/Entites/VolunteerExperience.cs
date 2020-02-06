@@ -11,18 +11,25 @@ namespace Linkedin.Models.Entites
     [Table("VolunteerExperience")]
     public class VolunteerExperience
     {
+        public VolunteerExperience()
+        {
+            Id = Guid.NewGuid();
+        }
         [Key]
         public Guid Id { get; set; }
         [Required]
         public string Title { get; set; }
 
         [ForeignKey("Company")]
+        [Required]
         public Guid CompanyId { get; set; }
         public virtual SavedPlace Company { get; set; }
+        public virtual ApplicationUser User{ get; set; }
         public string Cause { get; set; }
         public string Description { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public bool IsPresent { get; set; }
+
+
     }
 }

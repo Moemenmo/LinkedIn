@@ -11,17 +11,23 @@ namespace Linkedin.Models.Entites
     [Table("EducationExperience")]
     public class EducationExperience
     {
+        public EducationExperience()
+        {
+            Id = Guid.NewGuid();
+        }
         [Key]
         public Guid Id { get; set; }
-        [ForeignKey("School")]
-        public Guid SchoolId { get; set; }
-        public virtual SavedPlace School { get; set; }
         public string Grade { get; set; }
         public Degree Degree { get; set; }
         public string Description { get; set; }
-        public string Acticites { get; set; }
-
+        public string Activites { get; set; }
         public DateTime StartYear { get; set; }
         public DateTime EndYear { get; set; }
+        [ForeignKey("School")]
+        public Guid SchoolId { get; set; }
+        public virtual SavedPlace School { get; set; }
+        [ForeignKey("User")]
+        public Guid UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }
