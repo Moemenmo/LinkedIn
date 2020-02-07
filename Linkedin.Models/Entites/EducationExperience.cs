@@ -24,10 +24,12 @@ namespace Linkedin.Models.Entites
         public DateTime StartYear { get; set; }
         public DateTime EndYear { get; set; }
         [ForeignKey("School")]
+        [Required]
         public Guid SchoolId { get; set; }
         public virtual SavedPlace School { get; set; }
         [ForeignKey("User")]
-        public Guid UserId { get; set; }
+        [Required]
+        public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
     }
 }

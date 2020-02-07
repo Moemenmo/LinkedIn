@@ -24,7 +24,7 @@ namespace Linkedin.Models.Entites
         public string URL { get; set; }
         public string Description { get; set; }
         [ForeignKey("Creator")]
-        public Guid CreatorId { get; set; }
+        public string CreatorId { get; set; }
         public virtual ApplicationUser Creator { get; set; }
         public virtual ICollection<ApplicationUser> Creators { get; set; }
     }

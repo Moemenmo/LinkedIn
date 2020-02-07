@@ -14,6 +14,9 @@ namespace Linkedin.Models.Entites
         public SavedPlace()
         {
             Id = Guid.NewGuid();
+            EducationExperiences = new HashSet<EducationExperience>();
+            WorkExperiences = new HashSet<WorkExperience>();
+            VolunteerExperiences = new HashSet<VolunteerExperience>();
         }
         [Key]
         public Guid Id { get; set; }
@@ -23,5 +26,8 @@ namespace Linkedin.Models.Entites
         public PlaceType PlaceType { get; set; }
         [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; }
+        public virtual ICollection<EducationExperience> EducationExperiences { get; set; }
+        public virtual ICollection<WorkExperience> WorkExperiences { get; set; }
+        public virtual ICollection<VolunteerExperience> VolunteerExperiences { get; set; }
     }
 }

@@ -23,6 +23,9 @@ namespace Linkedin.Models.Entites
         [ForeignKey("Company")]
         public Guid CompanyId { get; set; }
         public virtual SavedPlace Company { get; set; }
+        [ForeignKey("User")]
+        [Required]
+        public string UserId { get; set; }
         public virtual ApplicationUser User{ get; set; }
         public string Location { get; set; }
         public string Headline { get; set; }

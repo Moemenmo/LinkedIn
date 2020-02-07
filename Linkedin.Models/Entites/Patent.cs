@@ -32,6 +32,7 @@ namespace Linkedin.Models.Entites
         public string Description { get; set; }
         public virtual ICollection<ApplicationUser> Inventors { get; set; }
         [ForeignKey("Creator")]
+        [Required]
         public string CreatorId { get; set; }
         public virtual ApplicationUser Creator { get; set; }
 
