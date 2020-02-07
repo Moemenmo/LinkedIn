@@ -15,6 +15,25 @@ namespace Linkedin.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public ApplicationUser()
+        {
+            WorkExperiences = new HashSet<WorkExperience>();
+            Skills = new HashSet<Skill>();
+            Posts = new HashSet<Post>();
+            LikedPosts = new HashSet<Post>();
+            Awards = new HashSet<Award>();
+            VolunteerExperiences = new HashSet<VolunteerExperience>();
+            Projects= new HashSet<Project>();
+            Patents = new HashSet<Patent>();
+            Languages = new HashSet<Language>();
+            Courses = new HashSet<Course>();
+            EducationExperiences= new HashSet<EducationExperience>();
+            Publications = new HashSet<Publication>();
+            TestScores= new HashSet<TestScore>();
+            Connections = new HashSet<ApplicationUser>();
+            Requests = new HashSet<ApplicationUser>();
+
+        }
         [Required]
         public string FirstName { get; set; }
         [Required]
@@ -49,25 +68,6 @@ namespace Linkedin.Models
 
 
 
-        public ApplicationUser()
-        {
-            WorkExperiences = new HashSet<WorkExperience>();
-            Skills = new HashSet<Skill>();
-            Posts = new HashSet<Post>();
-            LikedPosts = new HashSet<Post>();
-            Awards = new HashSet<Award>();
-            VolunteerExperiences = new HashSet<VolunteerExperience>();
-            Projects= new HashSet<Project>();
-            Patents = new HashSet<Patent>();
-            Languages = new HashSet<Language>();
-            Courses = new HashSet<Course>();
-            EducationExperiences= new HashSet<EducationExperience>();
-            Publications = new HashSet<Publication>();
-            TestScores= new HashSet<TestScore>();
-            Connections = new HashSet<ApplicationUser>();
-            Requests = new HashSet<ApplicationUser>();
-
-        }
 
 
 
