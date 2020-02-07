@@ -19,6 +19,7 @@ namespace Linkedin.Models
         {
             WorkExperiences = new HashSet<WorkExperience>();
             Skills = new HashSet<Skill>();
+            Comments = new HashSet<Comment>();
             Posts = new HashSet<Post>();
             LikedPosts = new HashSet<Post>();
             Awards = new HashSet<Award>();
@@ -52,6 +53,7 @@ namespace Linkedin.Models
         public string CoverPicURL { get; set; }
         public virtual ICollection<WorkExperience> WorkExperiences { get; set; }
         public virtual ICollection<Post> Posts{ get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Post> LikedPosts { get; set; }
         public virtual ICollection<Skill> Skills { get; set; }
         public virtual ICollection<Award> Awards { get; set; }

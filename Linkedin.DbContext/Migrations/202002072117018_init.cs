@@ -75,7 +75,7 @@ namespace Linkedin.DbContext.Migrations
                         ClaimValue = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -88,7 +88,7 @@ namespace Linkedin.DbContext.Migrations
                         UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -106,8 +106,8 @@ namespace Linkedin.DbContext.Migrations
                         UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.SavedPlace", t => t.SchoolId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.SavedPlace", t => t.SchoolId, cascadeDelete: false)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.SchoolId)
                 .Index(t => t.UserId);
             
@@ -136,8 +136,8 @@ namespace Linkedin.DbContext.Migrations
                         EndDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.SavedPlace", t => t.CompanyId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.SavedPlace", t => t.CompanyId, cascadeDelete: false)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.CompanyId)
                 .Index(t => t.UserId);
             
@@ -157,8 +157,8 @@ namespace Linkedin.DbContext.Migrations
                         IsPresent = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.SavedPlace", t => t.CompanyId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.SavedPlace", t => t.CompanyId, cascadeDelete: false)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.CompanyId)
                 .Index(t => t.UserId);
             
@@ -172,7 +172,7 @@ namespace Linkedin.DbContext.Migrations
                         UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -187,7 +187,7 @@ namespace Linkedin.DbContext.Migrations
                         ApplicationUser_Id1 = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.AuthorId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.AuthorId, cascadeDelete: false)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id1)
                 .Index(t => t.AuthorId)
@@ -206,7 +206,7 @@ namespace Linkedin.DbContext.Migrations
                         Post_Id = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.AuthorId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.AuthorId, cascadeDelete: false)
                 .ForeignKey("dbo.Comment", t => t.Comment_Id)
                 .ForeignKey("dbo.Post", t => t.Post_Id)
                 .Index(t => t.AuthorId)
@@ -222,7 +222,7 @@ namespace Linkedin.DbContext.Migrations
                         UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -241,7 +241,7 @@ namespace Linkedin.DbContext.Migrations
                         ApplicationUser_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.CreatorId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.CreatorId, cascadeDelete: false)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
                 .Index(t => t.CreatorId)
                 .Index(t => t.ApplicationUser_Id);
@@ -277,7 +277,7 @@ namespace Linkedin.DbContext.Migrations
                         Description = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.SavedPlace", t => t.PublisherId, cascadeDelete: true)
+                .ForeignKey("dbo.SavedPlace", t => t.PublisherId, cascadeDelete: false)
                 .Index(t => t.PublisherId);
             
             CreateTable(
@@ -288,8 +288,8 @@ namespace Linkedin.DbContext.Migrations
                         RoleId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: false)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
             
@@ -314,7 +314,7 @@ namespace Linkedin.DbContext.Migrations
                         UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -348,8 +348,8 @@ namespace Linkedin.DbContext.Migrations
                         ApplicationUser_Id = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.Publication_Id, t.ApplicationUser_Id })
-                .ForeignKey("dbo.Publication", t => t.Publication_Id, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Publication", t => t.Publication_Id, cascadeDelete: false)
+                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id, cascadeDelete: false)
                 .Index(t => t.Publication_Id)
                 .Index(t => t.ApplicationUser_Id);
             
@@ -361,8 +361,8 @@ namespace Linkedin.DbContext.Migrations
                         ApplicationUser_Id = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.Skill_Id, t.ApplicationUser_Id })
-                .ForeignKey("dbo.Skill", t => t.Skill_Id, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Skill", t => t.Skill_Id, cascadeDelete: false)
+                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id, cascadeDelete: false)
                 .Index(t => t.Skill_Id)
                 .Index(t => t.ApplicationUser_Id);
             
