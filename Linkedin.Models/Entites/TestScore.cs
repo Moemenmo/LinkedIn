@@ -17,9 +17,12 @@ namespace Linkedin.Models.Entites
         }
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public WorkExperience Associated { get; set; }
         public int Score { get; set; }
         public DateTime DateTime { get; set; }
         public string Description { get; set; }
+        [ForeignKey("User")]
+        [Required]
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }
