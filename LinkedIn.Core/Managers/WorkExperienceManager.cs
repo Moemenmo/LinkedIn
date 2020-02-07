@@ -13,6 +13,7 @@ namespace LinkedIn.Core.Managers
     {
         public WorkExperienceManager(ApplicationDbContext context) : base(context)
         {
+
         }
     }
 }
