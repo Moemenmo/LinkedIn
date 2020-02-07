@@ -30,6 +30,7 @@ namespace Linkedin.DbContext
         public DbSet<TestScore> TestScores { get; set; }
         public DbSet<VolunteerExperience> VolunteerExperiences { get; set; }
         public DbSet<WorkExperience> WorkExperiences { get; set; }
+        public DbSet<ApplicationUser> User{ get; set; }
 
         public static ApplicationDbContext Create()
         {
