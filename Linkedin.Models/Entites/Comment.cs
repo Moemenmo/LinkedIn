@@ -22,6 +22,7 @@ namespace Linkedin.Models.Entites
         public string Content { get; set; }
         public string PicURL { get; set; }
         [ForeignKey("Author")]
+        [Required]
         public string AuthorId { get; set; }
         public virtual ApplicationUser Author { get; set; }
         public virtual ICollection<Comment> Replies { get; set; }

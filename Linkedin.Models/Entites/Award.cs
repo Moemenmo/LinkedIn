@@ -23,7 +23,8 @@ namespace Linkedin.Models.Entites
         public DateTime DateTime { get; set; }
         public string Description { get; set; }
         [ForeignKey("User")]
-        public Guid UserId { get; set; }
+        [Required]
+        public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
     }
 }

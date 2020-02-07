@@ -23,7 +23,7 @@ namespace Linkedin.Models.Entites
         public DateTime Date { get; set; }
 
         [ForeignKey("Publisher")]
-        public string PublisherId { get; set; }
+        public Guid PublisherId { get; set; }
         public virtual SavedPlace Publisher { get; set; }
         public virtual ICollection<ApplicationUser> Authors { get; set; }
 
