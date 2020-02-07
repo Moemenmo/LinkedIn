@@ -9,7 +9,7 @@ namespace Linkedin.Models.Entites
 {
     [Table("Experience")]
 
-    class Experience
+    public class Experience
     {
         public ExperienceType Type { get; set; }
         public Guid Id { get; set; }

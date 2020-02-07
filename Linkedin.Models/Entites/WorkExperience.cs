@@ -27,6 +27,7 @@ namespace Linkedin.Models.Entites
         public string Location { get; set; }
         public string Headline { get; set; }
         public string Description { get; set; }
+        [Required]
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public bool IsPresent { get; set; }

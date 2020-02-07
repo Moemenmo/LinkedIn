@@ -11,6 +11,10 @@ namespace Linkedin.Models.Entites
     [Table("TestScore")]
    public class TestScore
     {
+        public TestScore()
+        {
+            Id = Guid.NewGuid();
+        }
         public Guid Id { get; set; }
         public string Name { get; set; }
         public WorkExperience Associated { get; set; }
