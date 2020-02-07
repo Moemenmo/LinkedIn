@@ -283,6 +283,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LinkedIn.Core\LinkedIn.Core.csproj">
+      <Project>{9EA1730F-29FB-47DA-B2BD-C258905B384E}</Project>
+      <Name>LinkedIn.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Linkedin.DbContext\Linkedin.DbContext.csproj">
       <Project>{02ee8df9-a389-4d32-aa6a-f638bbcdb6a6}</Project>
       <Name>Linkedin.DbContext</Name>
