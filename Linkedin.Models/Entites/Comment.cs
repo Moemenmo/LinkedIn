@@ -21,8 +21,10 @@ namespace Linkedin.Models.Entites
         public Guid Id { get; set; }
         public string Content { get; set; }
         public string PicURL { get; set; }
+        [Required]
         public Guid PostId { get; set; }
         public virtual Post Post { get; set; }
+        [Required]
         public string AuthorId { get; set; }
         public virtual ApplicationUser Author { get; set; }
         public virtual ICollection<Comment> Replies { get; set; }

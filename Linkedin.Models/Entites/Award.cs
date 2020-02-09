@@ -20,7 +20,7 @@ namespace Linkedin.Models.Entites
         [Required]
         public string Name { get; set; }
         public string Issuer { get; set; }
-        public DateTime DateTime { get; set; }
+        public DateTime? DateTime { get; set; }
         public string Description { get; set; }
         [ForeignKey("User")]
         [Required]

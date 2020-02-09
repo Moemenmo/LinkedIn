@@ -18,14 +18,11 @@ namespace Linkedin.Models.Entites
         }
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
         [DataType(DataType.Url)]
         public string URL { get; set; }
         public string Description { get; set; }
-        [ForeignKey("Creator")]
-        public string CreatorId { get; set; }
-        public virtual ApplicationUser Creator { get; set; }
         public virtual ICollection<ApplicationUser> Creators { get; set; }
     }
 }

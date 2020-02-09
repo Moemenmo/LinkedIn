@@ -18,7 +18,7 @@ namespace Linkedin.Models.Entites
         [Key]
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public Level Level { get; set; }
+        public Level? Level { get; set; }
         [ForeignKey("User")]
         [Required]
         public string UserId { get; set; }
