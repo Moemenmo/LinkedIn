@@ -19,6 +19,8 @@ namespace Linkedin.Models
         {
             WorkExperiences = new HashSet<WorkExperience>();
             Skills = new HashSet<Skill>();
+            Comments = new HashSet<Comment>();
+            LikedComments = new HashSet<Comment>();
             Posts = new HashSet<Post>();
             LikedPosts = new HashSet<Post>();
             Awards = new HashSet<Award>();
@@ -53,30 +55,20 @@ namespace Linkedin.Models
         public virtual ICollection<WorkExperience> WorkExperiences { get; set; }
         public virtual ICollection<Post> Posts{ get; set; }
         public virtual ICollection<Post> LikedPosts { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> LikedComments { get; set; }
         public virtual ICollection<Skill> Skills { get; set; }
         public virtual ICollection<Award> Awards { get; set; }
         public virtual ICollection<Course> Courses { get; set; }
-        public virtual ICollection<EducationExperience> EducationExperiences { get; set; }
-        public virtual ICollection<Language> Languages { get; set; }
+        public virtual ICollection<TestScore> TestScores { get; set; }
         public virtual ICollection<Patent> Patents { get; set; }
         public virtual ICollection<Project> Projects { get; set; }
         public virtual ICollection<Publication> Publications { get; set; }
+        public virtual ICollection<EducationExperience> EducationExperiences { get; set; }
+        public virtual ICollection<Language> Languages { get; set; }
         public virtual ICollection<VolunteerExperience> VolunteerExperiences { get; set; }
-        public virtual ICollection<TestScore> TestScores { get; set; }
         public virtual ICollection<ApplicationUser> Connections { get; set; }
         public virtual ICollection<ApplicationUser> Requests { get; set; }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
