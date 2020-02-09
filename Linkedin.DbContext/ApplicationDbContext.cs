@@ -1,4 +1,5 @@
-﻿using Linkedin.Models;
+﻿using Linkedin.DbContext.Configs;
+using Linkedin.Models;
 using Linkedin.Models.Entites;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -30,6 +31,14 @@ namespace Linkedin.DbContext
         public DbSet<TestScore> TestScores { get; set; }
         public DbSet<VolunteerExperience> VolunteerExperiences { get; set; }
         public DbSet<WorkExperience> WorkExperiences { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new PostConfiguration());
+            modelBuilder.Configurations.Add(new CommentConfiguration());
+            base.OnModelCreating(modelBuilder);
+        }
 
         public static ApplicationDbContext Create()
         {
