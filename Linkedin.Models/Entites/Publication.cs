@@ -20,15 +20,15 @@ namespace Linkedin.Models.Entites
         public Guid Id { get; set; }
         [Required]
         public string Title { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         [ForeignKey("Publisher")]
-        public Guid PublisherId { get; set; }
+        public Guid? PublisherId { get; set; }
         public virtual SavedPlace Publisher { get; set; }
-        public virtual ICollection<ApplicationUser> Authors { get; set; }
 
         [DataType(DataType.Url)]
         public string Url { get; set; }
         public string Description { get; set; }
+        public virtual ICollection<ApplicationUser> Authors { get; set; }
     }
 }

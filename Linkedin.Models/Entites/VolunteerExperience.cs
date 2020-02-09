@@ -30,8 +30,8 @@ namespace Linkedin.Models.Entites
         public virtual ApplicationUser User { get; set; }
         public string Cause { get; set; }
         public string Description { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
 
     }

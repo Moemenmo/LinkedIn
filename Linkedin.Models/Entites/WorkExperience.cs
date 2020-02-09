@@ -21,7 +21,7 @@ namespace Linkedin.Models.Entites
         public string Title { get; set; }
 
         [ForeignKey("Company")]
-        public Guid CompanyId { get; set; }
+        public Guid? CompanyId { get; set; }
         public virtual SavedPlace Company { get; set; }
         [ForeignKey("User")]
         [Required]
@@ -32,7 +32,7 @@ namespace Linkedin.Models.Entites
         public string Description { get; set; }
         [Required]
         public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public bool IsPresent { get; set; }
 
     }
