@@ -33,7 +33,7 @@ namespace Linkedin.DbContext.Configs
             HasOptional(post => post.SharedPost)
                 .WithMany(post => post.PostsSharedMe)
                 .HasForeignKey(post => post.SharedPostId)
-                .WillCascadeOnDelete(false); ; 
+                .WillCascadeOnDelete(false); 
         }
     }
 }

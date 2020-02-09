@@ -18,11 +18,11 @@ namespace Linkedin.Models.Entites
         [Key]
         public Guid Id { get; set; }
         public string Grade { get; set; }
-        public Degree Degree { get; set; }
+        public Degree? Degree { get; set; }
         public string Description { get; set; }
         public string Activites { get; set; }
-        public DateTime StartYear { get; set; }
-        public DateTime EndYear { get; set; }
+        public DateTime? StartYear { get; set; }
+        public DateTime? EndYear { get; set; }
         [ForeignKey("School")]
         [Required]
         public Guid SchoolId { get; set; }
