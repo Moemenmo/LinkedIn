@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Linkedin.Models.Entites
 {
-    [Table("Language")]
     public class Language
     {
         public Language()

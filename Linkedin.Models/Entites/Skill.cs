@@ -12,14 +12,12 @@ namespace Linkedin.Models.Entites
         public Skill()
         {
             Id = Guid.NewGuid();
+            Users = new HashSet<ApplicationUser>();
         }
         [Key]
         public Guid Id { get; set; }
         [Required]
         public string Name { get; set; }
-        [ForeignKey("User")]
-        [Required]
-        public string UserId { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        public virtual ICollection<ApplicationUser> Users{ get; set; }
     }
 }
