@@ -29,5 +29,7 @@ namespace Linkedin.Models.Entites
         public virtual ApplicationUser Author { get; set; }
         public virtual ICollection<Comment> Replies { get; set; }
         public ICollection<ApplicationUser> Likes { get; set; }
+        public DateTime Date { get; set; }
+
     }
 }

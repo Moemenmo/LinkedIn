@@ -31,6 +31,7 @@ namespace Linkedin.Models.Entites
         public Guid? SharedPostId { get; set; }
         public virtual Post SharedPost { get; set; }
         public virtual ICollection<Post> PostsSharedMe { get; set; }
+        public DateTime Date { get; set; }
 
     }
 }
