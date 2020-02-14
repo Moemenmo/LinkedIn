@@ -66,6 +66,10 @@
     <Compile Include="Migrations\202002091621437_init.Designer.cs">
       <DependentUpon>202002091621437_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002142234367_FeEditsBayn.cs" />
+    <Compile Include="Migrations\202002142234367_FeEditsBayn.Designer.cs">
+      <DependentUpon>202002142234367_FeEditsBayn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Configs\UserConfiguration.cs" />
@@ -87,6 +91,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202002091621437_init.resx">
       <DependentUpon>202002091621437_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002142234367_FeEditsBayn.resx">
+      <DependentUpon>202002142234367_FeEditsBayn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
