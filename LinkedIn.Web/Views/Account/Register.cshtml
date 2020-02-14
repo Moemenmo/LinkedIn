@@ -1,41 +1,147 @@
 ﻿@model LinkedIn.Web.Models.RegisterViewModel
+@using Linkedin.Entites.Enum;
+
 @{
-    ViewBag.Title = "Register";
+    Layout = null;
 }
 
-<h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <title>SignUp</title>
+    <script src="https://kit.fontawesome.com/5028f5981e.js" crossorigin="anonymous"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/RegisterStyleSheet.css">
+</head>
+
+<body class="signup-page">
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "signup__form", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        <div class="Signup__Header">
+            <div class="signup__logo">
+                Linked<i class="fab fa-linkedin"></i>
+            </div>
+            <div class="signup__caption">
+                Make the most of your professional life
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="signup__main">
+            <div class="signup-form-input-container">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email, new { @class = "signup-form-input" })
+            </div>
+            <div class="signup-form-input-container">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { @class = "signup-form-input" })
+            </div>
+            <div class="signup-form-input-container">
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "signup-form-input" })
+            </div>
+            <div class="signup-form-input-container">
+                @Html.LabelFor(m => m.FirstName)
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "signup-form-input" })
+            </div>
+            <div class="signup-form-input-container">
+                @Html.LabelFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.LastName, new { @class = "signup-form-input" })
+            </div>
+            @Html.DropDownListFor(
+            m => m.Country,
+            Enum.GetValues(typeof(Country))
+                .Cast<Country>()
+                .Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }),
+           new { @class = "signup-form-input-container" })
+                <div class="signup-form-input-container signup-upload">
+                    <label for="UploadPhoto"><i class="fas fa-camera"></i></label>
+                    <input class="signup-form-input" id="UploadPhoto" type="file" accept="image/*">
+                </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+                <div class="signup__aggr">
+                    By clicking Agree & Join, you agree to the LinkedIn <a href="">User Agreement, Privacy Policy</a> , and
+                    <a href="">Cookie Policy</a> .
+                </div>
+                <div class="signup__btns">
+                    <button type ="submit" class="signup-btn signup-btn--sky">Agree & Join</button>
+                    <button class="signup-btn signup-btn--dark-blue" href="#">
+                        <i class="fab fa-facebook-f"></i> Continue With
+                        Facebook
+                    </button>
+                </div>
+                <div style="text-align: center;">
+                    Already on LinkedIn? <a href="">Sign in</a>
+                </div>
+</div>
 }
+   
+
+    @*<div class="section__footer">
+        <footer class="footer-end container">
+
+            <ul class="footer-end__list row">
+                <li class="footer-end__li col-auto footer-end__brand">
+                    <img class="footer-end__logo" src="images/linkedin-black-logo.png">
+                    <div class="footer-end__text">© 2020</div>
+                </li>
+                <div class="col row footer-end__items">
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">About</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">User Agreement</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">Privacy policy</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">Cookie Policy</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">Copyright Policy</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">Brand Policy</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">Guest Controls</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">Community Guidelines</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <div class="dropdown">
+                            <button class="footer-end__text btn btn-link" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                Languages
+                                <span> <i class="fas fa-chevron-down"></i></span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="footer-end__dropdown-item dropdown-item btn" type="button">English</button>
+                                <button class="footer-end__dropdown-item dropdown-item btn" type="button">Greek</button>
+                                <button class="footer-end__dropdown-item dropdown-item btn" type="button">French</button>
+                                <button class="footer-end__dropdown-item dropdown-item btn" type="button">Japanese</button>
+                                <button class="footer-end__dropdown-item dropdown-item btn" type="button">Russian</button>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </footer>
+    </div>*@
+
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

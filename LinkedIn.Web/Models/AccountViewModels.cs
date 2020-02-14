@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Linkedin.Entites.Enum;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace LinkedIn.Web.Models
@@ -79,6 +80,19 @@ namespace LinkedIn.Web.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+
+        [Required]
+        [Display(Name = "First Name")]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 3)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 3)]
+        public string LastName { get; set; }
+        [Required]
+        public Country Country { get; set; }
     }
 
     public class ResetPasswordViewModel

@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LinkedIn.Web.Models;
+using LinkedIn.Core.Managers;
+using Linkedin.Models;
+using Linkedin.Entites.Enum;
 
 namespace LinkedIn.Web.Controllers
 {
@@ -139,6 +142,8 @@ namespace LinkedIn.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            RegisterViewModel model = new RegisterViewModel();
+            
             return View();
         }
 
@@ -151,7 +156,10 @@ namespace LinkedIn.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { FirstName = model.FirstName,
+                                                 LastName = model.LastName,
+                                                 Country = model.Country,
+                                                 Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
