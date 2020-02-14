@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LinkedIn.Web.Models;
+using LinkedIn.Core.Managers;
+using Linkedin.Models;
 
 namespace LinkedIn.Web.Controllers
 {
