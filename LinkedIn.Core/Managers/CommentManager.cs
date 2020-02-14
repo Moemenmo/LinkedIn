@@ -11,8 +11,17 @@ namespace LinkedIn.Core.Managers
 {
     public class CommentManager : Repository<Comment, ApplicationDbContext>
     {
+        private static CommentManager Instance = null;
         public CommentManager(ApplicationDbContext context) : base(context)
         {
+        }
+        public static CommentManager GetInstance(ApplicationDbContext context)
+        {
+            if (Instance == null)
+            {
+                Instance = new CommentManager(context);
+            }
+            return Instance;
         }
     }
 }

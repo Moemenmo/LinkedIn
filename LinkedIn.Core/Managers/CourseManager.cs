@@ -11,8 +11,17 @@ namespace LinkedIn.Core.Managers
 {
     public class CourseManager : Repository<Course, ApplicationDbContext>
     {
+        private static CourseManager Instance = null;
         public CourseManager(ApplicationDbContext context) : base(context)
         {
+        }
+        public static CourseManager GetInstance(ApplicationDbContext context)
+        {
+            if (Instance == null)
+            {
+                Instance = new CourseManager(context);
+            }
+            return Instance;
         }
     }
 }

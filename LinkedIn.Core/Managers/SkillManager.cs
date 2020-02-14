@@ -11,8 +11,17 @@ namespace LinkedIn.Core.Managers
 {
     public class SkillManager : Repository<Skill, ApplicationDbContext>
     {
+        private static SkillManager Instance = null;
         public SkillManager(ApplicationDbContext context) : base(context)
         {
+        }
+        public static SkillManager GetInstance(ApplicationDbContext context)
+        {
+            if (Instance == null)
+            {
+                Instance = new SkillManager(context);
+            }
+            return Instance;
         }
     }
 }
