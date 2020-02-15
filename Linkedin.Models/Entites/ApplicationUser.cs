@@ -44,7 +44,7 @@ namespace Linkedin.Models
         public Country Country { get; set; }
         public string Address { get; set; }
         public string About { get; set; }
-        public DateTime BirthDay { get; set; }
+        public DateTime? BirthDay { get; set; }
         public string HeadLine { get; set; }
         public Gender Gender{ get; set; }
         public Indstry Indstry { get; set; }
