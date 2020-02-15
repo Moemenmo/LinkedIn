@@ -158,8 +158,11 @@ namespace LinkedIn.Web.Controllers
             {
                 var user = new ApplicationUser { FirstName = model.FirstName,
                                                  LastName = model.LastName,
+                                                 Email = model.Email,
+                                                 UserName = model.Email,
                                                  Country = model.Country,
-                                                 Email = model.Email };
+                                                 Gender = Linkedin.Models.Enum.Gender.Female};
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -173,6 +176,7 @@ namespace LinkedIn.Web.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
+
                 AddErrors(result);
             }
 
