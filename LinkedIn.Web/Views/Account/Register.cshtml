@@ -34,8 +34,8 @@
                 Make the most of your professional life
             </div>
         </div>
-        @Html.ValidationSummary("", new { @class = "text-danger" })
         <div class="signup__main">
+        @Html.ValidationSummary("", new { @class = "text-danger" })
             <div class="signup-form-input-container">
                 @Html.LabelFor(m => m.Email)
                 @Html.TextBoxFor(m => m.Email, new { @class = "signup-form-input" })
@@ -62,6 +62,13 @@
                 .Cast<Country>()
                 .Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }),
            new { @class = "signup-form-input-container" })
+            <div class="form-check form-check-inline">
+               @*   @Html.LabelFor(x => x.Gender, new { @class = "form-control" })*@
+                <label class="form-check" for="Gender">Male</label>
+                @Html.RadioButtonFor(x => x.Gender, "1", new { @class = "form-control" })
+                <label class="form-check" for="Gender">Female</label>
+                @Html.RadioButtonFor(x => x.Gender, "2", new { @class = "form-control" })
+            </div>
                 <div class="signup-form-input-container signup-upload">
                     <label for="UploadPhoto"><i class="fas fa-camera"></i></label>
                     <input class="signup-form-input" id="UploadPhoto" type="file" accept="image/*">

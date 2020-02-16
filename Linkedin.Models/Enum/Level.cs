@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Linkedin.Models.Entites
+namespace Linkedin.Models.Enum
 {
     public enum Level
     {
