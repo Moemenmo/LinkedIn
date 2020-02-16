@@ -1,4 +1,5 @@
 ﻿using Linkedin.Entites.Enum;
+using Linkedin.Models.Enum;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -93,6 +94,9 @@ namespace LinkedIn.Web.Models
         public string LastName { get; set; }
         [Required]
         public Country Country { get; set; }
+        public Gender Gender { get; set; }
+
+
     }
 
     public class ResetPasswordViewModel

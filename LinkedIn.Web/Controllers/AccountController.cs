@@ -159,9 +159,9 @@ namespace LinkedIn.Web.Controllers
                 var user = new ApplicationUser { FirstName = model.FirstName,
                                                  LastName = model.LastName,
                                                  Email = model.Email,
-                                                 UserName = model.Email,
+                                                 UserName = model.FirstName+" "+model.LastName,
                                                  Country = model.Country,
-                                                 Gender = Linkedin.Models.Enum.Gender.Female};
+                                                 Gender = model.Gender};
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
