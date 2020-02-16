@@ -40,7 +40,12 @@ namespace LinkedIn.Web.Controllers
         public ActionResult Search(string fname, string lname)
         {
             var user = UnitOfWork.ApplicationUserManager;
-            var listOfUsers = user.Users.Where(e => e.FirstName.Contains(fname) || m=>m.FirstName.(fname)).ToList();
+            var listOfUsers = user.Users.Where(e => e.FirstName.Contains(fname) || 
+            e.FirstName.StartsWith(fname) ||
+            e.FirstName.EndsWith(fname)).ToList();
+            listOfUsers.AddRange(user.Users.Where(e => e.LastName.Contains(lname) ||
+            e.LastName.StartsWith(lname) ||
+            e.LastName.EndsWith(lname)));
             return View();
         }
     }
