@@ -1,4 +1,5 @@
 ﻿using LinkedIn.Core;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace LinkedIn.Web.Controllers
         {
             get
             {
-                return HttpContext.GetOwinContext().get<UnitOfWork>();
+                return HttpContext.GetOwinContext().Get<UnitOfWork>();
             }
         }
 
@@ -39,7 +40,12 @@ namespace LinkedIn.Web.Controllers
         public ActionResult Search(string fname, string lname)
         {
             var user = UnitOfWork.ApplicationUserManager;
-            var listOfUsers=user.getall
+            var listOfUsers = user.Users.Where(e => e.FirstName.Contains(fname) || 
+            e.FirstName.StartsWith(fname) ||
+            e.FirstName.EndsWith(fname)).ToList();
+            listOfUsers.AddRange(user.Users.Where(e => e.LastName.Contains(lname) ||
+            e.LastName.StartsWith(lname) ||
+            e.LastName.EndsWith(lname)));
             return View();
         }
     }
