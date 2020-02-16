@@ -59,18 +59,28 @@
                         <button type="button" class="btn btn--rounded-primary "> Search Jobs</button>
 
                     </div>
-                    <div class="tab-pane fade " id="people" role="tabpanel" aria-labelledby="people-tab">
-                        <br />
-                        <div class="search">
-                            <input type="search" placeholder="Firstname" id="" class="search__firstname">
-                        </div>
-                        <br />
-                        <div class="search">
-                            <input type="search" placeholder="Lastname" id="" class="search__lastname">
-                        </div>
-                        <button type="button" class="btn btn--rounded-primary"> Search People</button>
+                        <div class="tab-pane fade " id="people" role="tabpanel" aria-labelledby="people-tab">
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+                    {
+                            <br />
+                            <div class="search">
+                                @*<input type="search" placeholder="Firstname" id="" class="search__firstname">*@
+                                @Html.TextBox("fname", null, new { @class = "search__jobs" })
 
-                    </div>
+
+                            </div>
+                            <br />
+                            <div class="search">
+                                @*<input type="search" placeholder="Lastname" id="" class="search__lastname">*@
+                                @Html.TextBox("lname", null, new { @class = "search__jobs" })
+
+
+                            </div>
+                            <button type="submit" class="btn btn--rounded-primary"> Search People</button>
+
+                    }
+                        </div>
+
                 </div>
             </div>
         </div>
@@ -333,54 +343,54 @@
 
     @*<footer class="footer-end container">
 
-        <ul class="footer-end__list row">
-            <li class="footer-end__li col-auto">
-                <img class="footer-end__logo" src="/images/linkedin-black-logo.png">
-                <span class="footer-end__text">© 2020</span>
-            </li>
-            <div class="col row footer-end__items">
+            <ul class="footer-end__list row">
                 <li class="footer-end__li col-auto">
-                    <button type="button" class="footer-end__text btn btn-link">About</button>
+                    <img class="footer-end__logo" src="/images/linkedin-black-logo.png">
+                    <span class="footer-end__text">© 2020</span>
                 </li>
-                <li class="footer-end__li col-auto">
-                    <button type="button" class="footer-end__text btn btn-link">User Agreement</button>
-                </li>
-                <li class="footer-end__li col-auto">
-                    <button type="button" class="footer-end__text btn btn-link">Privacy policy</button>
-                </li>
-                <li class="footer-end__li col-auto">
-                    <button type="button" class="footer-end__text btn btn-link">Cookie Policy</button>
-                </li>
-                <li class="footer-end__li col-auto">
-                    <button type="button" class="footer-end__text btn btn-link">Copyright Policy</button>
-                </li>
-                <li class="footer-end__li col-auto">
-                    <button type="button" class="footer-end__text btn btn-link">Brand Policy</button>
-                </li>
-                <li class="footer-end__li col-auto">
-                    <button type="button" class="footer-end__text btn btn-link">Guest Controls</button>
-                </li>
-                <li class="footer-end__li col-auto">
-                    <button type="button" class="footer-end__text btn btn-link">Community Guidelines</button>
-                </li>
-                <li class="footer-end__li col-auto">
-                    <div class="dropdown">
-                        <button class="footer-end__text btn btn-link" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Languages
-                            <span> <i class="fas fa-chevron-down"></i></span>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button class="footer-end__dropdown-item dropdown-item" type="button" class="btn">English</button>
-                            <button class="footer-end__dropdown-item dropdown-item" type="button" class="btn">Greek</button>
-                            <button class="footer-end__dropdown-item dropdown-item" type="button" class="btn">French</button>
-                            <button class="footer-end__dropdown-item dropdown-item" type="button" class="btn">Japanese</button>
-                            <button class="footer-end__dropdown-item dropdown-item" type="button" class="btn">Russian</button>
+                <div class="col row footer-end__items">
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">About</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">User Agreement</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">Privacy policy</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">Cookie Policy</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">Copyright Policy</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">Brand Policy</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">Guest Controls</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <button type="button" class="footer-end__text btn btn-link">Community Guidelines</button>
+                    </li>
+                    <li class="footer-end__li col-auto">
+                        <div class="dropdown">
+                            <button class="footer-end__text btn btn-link" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Languages
+                                <span> <i class="fas fa-chevron-down"></i></span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="footer-end__dropdown-item dropdown-item" type="button" class="btn">English</button>
+                                <button class="footer-end__dropdown-item dropdown-item" type="button" class="btn">Greek</button>
+                                <button class="footer-end__dropdown-item dropdown-item" type="button" class="btn">French</button>
+                                <button class="footer-end__dropdown-item dropdown-item" type="button" class="btn">Japanese</button>
+                                <button class="footer-end__dropdown-item dropdown-item" type="button" class="btn">Russian</button>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </div>
-        </ul>
-    </footer>*@
+                    </li>
+                </div>
+            </ul>
+        </footer>*@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
