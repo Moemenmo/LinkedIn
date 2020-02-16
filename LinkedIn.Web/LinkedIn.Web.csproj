@@ -212,12 +212,24 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\IndexStyleSheet.css" />
     <Content Include="Content\LoginStyleSheet.css" />
     <Content Include="Content\RegisterStyleSheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\arrow.svg" />
+    <Content Include="images\connect.svg" />
+    <Content Include="images\learn.svg" />
+    <Content Include="images\linkedin-black-logo.png" />
+    <Content Include="images\linkedIn-logo.png" />
+    <Content Include="images\logo.jpg" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\people.svg" />
+    <Content Include="images\sec1.png" />
+    <Content Include="images\sec1.svg" />
+    <Content Include="images\whoislinkedinfor.jfif" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
