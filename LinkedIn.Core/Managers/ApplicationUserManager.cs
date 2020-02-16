@@ -1,5 +1,6 @@
 ﻿using Linkedin.DbContext;
 using Linkedin.Models;
+using LinkedIn.Repository;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 namespace LinkedIn.Core.Managers
 {
     public class ApplicationUserManager : UserManager<ApplicationUser>
+        //,Repository<ApplicationUser, ApplicationDbContext>
     {
         public ApplicationUserManager(IUserStore<ApplicationUser> store)
             : base(store)
