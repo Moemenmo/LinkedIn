@@ -1,5 +1,6 @@
 ﻿using Linkedin.DbContext;
 using Linkedin.Models;
+using Linkedin.Models.Entites;
 using LinkedIn.Repository;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
