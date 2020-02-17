@@ -23,7 +23,7 @@
 
 <body class="signup-page">
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "signup__form", role = "form" }))
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "signup__form", role = "form" , enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
         <div class="Signup__Header">
@@ -71,8 +71,8 @@
             </div>
                 <div class="signup-form-input-container signup-upload">
                     <label for="UploadPhoto"><i class="fas fa-camera"></i></label>
-                    <input class="signup-form-input" id="UploadPhoto" type="file" accept="image/*">
-                </div>
+                    <input id="UploadPhoto" type="file" name="imgFile" accept="image/*">
+                 </div>
 
                 <div class="signup__aggr">
                     By clicking Agree & Join, you agree to the LinkedIn <a href="">User Agreement, Privacy Policy</a> , and

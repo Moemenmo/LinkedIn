@@ -96,6 +96,9 @@ namespace LinkedIn.Web.Models
         public Country Country { get; set; }
         public Gender Gender { get; set; }
 
+        [DataType(DataType.ImageUrl)]
+        public string ProfilePicURL { get; set; }
+
 
     }
 

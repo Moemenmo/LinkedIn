@@ -143,7 +143,7 @@ namespace LinkedIn.Web.Controllers
         public ActionResult Register()
         {
             RegisterViewModel model = new RegisterViewModel();
-            
+
             return View();
         }
 
@@ -152,16 +152,28 @@ namespace LinkedIn.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase imgFile)
         {
+
             if (ModelState.IsValid)
             {
+                string pic = "";
+                if (imgFile != null)
+                {
+                    pic = System.IO.Path.GetFileName(imgFile.FileName);
+                    string path = System.IO.Path.Combine(Server.MapPath("~/SavedImages"), pic);
+                    // file is uploaded
+                    imgFile.SaveAs(path);
+                    model.ProfilePicURL = path;
+                }
+
                 var user = new ApplicationUser { FirstName = model.FirstName,
                                                  LastName = model.LastName,
                                                  Email = model.Email,
                                                  UserName = model.FirstName+" "+model.LastName,
                                                  Country = model.Country,
-                                                 Gender = model.Gender};
+                                                 Gender = model.Gender,
+                                                 ProfilePicURL = model.ProfilePicURL};
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
