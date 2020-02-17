@@ -1,4 +1,5 @@
 ﻿using Linkedin.Models;
+using Linkedin.Models.Entites;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;

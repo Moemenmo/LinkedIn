@@ -12,6 +12,7 @@ using LinkedIn.Web.Models;
 using LinkedIn.Core.Managers;
 using Linkedin.Models;
 using Linkedin.Entites.Enum;
+using Linkedin.Models.Entites;
 
 namespace LinkedIn.Web.Controllers
 {

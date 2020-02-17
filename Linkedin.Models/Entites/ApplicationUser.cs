@@ -11,7 +11,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Linkedin.Models
+namespace Linkedin.Models.Entites
 {
     public class ApplicationUser : IdentityUser
     {

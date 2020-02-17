@@ -10,6 +10,7 @@ using Linkedin.DbContext;
 using LinkedIn.Core.Managers;
 using Linkedin.Models;
 using LinkedIn.Core;
+using Linkedin.Models.Entites;
 
 namespace LinkedIn.Web
 {
