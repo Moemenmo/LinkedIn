@@ -41,12 +41,12 @@ namespace LinkedIn.Web.Controllers
         {
             var user = UnitOfWork.ApplicationUserManager;
             var listOfUsers = user.Users.Where(e => e.FirstName.Contains(fname) || 
-            e.FirstName.StartsWith(fname) ||
-            e.FirstName.EndsWith(fname)).ToList();
+                                                e.FirstName.StartsWith(fname) ||
+                                                e.FirstName.EndsWith(fname)).ToList();
             listOfUsers.AddRange(user.Users.Where(e => e.LastName.Contains(lname) ||
-            e.LastName.StartsWith(lname) ||
-            e.LastName.EndsWith(lname)));
-            return View();
+                                                   e.LastName.StartsWith(lname) ||
+                                                   e.LastName.EndsWith(lname)));
+            return View(listOfUsers);
         }
     }
 }
