@@ -158,22 +158,22 @@ namespace LinkedIn.Web.Controllers
             if (ModelState.IsValid)
             {
                 string pic = "";
+                string path = "";
                 if (imgFile != null)
                 {
                     pic = System.IO.Path.GetFileName(imgFile.FileName);
-                    string path = System.IO.Path.Combine(Server.MapPath("~/SavedImages"), pic);
-                    // file is uploaded
+                    path = System.IO.Path.Combine(Server.MapPath("~/SavedImages"), pic);
                     imgFile.SaveAs(path);
-                    model.ProfilePicURL = path;
                 }
 
                 var user = new ApplicationUser { FirstName = model.FirstName,
-                                                 LastName = model.LastName,
-                                                 Email = model.Email,
-                                                 UserName = model.FirstName+" "+model.LastName,
-                                                 Country = model.Country,
-                                                 Gender = model.Gender,
-                                                 ProfilePicURL = model.ProfilePicURL};
+                                                LastName = model.LastName,
+                                                Email = model.Email,
+                                                UserName = model.FirstName + " " + model.LastName,
+                                                Country = model.Country,
+                                                Gender = model.Gender,
+                                                ProfilePicURL = path
+                                                };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

@@ -2,6 +2,7 @@
 using Linkedin.Models.Enum;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace LinkedIn.Web.Models
 {
@@ -96,9 +97,9 @@ namespace LinkedIn.Web.Models
         public Country Country { get; set; }
         public Gender Gender { get; set; }
 
-        [DataType(DataType.ImageUrl)]
-        public string ProfilePicURL { get; set; }
-
+        //[DataType(DataType.ImageUrl)]
+        [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
+        public HttpPostedFileBase ProfilePicURL { get; set; }
 
     }
 
