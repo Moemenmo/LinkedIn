@@ -144,7 +144,7 @@ namespace LinkedIn.Web.Controllers
         public ActionResult Register()
         {
             RegisterViewModel model = new RegisterViewModel();
-            
+
             return View();
         }
 
@@ -153,16 +153,28 @@ namespace LinkedIn.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase imgFile)
         {
+
             if (ModelState.IsValid)
             {
+                string pic = "";
+                string path = "";
+                if (imgFile != null)
+                {
+                    pic = System.IO.Path.GetFileName(imgFile.FileName);
+                    path = System.IO.Path.Combine(Server.MapPath("~/SavedImages"), pic);
+                    imgFile.SaveAs(path);
+                }
+
                 var user = new ApplicationUser { FirstName = model.FirstName,
-                                                 LastName = model.LastName,
-                                                 Email = model.Email,
-                                                 UserName = model.FirstName+" "+model.LastName,
-                                                 Country = model.Country,
-                                                 Gender = model.Gender};
+                                                LastName = model.LastName,
+                                                Email = model.Email,
+                                                UserName = model.FirstName + " " + model.LastName,
+                                                Country = model.Country,
+                                                Gender = model.Gender,
+                                                ProfilePicURL = path
+                                                };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
