@@ -56,8 +56,6 @@
             <ul class="search-ul">
                 @foreach (var item in Model)
                 {
-                    @*var x = Html.Partial("_Searchresult", item);
-                    <div>@x</div>*@
                     Html.RenderPartial("_Searchresult", item);
                 }
             </ul>
