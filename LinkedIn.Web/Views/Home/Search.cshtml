@@ -56,26 +56,9 @@
             <ul class="search-ul">
                 @foreach (var item in Model)
                 {
-                    <li>
-                        <div class="search-result">
-
-                            <div class="search-result__img">
-                                <a href="@item.ProfilePicURL"></a>
-                            </div>
-
-                            <div class="search-result__info">
-                                <a href="" class="name">@item.FirstName @item.LastName</a>
-                                <p class="data"> @item.HeadLine</p>
-                                <p class="country">@item.Country</p>
-                            </div>
-
-                            <div class="search-result__action">
-                                <button class="connect">Connect</button>
-                            </div>
-                        </div>
-                    </li>
-
-                    //Html.Partial("_Searchresult", item);
+                    @*var x = Html.Partial("_Searchresult", item);
+                    <div>@x</div>*@
+                    Html.RenderPartial("_Searchresult", item);
                 }
             </ul>
 
