@@ -1,7 +1,9 @@
 ﻿using Linkedin.Entites.Enum;
 using Linkedin.Models.Enum;
+using LinkedIn.Web.Models.CustomValidators;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace LinkedIn.Web.Models
 {
@@ -96,7 +98,9 @@ namespace LinkedIn.Web.Models
         public Country Country { get; set; }
         public Gender Gender { get; set; }
 
-
+        [DataType(DataType.ImageUrl)]
+        [ImgValidation("JPG,JPEG,PNG")]
+        public IEnumerable<HttpPostedFileBase> imgFile { get; set; }
     }
 
     public class ResetPasswordViewModel
