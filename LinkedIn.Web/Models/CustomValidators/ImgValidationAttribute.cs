@@ -24,9 +24,9 @@ namespace LinkedIn.Web.Models.CustomValidators
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             IEnumerable<HttpPostedFileBase> files = value as IEnumerable<HttpPostedFileBase>;
-            if (files != null)
+            foreach (HttpPostedFileBase file in files)
             {
-                foreach (HttpPostedFileBase file in files)
+                if (file != null)
                 {
                     if (file != null && !_ValidTypes.Any(e => file.FileName.EndsWith(e)))
                     {
