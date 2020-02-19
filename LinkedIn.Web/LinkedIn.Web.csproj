@@ -405,6 +405,15 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\NewsFeed\Index.cshtml" />
     <Content Include="Views\Home\_Searchresult.cshtml" />
+    <Content Include="Views\NewsFeed\_WritePost.cshtml" />
+    <Content Include="Views\NewsFeed\_UploadPic.cshtml" />
+    <Content Include="Views\NewsFeed\_UploadVideo.cshtml" />
+    <Content Include="Views\NewsFeed\_UploadDoc.cshtml" />
+    <Content Include="Views\NewsFeed\_View5.cshtml" />
+    <Content Include="Views\NewsFeed\_sharedPost.cshtml" />
+    <Content Include="Views\NewsFeed\_PostBody.cshtml" />
+    <Content Include="Views\NewsFeed\_LikeAndComment.cshtml" />
+    <Content Include="Views\NewsFeed\_UserCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
