@@ -170,7 +170,7 @@ namespace LinkedIn.Web.Controllers
                 var user = new ApplicationUser { FirstName = model.FirstName,
                                                 LastName = model.LastName,
                                                 Email = model.Email,
-                                                UserName = model.FirstName + " " + model.LastName,
+                                                UserName = model.Email,
                                                 Country = model.Country,
                                                 Gender = model.Gender,
                                                 ProfilePicURL = path
