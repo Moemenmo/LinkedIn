@@ -17,7 +17,7 @@
     <title>Document</title>
     <title>SignUp</title>
     <script src="https://kit.fontawesome.com/5028f5981e.js" crossorigin="anonymous"></script>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="~/Content/RegisterStyleSheet.css">
 </head>
 
@@ -62,12 +62,13 @@
                 .Cast<Country>()
                 .Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }),
            new { @class = "signup-form-input-container" })
-            <div class="form-check form-check-inline">
-               @*   @Html.LabelFor(x => x.Gender, new { @class = "form-control" })*@
-                <label class="form-check" for="Gender">Male</label>
-                @Html.RadioButtonFor(x => x.Gender, "1", new { @class = "form-control" })
-                <label class="form-check" for="Gender">Female</label>
-                @Html.RadioButtonFor(x => x.Gender, "2", new { @class = "form-control" })
+            <div class="form-check">
+                @Html.RadioButtonFor(x => x.Gender, "male", new { @class = "form-check-input", id = "male" })
+                <label for="male" class="form-check-label">Male</label>
+            </div>
+            <div class="form-check">
+                @Html.RadioButtonFor(x => x.Gender, "female", new { @class = "form-check-input", id = "female" })
+                <label for="female" class="form-check-label">Female</label>
             </div>
                 <div class="signup-form-input-container signup-upload">
                     <label for="UploadPhoto"><i class="fas fa-camera"></i></label>
@@ -94,65 +95,12 @@
                 </div>
 </div>
 }
-   
-
-    @*<div class="section__footer">
-        <footer class="footer-end container">
-
-            <ul class="footer-end__list row">
-                <li class="footer-end__li col-auto footer-end__brand">
-                    <img class="footer-end__logo" src="images/linkedin-black-logo.png">
-                    <div class="footer-end__text">© 2020</div>
-                </li>
-                <div class="col row footer-end__items">
-                    <li class="footer-end__li col-auto">
-                        <button type="button" class="footer-end__text btn btn-link">About</button>
-                    </li>
-                    <li class="footer-end__li col-auto">
-                        <button type="button" class="footer-end__text btn btn-link">User Agreement</button>
-                    </li>
-                    <li class="footer-end__li col-auto">
-                        <button type="button" class="footer-end__text btn btn-link">Privacy policy</button>
-                    </li>
-                    <li class="footer-end__li col-auto">
-                        <button type="button" class="footer-end__text btn btn-link">Cookie Policy</button>
-                    </li>
-                    <li class="footer-end__li col-auto">
-                        <button type="button" class="footer-end__text btn btn-link">Copyright Policy</button>
-                    </li>
-                    <li class="footer-end__li col-auto">
-                        <button type="button" class="footer-end__text btn btn-link">Brand Policy</button>
-                    </li>
-                    <li class="footer-end__li col-auto">
-                        <button type="button" class="footer-end__text btn btn-link">Guest Controls</button>
-                    </li>
-                    <li class="footer-end__li col-auto">
-                        <button type="button" class="footer-end__text btn btn-link">Community Guidelines</button>
-                    </li>
-                    <li class="footer-end__li col-auto">
-                        <div class="dropdown">
-                            <button class="footer-end__text btn btn-link" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                Languages
-                                <span> <i class="fas fa-chevron-down"></i></span>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <button class="footer-end__dropdown-item dropdown-item btn" type="button">English</button>
-                                <button class="footer-end__dropdown-item dropdown-item btn" type="button">Greek</button>
-                                <button class="footer-end__dropdown-item dropdown-item btn" type="button">French</button>
-                                <button class="footer-end__dropdown-item dropdown-item btn" type="button">Japanese</button>
-                                <button class="footer-end__dropdown-item dropdown-item btn" type="button">Russian</button>
-                            </div>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-        </footer>
-    </div>*@
+  
 
 
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
