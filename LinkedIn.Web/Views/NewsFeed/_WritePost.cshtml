@@ -1,0 +1,59 @@
+﻿<div class="modal fade" id="post" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="mypost">
+                    <div class="mypost-header">
+                        <h2>Create a post</h2>
+                        <button type="button" class="close mypost-close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <!-- <div class="post-close">
+                            <i class="fas fa-times"></i>
+                        </div> -->
+                    </div>
+                    <div class="mypost-body">
+                        <div class="mypost-body_top">
+                            <div class="mypost-profilepic"></div>
+                            <span>UserName</span>
+                        </div>
+                        <div class="mypost-body_middle">
+                            <textarea name="post-text" id="textEditor" rows="12" placeholder="What do you want to talk about?"></textarea>
+                        </div>
+                        <div class="mypost-body_bottom">
+                            <div class="mypost-body_bottomContent">
+                                <button class="mypost-hashtag">Add hashtag</button>
+                                <span>Help the right people see your post</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mypost-footer">
+                        <div class="mypost-footer_media">
+                            <button class="button button-icons button-footer">
+                                <label class="mypost-label" data-toggle="modal" data-target="#picture">
+                                    <i class="fas fa-camera"></i>
+                                    <input type="file" multiple />
+                                </label>
+                            </button>
+                            <button class="button button-icons button-footer">
+                                <label class="mypost-label" data-toggle="modal" data-target="#video">
+                                    <i class="fas fa-video"></i>
+                                    <input type="file" multiple />
+                                </label>
+                            </button>
+                            <button class="button button-icons button-footer">
+                                <label class="mypost-label" data-toggle="modal" data-target="#document">
+                                    <i class="far fa-file-alt"></i>
+                                    <input type="file" multiple />
+                                </label>
+                            </button>
+                        </div>
+                        <div class="mypost-footer_publish">
+                            <button class="mypost-footer_publish-btn mypost-footer_publishEnabele mypost-footer_publishDisable">Post</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
