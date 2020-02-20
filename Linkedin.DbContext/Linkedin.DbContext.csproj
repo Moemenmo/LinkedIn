@@ -77,6 +77,10 @@
     <Compile Include="Migrations\202002151645298_mariam-.Designer.cs">
       <DependentUpon>202002151645298_mariam-.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002201645152_nothing.cs" />
+    <Compile Include="Migrations\202002201645152_nothing.designer.cs">
+      <DependentUpon>202002201645152_nothing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Configs\UserConfiguration.cs" />
@@ -104,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002151645298_mariam-.resx">
       <DependentUpon>202002151645298_mariam-.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002201645152_nothing.resx">
+      <DependentUpon>202002201645152_nothing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

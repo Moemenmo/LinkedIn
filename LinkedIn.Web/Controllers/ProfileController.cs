@@ -15,5 +15,6 @@ namespace LinkedIn.Web.Controllers
 
             return View();
         }
+      
     }
 }
