@@ -19,17 +19,13 @@ namespace LinkedIn.Web.Controllers
                 return HttpContext.GetOwinContext().Get<UnitOfWork>();
             }
         }
-        public int MyProperty { get; set; }
         public ApplicationUser loginuser
         {
             get
             {
-                if (loginuser==null)
-                {
-                    return UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId().ToString());
-                }
+                    
+                    return UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
     
-                return loginuser;
             }
         }
 
