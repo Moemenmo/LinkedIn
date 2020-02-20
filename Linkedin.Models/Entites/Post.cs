@@ -23,7 +23,6 @@ namespace Linkedin.Models.Entites
         public string Status { get; set; }
         [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; }
-        [Required]
         public string AuthorId { get; set; }
         public virtual ApplicationUser Author { get; set; }
         public virtual ICollection<ApplicationUser> Likes { get; set; }
