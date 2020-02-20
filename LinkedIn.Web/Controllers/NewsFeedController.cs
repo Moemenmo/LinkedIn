@@ -19,16 +19,14 @@ namespace LinkedIn.Web.Controllers
                 return HttpContext.GetOwinContext().Get<UnitOfWork>();
             }
         }
+
         public ApplicationUser loginuser
         {
             get
             {
-                    
-                    return UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
-    
+                return UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
             }
         }
-
 
         // GET: NewsFeed
         [HttpGet]
