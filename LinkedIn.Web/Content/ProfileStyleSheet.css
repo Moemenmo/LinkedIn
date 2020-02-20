@@ -5,7 +5,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  /*-ms-box-sizing: border-box;*/
   box-sizing: border-box; }
 
 html {
@@ -253,7 +253,7 @@ label.required::after {
   .accomplishment__type {
     font-size: 1.5rem;
     color: #2D7EAA !important;
-    font-weight: 550; }
+    font-weight: 500; }
   .accomplishment__description {
     font-size: 1.4rem;
     font-weight: 400; }
@@ -306,7 +306,7 @@ label.required::after {
 .nav-link {
   margin-top: 1.5rem;
   font-size: 1.4rem !important;
-  font-weight: 660;
+  font-weight: 600;
   color: #767676; }
   .nav-link.active {
     border-bottom: 2px solid #2D7EAA !important;
@@ -358,7 +358,7 @@ label.required::after {
   border: none !important;
   background-color: white !important;
   padding: 0.5rem;
-  font-weight: 550;
+  font-weight: 500;
   font-size: 1.5rem;
   color: #767676; }
 
