@@ -418,6 +418,7 @@
     <Content Include="Views\NewsFeed\Index.cshtml" />
     <Content Include="Views\Home\_Searchresult.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\Prof.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
