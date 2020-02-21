@@ -15,7 +15,7 @@ namespace LinkedIn.Web.Controllers
 {
     public class NewsFeedController : Controller
     {
-        ApplicationUser loginuser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+        
 
         public UnitOfWork UnitOfWork
         {
@@ -39,30 +39,27 @@ namespace LinkedIn.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            PostViewModel postVM = new PostViewModel
-            {
-                User = loginuser
-            };
+            PostViewModel postVM = new PostViewModel();
             return View(postVM);
         }
         
-        [HttpPost]
-        public ActionResult AddPost(Post post)
-        {
-            post.Author = loginuser;
-            post.AuthorId = loginuser.Id;
-            post.Date = DateTime.Now;
-            if (ModelState.IsValid)
-            {
-                db.Posts.Add(post);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            PostViewModel postVM = new PostViewModel
-            {
-                User = loginuser
-            };
-            return View(postVM);
-        }
+        //[HttpPost]
+        //public ActionResult AddPost(Post post)
+        //{
+        //    post.Author = loginuser;
+        //    post.AuthorId = loginuser.Id;
+        //    post.Date = DateTime.Now;
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Posts.Add(post);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    PostViewModel postVM = new PostViewModel
+        //    {
+        //        User = loginuser
+        //    };
+        //    return View(postVM);
+        //}
     }
 }
