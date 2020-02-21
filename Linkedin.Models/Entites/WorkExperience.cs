@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Linkedin.Models.Enum;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -20,6 +21,8 @@ namespace Linkedin.Models.Entites
         [Required]
         public string Title { get; set; }
 
+        public EmploymentType EmploymentType { get; set; }
+
         [ForeignKey("Company")]
         public Guid? CompanyId { get; set; }
         public virtual SavedPlace Company { get; set; }
@@ -34,6 +37,7 @@ namespace Linkedin.Models.Entites
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public bool IsPresent { get; set; }
+
 
     }
 }

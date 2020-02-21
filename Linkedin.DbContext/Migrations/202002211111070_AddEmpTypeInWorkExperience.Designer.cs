@@ -7,13 +7,13 @@ namespace Linkedin.DbContext.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class nothing : IMigrationMetadata
+    public sealed partial class AddEmpTypeInWorkExperience : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(nothing));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddEmpTypeInWorkExperience));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002201645152_nothing"; }
+            get { return "202002211111070_AddEmpTypeInWorkExperience"; }
         }
         
         string IMigrationMetadata.Source
