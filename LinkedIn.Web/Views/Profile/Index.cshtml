@@ -1,6 +1,4 @@
-﻿@model Linkedin.Models.Entites.WorkExperience
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1213,8 +1211,11 @@
     </div>
 
     <!-- Full Modal -->
-       @*@Html.Partial("_Experience",Model)*@
-    <div class="modal fade" id="FullModal" tabindex="-1" role="dialog" aria-labelledby="FullModalLabel"
+          @{ 
+               Html.RenderPartial("_Experience");
+           }
+
+    @*<div class="modal fade" id="FullModal" tabindex="-1" role="dialog" aria-labelledby="FullModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content row">
@@ -1316,7 +1317,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 
     <!-- Skills Modal -->
     <div class="modal fade" id="SkillsModal" tabindex="-1" role="dialog" aria-labelledby="SkillsModalLabel"
