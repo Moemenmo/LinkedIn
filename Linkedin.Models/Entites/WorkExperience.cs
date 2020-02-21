@@ -24,7 +24,8 @@ namespace Linkedin.Models.Entites
         public EmploymentType EmploymentType { get; set; }
 
         [ForeignKey("Company")]
-        public Guid? CompanyId { get; set; }
+        [Required]
+        public Guid CompanyId { get; set; }
         public virtual SavedPlace Company { get; set; }
         [ForeignKey("User")]
         [Required]

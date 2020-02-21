@@ -81,6 +81,14 @@
     <Compile Include="Migrations\202002211111070_AddEmpTypeInWorkExperience.designer.cs">
       <DependentUpon>202002211111070_AddEmpTypeInWorkExperience.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002211927588_mariam_WorkExperience-MakeCompanyRequired.cs" />
+    <Compile Include="Migrations\202002211927588_mariam_WorkExperience-MakeCompanyRequired.designer.cs">
+      <DependentUpon>202002211927588_mariam_WorkExperience-MakeCompanyRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.cs" />
+    <Compile Include="Migrations\202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.designer.cs">
+      <DependentUpon>202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Configs\UserConfiguration.cs" />
@@ -111,6 +119,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002211111070_AddEmpTypeInWorkExperience.resx">
       <DependentUpon>202002211111070_AddEmpTypeInWorkExperience.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002211927588_mariam_WorkExperience-MakeCompanyRequired.resx">
+      <DependentUpon>202002211927588_mariam_WorkExperience-MakeCompanyRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.resx">
+      <DependentUpon>202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
