@@ -1,5 +1,5 @@
 ﻿@model PostViewModel
-
+@{
     Layout = null;
 }
 
@@ -54,7 +54,7 @@
                 @Html.Partial("_UploadDoc")
                 @Html.Partial("_View5")
                 <div class="posts mt-5" id="posts">
-                    <div class="card post shadow">
+                    
                         @foreach (var item in Model.PagePosts)
                         {
                             @Html.Partial("_PostBody",item)

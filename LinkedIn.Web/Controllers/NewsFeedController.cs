@@ -39,22 +39,26 @@ namespace LinkedIn.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            List<Post> darft = new List<Post>();
             var userManager = UnitOfWork.ApplicationUserManager;
             PostViewModel postVM = new PostViewModel();
             if (postVM.User.Posts!=null)
             {
 
-            postVM.PagePosts.AddRange(postVM.User.Posts);
+            darft.AddRange(postVM.User.Posts);
             }
 
             foreach (var item in userManager.GetAllConnections(User.Identity.GetUserId().ToString()))
             {
-                postVM.PagePosts.AddRange(item.Posts);
+                darft.AddRange(item.Posts);
             }
-            postVM.PagePosts.OrderBy(e => e.Date.Year)
-                .ThenBy(e => e.Date.Month)
-                .ThenBy(e => e.Date.Day)
-                .ThenBy(e => e.Date.TimeOfDay);
+            //postVM.PagePosts.OrderBy(e => e.Date.Year)
+            //    .ThenBy(e => e.Date.Month)
+            //    .ThenBy(e => e.Date.Day)
+            //    .ThenBy(e => e.Date.TimeOfDay.Hours)
+            //    .ThenBy(e => e.Date.TimeOfDay.Minutes)
+            //    .ThenBy(e => e.Date.TimeOfDay.Seconds);
+            postVM.PagePosts=darft.OrderByDescending(d => Convert.ToDateTime(d.Date)).ToList();
             return View(postVM);
         }
 
@@ -62,6 +66,8 @@ namespace LinkedIn.Web.Controllers
         public ActionResult AddPost(Post post, HttpPostedFileBase imgFile)
         {
             var userManager = UnitOfWork.ApplicationUserManager;
+            var postManager = UnitOfWork.PostManager;
+
             //PostViewModel postVM = new PostViewModel();
             if (ModelState.IsValid && (post.Status != null || imgFile != null))
             {
@@ -76,9 +82,7 @@ namespace LinkedIn.Web.Controllers
                 }
                 post.AuthorId = User.Identity.GetUserId();
                 post.Date = DateTime.Now;
-
-                db.Posts.Add(post);
-                db.SaveChanges();
+                postManager.Add(post);
                 post.Author = userManager.FindById(User.Identity.GetUserId());
                 return PartialView("_PostBody",post);
             }
