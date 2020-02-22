@@ -1,7 +1,14 @@
 ﻿@model PostViewModel
-
-
-@using (Html.BeginForm("AddPost", "NewsFeed", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@{
+    AjaxOptions opts = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnSuccess = "HidePostModal()",
+        InsertionMode = InsertionMode.InsertBefore,
+        UpdateTargetId = "posts"
+    };
+}
+@using (Ajax.BeginForm("AddPost", "NewsFeed", opts, new { enctype = "multipart/form-data" }))
 {
     <div class="modal fade" id="post" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">

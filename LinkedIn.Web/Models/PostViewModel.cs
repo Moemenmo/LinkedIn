@@ -27,11 +27,13 @@ namespace LinkedIn.Web.Models
         public virtual Post SharedPost { get; set; }
         public virtual ICollection<Post> PostsSharedMe { get; set; }
         public DateTime Date { get; set; }
-  
+        public List<Post> PagePosts{ get; set; }
+
         public ApplicationUser User { get; set; }
         public PostViewModel()
         {
-            User= HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            User= HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(HttpContext.Current.User.Identity.GetUserId());
+            PagePosts = new List<Post>();
         }
     }
 }

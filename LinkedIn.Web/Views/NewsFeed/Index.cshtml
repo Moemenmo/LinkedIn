@@ -1,5 +1,5 @@
 ﻿@model PostViewModel
-@{
+
     Layout = null;
 }
 
@@ -48,16 +48,17 @@
                 <div class="article">
                     <a href="#">Write an article </a>on LinkedIn
                 </div>
-                @Html.Partial("_WritePost")
+                @Html.Partial("_WritePost",Model)
                 @Html.Partial("_UploadPic")
                 @Html.Partial("_UploadVideo")
                 @Html.Partial("_UploadDoc")
                 @Html.Partial("_View5")
-                <div class="posts mt-5">
+                <div class="posts mt-5" id="posts">
                     <div class="card post shadow">
-                        @Html.Partial("_SharedPost")
-                        @Html.Partial("_PostBody")
-                        @Html.Partial("_LikeAndComment")
+                        @foreach (var item in Model.PagePosts)
+                        {
+                            @Html.Partial("_PostBody",item)
+                        }
                     </div>
                 </div>
             </div>
@@ -66,7 +67,8 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
             <script src="https://kit.fontawesome.com/a2c240c32b.js" crossorigin="anonymous"></script>
-
+            <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+            <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
             <script src="~/Scripts/NewsFeedScript.js"></script>
 
             <script>
