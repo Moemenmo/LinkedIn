@@ -444,6 +444,10 @@
       <Project>{97417add-a8ff-496b-acfd-53a79853d06b}</Project>
       <Name>Linkedin.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LinnkedIn.Repository\LinkedIn.Repository.csproj">
+      <Project>{6a04012f-25a6-4384-aa5c-2b0eb3d383aa}</Project>
+      <Name>LinkedIn.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

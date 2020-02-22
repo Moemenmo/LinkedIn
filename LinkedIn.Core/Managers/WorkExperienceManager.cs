@@ -11,7 +11,7 @@ namespace LinkedIn.Core.Managers
 {
     public class WorkExperienceManager : Repository<WorkExperience, ApplicationDbContext>
     {
-        private static WorkExperienceManager Instance = null;
+        private static WorkExperienceManager Instance;
         public WorkExperienceManager(ApplicationDbContext context) : base(context)
         {
 

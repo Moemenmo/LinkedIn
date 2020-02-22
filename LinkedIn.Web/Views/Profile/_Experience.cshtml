@@ -97,24 +97,27 @@
                                     <h4 id="PresentWorkDate">Present</h4>
                                     <div class="row" id="EndWorkDate">
                                         <div class="col-sm-12">
-                                            <select class="form-control" name="" id="">
-                                                <option value="" disabled selected hidden>Month</option>
-                                                <option value="">Opa</option>
-                                                <option value="">Opaa</option>
-                                                <option value="">Opaaa</option>
-                                                <option value="">Opaaaa</option>
-                                                <option value="">Opaaaaa</option>
-                                            </select>
+                                            @Html.DropDownListFor(
+                                                model => model.EndDate.Value.Month,
+                                                Enumerable.Range(1, 12).
+                                                Select(i => new SelectListItem
+                                                {
+                                                    Value = i.ToString(),
+                                                    Text = System.Globalization.CultureInfo.InvariantCulture.DateTimeFormat.GetMonthName(i)
+                                                }),
+                                                "Month",
+                                                new { @class = "form-control" })
                                         </div>
                                         <div class="col-sm-12">
-                                            <select class="form-control" name="" id="">
-                                                <option value="" disabled selected hidden>Year</option>
-                                                <option value="">Opa</option>
-                                                <option value="">Opaa</option>
-                                                <option value="">Opaaa</option>
-                                                <option value="">Opaaaa</option>
-                                                <option value="">Opaaaaa</option>
-                                            </select>
+                                            @Html.DropDownListFor(model => model.EndDate.Value.Year,
+                                                                Enumerable.Range(1975, DateTime.Now.Year - 1975).
+                                                                Select(i => new SelectListItem
+                                                                {
+                                                                    Value = i.ToString(),
+                                                                    Text = i.ToString()
+                                                                }),
+                                                                "Year",
+                                                                new { @class = "form-control" })
                                         </div>
                                     </div>
                                 </div>
