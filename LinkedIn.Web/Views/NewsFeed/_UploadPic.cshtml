@@ -10,16 +10,16 @@
                         </div>
                         <h2 class="postattach__Title">Edit your photo</h2>
                     </div>
-                    <div class="postattach--select">
-                        <button class="postattach--select--content">
+                    <div class="postattach--select" id="imgDiv">
+                        <button class="postattach--select--content" id="btnImgSelected">
                             <label class="mypost-label">
-                                <input type="file" multiple />
+                                <input type="file" onchange="readImgURL(this);" id="in1" multiple />
                                 Select images to share
                             </label>
                         </button>
                     </div>
                     <div class="postattach--footer">
-                        <button class="postattach--footer--btn postattach--footer--nextenabled">Next</button>
+                        <button class="postattach--footer--btn postattach--footer--nextenabled" data-toggle="#post"  data-dismiss="modal" data-target="#post" id="imgAttachNext">Next</button>
                     </div>
                 </div>
             </div>

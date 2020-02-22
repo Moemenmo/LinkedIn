@@ -18,7 +18,7 @@
 </head>
 <body>
     <div class="row mt-5 mx-auto">
-        @Html.Partial("_UserCard",Model.User)
+      @Html.Partial("_UserCard",Model.User)
         <div class="col-md-4 col-lg-5 col-sm-6">
             <div class="create-post ">
                 <div class="writePost">
@@ -29,7 +29,7 @@
                     <button class="button button-icons button-border">
                         <label class="mypost-label" data-toggle="modal" data-target="#picture">
                             <i class="fas fa-camera"></i>
-                            <input type="file" multiple />
+                            <input type="file" onchange="readImgURL(this);" multiple />
                         </label>
                     </button>
                     <button class="button button-icons button-border">
@@ -67,10 +67,7 @@
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
             <script src="https://kit.fontawesome.com/a2c240c32b.js" crossorigin="anonymous"></script>
 
-
             <script src="~/Scripts/NewsFeedScript.js"></script>
-
-
 
             <script>
 

@@ -76,4 +76,33 @@ document.querySelector('.comment-like').addEventListener('click', function () {
         $('.reaction-sign').remove();
         $('.reactions-container').prepend('<i class="'+target.target.className+'container__Sign reaction-sign"></i>');
      }
-});
+      });
+
+
+      function readImgURL(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              console.log(reader);
+              document.getElementById("btnImgSelected").style.display = "none";
+              var img = document.createElement("img");
+              img.id = "imgInserted";
+              document.getElementById("imgDiv").appendChild(img);
+              reader.onload = function (e) {
+                  $('#imgInserted')
+                      .attr('src', e.target.result)
+                      .width(150)
+                      .height(200);
+              };
+              reader.readAsDataURL(input.files[0]);
+          }
+      }
+
+      var imgNext = document.getElementById("imgAttachNext");
+      imgNext.addEventListener('click', function () {
+          var source = document.querySelector("#imgInserted").outerHTML;
+          document.getElementById("postBody").innerHTML = source;
+          var x = document.querySelector("#in1");
+          var y = document.querySelector("#in2");
+          y.files = x.files;
+          console.log(y.files);
+      });

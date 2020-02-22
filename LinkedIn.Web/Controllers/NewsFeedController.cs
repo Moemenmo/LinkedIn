@@ -15,7 +15,7 @@ namespace LinkedIn.Web.Controllers
 {
     public class NewsFeedController : Controller
     {
-        
+
 
         public UnitOfWork UnitOfWork
         {
@@ -42,24 +42,30 @@ namespace LinkedIn.Web.Controllers
             PostViewModel postVM = new PostViewModel();
             return View(postVM);
         }
-        
-        //[HttpPost]
-        //public ActionResult AddPost(Post post)
-        //{
-        //    post.Author = loginuser;
-        //    post.AuthorId = loginuser.Id;
-        //    post.Date = DateTime.Now;
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Posts.Add(post);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    PostViewModel postVM = new PostViewModel
-        //    {
-        //        User = loginuser
-        //    };
-        //    return View(postVM);
-        //}
+
+        [HttpPost]
+        public ActionResult AddPost(Post post, HttpPostedFileBase imgFile)
+        {
+            PostViewModel postVM = new PostViewModel();
+            if (ModelState.IsValid && (post.Status != null || imgFile != null))
+            {
+                string pic = "";
+                string path = "";
+                if (imgFile != null)
+                {
+                    pic = System.IO.Path.GetFileName(imgFile.FileName);
+                    path = System.IO.Path.Combine(Server.MapPath("~/SavedImages"), pic);
+                    imgFile.SaveAs(path);
+                    post.ImageUrl = path;
+                }
+                post.AuthorId = postVM.User.Id;
+                post.Date = DateTime.Now;
+
+                db.Posts.Add(post);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View("Index", postVM);
+        }
     }
 }
