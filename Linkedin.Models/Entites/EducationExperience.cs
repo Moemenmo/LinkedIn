@@ -29,7 +29,6 @@ namespace Linkedin.Models.Entites
         public Guid SchoolId { get; set; }
         public virtual SavedPlace School { get; set; }
         [ForeignKey("User")]
-        [Required]
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
     }

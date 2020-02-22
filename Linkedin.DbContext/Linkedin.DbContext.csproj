@@ -89,6 +89,10 @@
     <Compile Include="Migrations\202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.designer.cs">
       <DependentUpon>202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002222013042_mariam_Remove-required-UserFK.cs" />
+    <Compile Include="Migrations\202002222013042_mariam_Remove-required-UserFK.designer.cs">
+      <DependentUpon>202002222013042_mariam_Remove-required-UserFK.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Configs\UserConfiguration.cs" />
@@ -125,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.resx">
       <DependentUpon>202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002222013042_mariam_Remove-required-UserFK.resx">
+      <DependentUpon>202002222013042_mariam_Remove-required-UserFK.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
