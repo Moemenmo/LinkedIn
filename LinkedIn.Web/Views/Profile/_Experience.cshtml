@@ -1,4 +1,4 @@
-﻿@model Linkedin.Models.Entites.WorkExperience
+﻿@model LinkedIn.Web.Models.ProfileViewModels.WorkExperienceViewModel
 @using Linkedin.Models.Enum
 
 
@@ -70,7 +70,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         @Html.DropDownListFor(
-                                                model => model.StartDate.Month,
+                                                model => model.StartMonth,
                                                 Enumerable.Range(1, 12).
                                                 Select(i => new SelectListItem
                                                 {
@@ -81,7 +81,7 @@
                                                 new { @class = "form-control" })
                                     </div>
                                     <div class="col-sm-12">
-                                        @Html.DropDownListFor(model => model.StartDate.Year,
+                                        @Html.DropDownListFor(model => model.StartYear,
                                                                 Enumerable.Range(1975, DateTime.Now.Year - 1975).
                                                                 Select(i => new SelectListItem
                                                                 {
@@ -99,7 +99,7 @@
                                 <div class="row" id="EndWorkDate">
                                     <div class="col-sm-12">
                                         @Html.DropDownListFor(
-                                                model => model.EndDate.Value.Month,
+                                                model => model.EndMonth,
                                                 Enumerable.Range(1, 12).
                                                 Select(i => new SelectListItem
                                                 {
@@ -110,7 +110,7 @@
                                                 new { @class = "form-control" })
                                     </div>
                                     <div class="col-sm-12">
-                                        @Html.DropDownListFor(model => model.EndDate.Value.Year,
+                                        @Html.DropDownListFor(model => model.EndYear,
                                                                 Enumerable.Range(1975, DateTime.Now.Year - 1975).
                                                                 Select(i => new SelectListItem
                                                                 {

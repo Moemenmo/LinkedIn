@@ -93,9 +93,14 @@ namespace LinkedIn.Core
         }
         public SavedPlaceManager SavedPlaceManager
         {
+            set
+            {
+                SavedPlaceManager = value;
+            }
             get
             {
-                return SavedPlaceManager.GetInstance(context);
+                //return SavedPlaceManager.GetInstance(context);
+                return new SavedPlaceManager(context);
             }
         }
         public SkillManager SkillManager
@@ -124,15 +129,21 @@ namespace LinkedIn.Core
 
         public WorkExperienceManager WorkExperienceManager
         {
+            set
+            {
+                WorkExperienceManager = value;
+            }
             get
             {
-                return WorkExperienceManager.GetInstance(context);
+                //return WorkExperienceManager.GetInstance(context);
+                return new WorkExperienceManager(context);
             }
         }
 
         public void Dispose()
         {
-            //throw new NotImplementedException();
+            //WorkExperienceManager = null;
+            //SavedPlaceManager = null;
         }
     }
 }
