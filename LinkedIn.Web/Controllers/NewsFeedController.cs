@@ -25,8 +25,6 @@ namespace LinkedIn.Web.Controllers
             }
         }
 
-        ApplicationDbContext db = new ApplicationDbContext();
-
         //public ApplicationUser loginuser
         //{
         //    get
@@ -44,8 +42,7 @@ namespace LinkedIn.Web.Controllers
             PostViewModel postVM = new PostViewModel();
             if (postVM.User.Posts!=null)
             {
-
-            darft.AddRange(postVM.User.Posts);
+                darft.AddRange(postVM.User.Posts);
             }
 
             foreach (var item in userManager.GetAllConnections(User.Identity.GetUserId().ToString()))
@@ -68,15 +65,14 @@ namespace LinkedIn.Web.Controllers
             var userManager = UnitOfWork.ApplicationUserManager;
             var postManager = UnitOfWork.PostManager;
 
-            //PostViewModel postVM = new PostViewModel();
             if (ModelState.IsValid && (post.Status != null || imgFile != null))
             {
-                string pic = "";
-                string path = "";
                 if (imgFile != null)
                 {
-                    pic = System.IO.Path.GetFileName(imgFile.FileName+post.Id);
-                    path = System.IO.Path.Combine(Server.MapPath("~/SavedImages"), pic);
+                    string extension = System.IO.Path.GetExtension(imgFile.FileName);
+                    string fileName = System.IO.Path.GetFileName(imgFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    string path = System.IO.Path.Combine(Server.MapPath("~/SavedImages"), fileName);
                     imgFile.SaveAs(path);
                     post.ImageUrl = path;
                 }
@@ -84,11 +80,12 @@ namespace LinkedIn.Web.Controllers
                 post.Date = DateTime.Now;
                 postManager.Add(post);
                 post.Author = userManager.FindById(User.Identity.GetUserId());
-                return PartialView("_PostBody",post);
+                ModelState.Clear();
+                return PartialView("_PostBody", post);
             }
-            return View("Index"
-                //, postVM
-                );
+
+            PostViewModel postVM = new PostViewModel();
+            return View("Index", postVM);
         }
     }
 }

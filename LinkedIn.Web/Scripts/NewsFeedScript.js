@@ -90,22 +90,22 @@ document.querySelector('.comment-like').addEventListener('click', function () {
               reader.onload = function (e) {
                   $('#imgInserted')
                       .attr('src', e.target.result)
-                      .width(150)
-                      .height(200);
+                      .width(200)
+                      .height(250);
               };
               reader.readAsDataURL(input.files[0]);
           }
       }
 
-      var imgNext = document.getElementById("imgAttachNext");
-      imgNext.addEventListener('click', function () {
-          var source = document.querySelector("#imgInserted").outerHTML;
-          document.getElementById("postBody").innerHTML = source;
-          var x = document.querySelector("#in1");
-          var y = document.querySelector("#in2");
-          y.files = x.files;
-          console.log(y.files);
-      });
+        function imgNext() {
+            var source = document.querySelector("#imgInserted").outerHTML;
+            document.getElementById("postBody").innerHTML = source;
+            var x = document.querySelector("#in1");
+            var y = document.querySelector("#in2");
+            y.files = x.files;
+            console.log(y.files);
+        }
+
       //function HidePostModal() {
       //    $("#post").modal('hide')
       //}

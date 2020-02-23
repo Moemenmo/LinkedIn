@@ -27,10 +27,9 @@
                         <div class="mypost-body">
                             <div class="mypost-body_top">
                                 <div class="mypost-profilepic"></div>
-                                <span>UserName</span>
+                                <span>@Model.User.FirstName @Model.User.LastName</span>
                             </div>
                             <div class="mypost-body_middle">
-                                @*<textarea name="post-text" id="textEditor" rows="12" placeholder="What do you want to talk about?"></textarea>*@
                                 @Html.TextAreaFor(p => p.Status, new { @rows = "12", @name = "post-text", @id = "textEditor", @placeholder = "What do you want to talk about?" })
                                <div id="postBody">
 
@@ -66,7 +65,6 @@
                             </div>
                             <div class="mypost-footer_publish">
                                 <input type="file" name="imgFile" hidden id="in2" />
-                                @*<button class="mypost-footer_publish-btn mypost-footer_publishEnabele mypost-footer_publishDisable">Post</button>*@
                                 <input type="submit" value="Post" class="mypost-footer_publish-btn mypost-footer_publishEnabele mypost-footer_publishDisable" />
                             </div>
                         </div>
