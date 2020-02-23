@@ -106,6 +106,6 @@ document.querySelector('.comment-like').addEventListener('click', function () {
           y.files = x.files;
           console.log(y.files);
       });
-      function HidePostModal() {
-          $("#post").modal('hide')
-      }
+      //function HidePostModal() {
+      //    $("#post").modal('hide')
+      //}

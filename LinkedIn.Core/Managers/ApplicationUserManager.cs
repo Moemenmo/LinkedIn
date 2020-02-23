@@ -73,11 +73,14 @@ namespace LinkedIn.Core.Managers
             ApplicationUser user = Users.FirstOrDefault(e => e.Id == id);
             List<ApplicationUser> ConnectionList = new List<ApplicationUser>();
             ConnectionList.AddRange(user.Connections);
-            foreach (var item in Users)
+            foreach (var item in Users.ToList())
             {
-                if(item.Connections.FirstOrDefault(e=>e.Id==id)!=null)
+                if (item.Connections.Count!=0)
                 {
-                    ConnectionList.Add(item);
+                    if (item.Connections.FirstOrDefault(e => e.Id == id) != null)
+                    {
+                        ConnectionList.Add(item);
+                    }
                 }
             }
             return ConnectionList;
