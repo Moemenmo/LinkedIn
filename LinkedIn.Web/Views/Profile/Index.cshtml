@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@*@model Linkedin.Models.Entites.ApplicationUser*@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -313,8 +314,8 @@
                         <div class="col-sm-6 user-info">
                             <div class="p-sm-3">
                                 <div>
-                                    <h2 class="d-inline-block">Nora </h2>
-                                    <h2 class="d-inline-block"> Mohamed</h2>
+                                    <h2 class="d-inline-block">heba </h2>
+                                    <h2 class="d-inline-block"> maa</h2>
                                 </div>
                                 <div>
                                     <h4> ITI Intake 40</h4>
@@ -396,35 +397,15 @@
     <section class="p-3" id="Background">
         <div class="background container u-border rounded p-0">
             <!-- Experience -->
-            <div class="p-4">
+            <div class="p-4" id="Exps">
                 <div class="row">
                     <h2 class="col-sm-11 background__section-heading">Experience</h2>
                     <a href="" class="col-sm-1 text-right " data-toggle="modal" data-target="#FullModal">
                         <i class="fas fa-plus p-3 profile-icon "></i>
                     </a>
                 </div>
-                <div class="background__hide-icon media row py-3 ">
-                    <div class="col-sm-1">
-                        <img src="~/images/itiLogo.png" class="align-self-start background__img" />
-                    </div>
-                    <div class="media-body col-sm-10 ">
-                        <h3>Student</h3>
-                        <a href="http://" class="stretched-link text-decoration-none text-reset">
-                            <p class="mb-0 d-inline ">Information technology institute</p>
-                        </a>
-                        <p class="mb-0 d-inline ">. Full Time</p>
-                        <br />
-                        <p class="mb-0 d-inline text-muted">Oct2019</p>
-                        <p class="mb-0 d-inline text-muted">- Present</p>
-                        <p class="mb-0 text-muted">Egypt</p>
-                        <p class="mb-0 text-muted">Enterprise and web development track</p>
-                    </div>
-                    <a href="" class="col-1 text-right" data-toggle="modal" data-target="#FullModal">
-                        <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i>
-                    </a>
-                </div>
-                <div class="u-border-bottom offset-1 row"></div>
-                <div class="background__hide-icon media row py-3 ">
+             
+                @*<div class="background__hide-icon media row py-3 ">
                     <div class="col-sm-1">
                         <img src="~/images/itiLogo.png" class="align-self-start background__img" />
                     </div>
@@ -444,7 +425,7 @@
                         <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i>
                     </a>
 
-                </div>
+                </div>*@
             </div>
 
             <!-- hr -->
@@ -1596,9 +1577,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

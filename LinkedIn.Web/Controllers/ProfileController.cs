@@ -30,7 +30,7 @@ namespace LinkedIn.Web.Controllers
         // GET: Profile
         public ActionResult Index()
         {
-
+            //ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
             return View();
         }
         [HttpPost]
@@ -56,9 +56,10 @@ namespace LinkedIn.Web.Controllers
                 }
                 
                 UnitOfWork.WorkExperienceManager.Add(workExp);
+                return PartialView("_AddExperienceCard", workExp);
             }
            
-            return PartialView("_Experience");
+            return View("Index");
         }
 
     }

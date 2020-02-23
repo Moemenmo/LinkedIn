@@ -21,6 +21,8 @@ namespace Linkedin.Models.Entites
         public string Name { get; set; }
         public string Number { get; set; }
         [ForeignKey("User")]
+        [Required]
+
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
 
