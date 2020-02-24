@@ -13,12 +13,21 @@ using LinkedIn.Core.Managers;
 using Linkedin.Models;
 using Linkedin.Entites.Enum;
 using Linkedin.Models.Entites;
+using LinkedIn.Core;
+using System.Collections.Generic;
 
 namespace LinkedIn.Web.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        public UnitOfWork UnitOfWork
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Get<UnitOfWork>();
+            }
+        }
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -507,5 +516,14 @@ namespace LinkedIn.Web.Controllers
             }
         }
         #endregion
+        public ActionResult Connections(string fname, string lname)
+        {
+            var userManager = UnitOfWork.ApplicationUserManager;
+            List<ApplicationUser> userList = new List<ApplicationUser>();
+            userList = userManager.GetAllConnections(User.Identity.GetUserId());
+            return View(userList);
+
+        }
     }
+
 }

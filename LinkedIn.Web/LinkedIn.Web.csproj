@@ -417,6 +417,8 @@
     <Content Include="Views\NewsFeed\_PostBody.cshtml" />
     <Content Include="Views\NewsFeed\_LikeAndComment.cshtml" />
     <Content Include="Views\NewsFeed\_UserCard.cshtml" />
+    <Content Include="Views\Account\Connections.cshtml" />
+    <Content Include="Views\Account\_Searchresult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
