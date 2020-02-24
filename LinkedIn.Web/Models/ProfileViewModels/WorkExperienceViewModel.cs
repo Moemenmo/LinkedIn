@@ -10,6 +10,10 @@ namespace LinkedIn.Web.Models.ProfileViewModels
 {
     public class WorkExperienceViewModel
     {
+        public WorkExperienceViewModel()
+        {
+            IsPresent = false;
+        }
         [Required]
         public string Title { get; set; }
         public virtual SavedPlace Company { get; set; }
@@ -20,7 +24,10 @@ namespace LinkedIn.Web.Models.ProfileViewModels
         public int StartMonth { get; set; }
         [Required]
         public int StartYear { get; set; }
+       // [Required]
         public int? EndMonth { get; set; }
+        //[Required]
         public int? EndYear { get; set; }
+        public bool IsPresent { get; set; }
     }
 }

@@ -55,10 +55,10 @@ namespace LinkedIn.Web.Controllers
                 }
                 
                 UnitOfWork.WorkExperienceManager.Add(workExp);
-                //return PartialView("__AddExperienceCard", workExp);
+                return PartialView("__AddExperienceCard", workExp);
             }
            
-            return RedirectToAction("Index");
+            return View("Index");
         }
 
     }
