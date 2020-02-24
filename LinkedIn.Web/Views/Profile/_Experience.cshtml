@@ -5,8 +5,8 @@
     AjaxOptions opts = new AjaxOptions
     {
         HttpMethod = "POST",
-        UpdateTargetId = "Exps",
-        InsertionMode = InsertionMode.InsertAfter,
+        //UpdateTargetId = "Exps",
+        //InsertionMode = InsertionMode.InsertAfter,
         OnSuccess = "Hide_ResetModel()"
     };
 }
@@ -20,7 +20,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-@using (Ajax.BeginForm("AddWorkExperience", "Profile", opts, new { id = "ModalForm"}))
+@using (Ajax.BeginForm("AddWorkExperience", "Profile", opts, new { id = "ModelForm"}))
 {
             <div class="modal-body">
                 <div class="form-controls">

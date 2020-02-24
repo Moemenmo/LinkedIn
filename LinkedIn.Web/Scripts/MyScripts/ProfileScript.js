@@ -1,5 +1,6 @@
 ﻿function Hide_ResetModel()
 {
+    console.log("Hereeee");
     $("#FullModal").modal('hide');
-    document.getElementById("ModalForm").reset();
+    document.getElementById("ModelForm").reset();
 }

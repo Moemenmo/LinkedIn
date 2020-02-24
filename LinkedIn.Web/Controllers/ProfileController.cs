@@ -30,15 +30,14 @@ namespace LinkedIn.Web.Controllers
         // GET: Profile
         public ActionResult Index()
         {
-            //ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
-            return View();
+            ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
+            return View(user);
         }
         [HttpPost]
         public ActionResult AddWorkExperience(WorkExperienceViewModel workExpVM)
         {
             if (ModelState.IsValid)
             {
-                //int x = User.Identity.GetUserId;
                 workExpVM.Company.PlaceType = PlaceType.Company;
                 UnitOfWork.SavedPlaceManager.Add(workExpVM.Company);
                 WorkExperience workExp = new WorkExperience {
@@ -56,10 +55,10 @@ namespace LinkedIn.Web.Controllers
                 }
                 
                 UnitOfWork.WorkExperienceManager.Add(workExp);
-                return PartialView("_AddExperienceCard", workExp);
+                //return PartialView("__AddExperienceCard", workExp);
             }
            
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
     }
