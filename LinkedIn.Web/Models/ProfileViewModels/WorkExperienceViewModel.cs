@@ -14,6 +14,8 @@ namespace LinkedIn.Web.Models.ProfileViewModels
         {
             IsPresent = false;
         }
+       
+        public Guid Id { get; set; }
         [Required]
         public string Title { get; set; }
         public virtual SavedPlace Company { get; set; }
