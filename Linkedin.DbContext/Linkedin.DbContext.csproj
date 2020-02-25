@@ -73,6 +73,14 @@
     <Compile Include="Migrations\202002142234367_FeEditsBayn.Designer.cs">
       <DependentUpon>202002142234367_FeEditsBayn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002151645298_mariam-.cs" />
+    <Compile Include="Migrations\202002151645298_mariam-.Designer.cs">
+      <DependentUpon>202002151645298_mariam-.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002211249382_RemoveRequiredInPost.cs" />
+    <Compile Include="Migrations\202002211249382_RemoveRequiredInPost.designer.cs">
+      <DependentUpon>202002211249382_RemoveRequiredInPost.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Configs\UserConfiguration.cs" />
@@ -97,6 +105,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002142234367_FeEditsBayn.resx">
       <DependentUpon>202002142234367_FeEditsBayn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002151645298_mariam-.resx">
+      <DependentUpon>202002151645298_mariam-.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002211249382_RemoveRequiredInPost.resx">
+      <DependentUpon>202002211249382_RemoveRequiredInPost.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

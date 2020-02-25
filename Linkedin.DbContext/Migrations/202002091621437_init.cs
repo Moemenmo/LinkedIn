@@ -32,7 +32,7 @@ namespace Linkedin.DbContext.Migrations
                         Country = c.Int(nullable: false),
                         Address = c.String(),
                         About = c.String(),
-                        BirthDay = c.DateTime(nullable: false),
+                        BirthDay = c.DateTime(nullable: true),
                         HeadLine = c.String(),
                         Gender = c.Int(nullable: false),
                         Indstry = c.Int(nullable: false),

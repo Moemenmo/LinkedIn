@@ -12,6 +12,7 @@ using LinkedIn.Web.Models;
 using LinkedIn.Core.Managers;
 using Linkedin.Models;
 using Linkedin.Entites.Enum;
+using Linkedin.Models.Entites;
 
 namespace LinkedIn.Web.Controllers
 {
@@ -143,7 +144,7 @@ namespace LinkedIn.Web.Controllers
         public ActionResult Register()
         {
             RegisterViewModel model = new RegisterViewModel();
-            
+
             return View();
         }
 
@@ -152,16 +153,30 @@ namespace LinkedIn.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase imgFile)
         {
+
             if (ModelState.IsValid)
             {
+                string pic = "";
+                string path = null;
+                if (imgFile != null)
+                {
+                    string extension = System.IO.Path.GetExtension(imgFile.FileName);
+                    string fileName = System.IO.Path.GetFileNameWithoutExtension(imgFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    path = "~/SavedImages/" + fileName;
+                    imgFile.SaveAs(System.IO.Path.Combine(Server.MapPath("~/SavedImages"), fileName));
+                }
+
                 var user = new ApplicationUser { FirstName = model.FirstName,
-                                                 LastName = model.LastName,
-                                                 Email = model.Email,
-                                                 UserName = model.Email,
-                                                 Country = model.Country,
-                                                 Gender = Linkedin.Models.Enum.Gender.Female};
+                                                LastName = model.LastName,
+                                                Email = model.Email,
+                                                UserName = model.Email,
+                                                Country = model.Country,
+                                                Gender = model.Gender,
+                                                ProfilePicURL = path
+                                                };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -461,7 +476,8 @@ namespace LinkedIn.Web.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            //return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "NewsFeed");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

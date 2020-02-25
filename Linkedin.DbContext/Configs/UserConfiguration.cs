@@ -1,4 +1,5 @@
 ﻿using Linkedin.Models;
+using Linkedin.Models.Entites;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;

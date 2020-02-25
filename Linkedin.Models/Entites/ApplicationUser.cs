@@ -11,7 +11,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Linkedin.Models
+namespace Linkedin.Models.Entites
 {
     public class ApplicationUser : IdentityUser
     {
@@ -44,7 +44,7 @@ namespace Linkedin.Models
         public Country Country { get; set; }
         public string Address { get; set; }
         public string About { get; set; }
-        public DateTime BirthDay { get; set; }
+        public DateTime? BirthDay { get; set; }
         public string HeadLine { get; set; }
         public Gender Gender{ get; set; }
         public Indstry Indstry { get; set; }

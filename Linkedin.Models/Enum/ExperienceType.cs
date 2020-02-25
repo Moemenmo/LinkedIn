@@ -1,4 +1,4 @@
-﻿namespace Linkedin.Models.Entites
+﻿namespace Linkedin.Models.Enum
 {
     public enum ExperienceType
     {
