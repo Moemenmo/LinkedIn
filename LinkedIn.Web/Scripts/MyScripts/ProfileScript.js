@@ -7,12 +7,14 @@ function ResetModel() {
     document.getElementById("ModelForm").reset();
 }
 
-$('#edit-exp').click(function (userId) {
-    var url = "/Profile/ModifyWorkExperience?userId=" + userId;
 
-    $("#exp-modal-body").load(url, function () {
-        $("#ExpFullModal").modal('show');
-    });
+$("#1").click(function () {
+    console.log("HEREEEEEEEEEEEEE");
+    //var url = "/Profile/EditWorkExperience?userId=" + userId;
+
+    //$("#exp-modal-body").load(url, function () {
+    //    $("#ExpFullModal").modal('show');
+    //});
 })
 
 $(document).ready(function () {
