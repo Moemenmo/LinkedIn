@@ -6,6 +6,17 @@
 function ResetModel() {
     document.getElementById("ModelForm").reset();
 }
+
+
+$("#1").click(function () {
+    console.log("HEREEEEEEEEEEEEE");
+    //var url = "/Profile/EditWorkExperience?userId=" + userId;
+
+    //$("#exp-modal-body").load(url, function () {
+    //    $("#ExpFullModal").modal('show');
+    //});
+})
+
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip({
         title: `<div class="list-group">

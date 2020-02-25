@@ -64,8 +64,8 @@ namespace LinkedIn.Web.Controllers
         [HttpGet]
         public ActionResult EditWorkExperience(Guid id)
         {
-            var w = UnitOfWork.WorkExperienceManager.GetAll();
-            WorkExperience wExp=  w.FirstOrDefault(x => x.Id == id);
+            WorkExperience wExp = UnitOfWork.WorkExperienceManager.GetById(id);
+          
             WorkExperienceViewModel wExpVM = new WorkExperienceViewModel
             {
                 //  UserId = User.Identity.GetUserId(),
@@ -84,7 +84,8 @@ namespace LinkedIn.Web.Controllers
         public ActionResult EditWorkExperience(WorkExperience wExp)
         {
             UnitOfWork.WorkExperienceManager.Update(wExp);
-            return RedirectToAction("index");
+            ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
+            return RedirectToAction("index", user);
 
         }
         public ActionResult DeleteExperience(Guid id)
