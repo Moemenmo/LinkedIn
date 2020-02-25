@@ -83,13 +83,8 @@ namespace LinkedIn.Web.Controllers
         [HttpPost]
         public ActionResult EditWorkExperience(WorkExperience wExp)
         {
-      
-         
             UnitOfWork.WorkExperienceManager.Update(wExp);
-                      
-
             return RedirectToAction("index");
-
 
         }
 
