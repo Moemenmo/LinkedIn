@@ -110,10 +110,6 @@ document.querySelector('.comment-like').addEventListener('click', function () {
         //console.log(y.files);
     }
 
-      //function HidePostModal() {
-      //    $("#post").modal('hide')
-      //}
-
     function ClearBtn() {
         if (confirm("Want to clear?")) {
             $('#post #textEditor').val('');
@@ -124,4 +120,7 @@ document.querySelector('.comment-like').addEventListener('click', function () {
             console.log(imgNext.lastChild)
             document.getElementById("btnImgSelected").style.display = "block"
         }
+    }
+    function HidePostModal() {
+        $("#post").modal('hide')
     }
