@@ -61,5 +61,37 @@ namespace LinkedIn.Web.Controllers
             return View("Index");
         }
 
+        [HttpGet]
+        public ActionResult EditWorkExperience(Guid id)
+        {
+            var w = UnitOfWork.WorkExperienceManager.GetAll();
+            WorkExperience wExp=  w.FirstOrDefault(x => x.Id == id);
+            WorkExperienceViewModel wExpVM = new WorkExperienceViewModel
+            {
+                //  UserId = User.Identity.GetUserId(),
+                Title = wExp.Title,
+                Location = wExp.Location,
+                Description = wExp.Description,
+                EmploymentType = wExp.EmploymentType,
+                // CompanyId = wExp.Company.Id,
+                //  StartDate = new DateTime(wExp.StartYear, wExp.StartMonth, 1)
+
+            };
+            return PartialView("_Experience",wExpVM);
+
+        }
+        [HttpPost]
+        public ActionResult EditWorkExperience(WorkExperience wExp)
+        {
+      
+         
+            UnitOfWork.WorkExperienceManager.Update(wExp);
+                      
+
+            return RedirectToAction("index");
+
+
+        }
+
     }
 }
