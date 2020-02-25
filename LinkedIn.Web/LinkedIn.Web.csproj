@@ -232,6 +232,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="images\arrow.svg" />
     <Content Include="images\connect.svg" />
+    <Content Include="images\defaultImage.png" />
     <Content Include="images\learn.svg" />
     <Content Include="images\linkedin-black-logo.png" />
     <Content Include="images\linkedIn-logo.png" />

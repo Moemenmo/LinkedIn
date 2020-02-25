@@ -70,10 +70,10 @@ namespace LinkedIn.Web.Controllers
                 if (imgFile != null)
                 {
                     string extension = System.IO.Path.GetExtension(imgFile.FileName);
-                    string fileName = System.IO.Path.GetFileName(imgFile.FileName);
+                    string fileName = System.IO.Path.GetFileNameWithoutExtension(imgFile.FileName);
                     fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                    string path = System.IO.Path.Combine(Server.MapPath("~/SavedImages"), fileName);
-                    imgFile.SaveAs(path);
+                    string path = "~/SavedImages/"+ fileName;
+                    imgFile.SaveAs(System.IO.Path.Combine(Server.MapPath("~/SavedImages"), fileName));
                     post.ImageUrl = path;
                 }
                 post.AuthorId = User.Identity.GetUserId();

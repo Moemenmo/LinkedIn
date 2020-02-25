@@ -1,17 +1,22 @@
 
 var post = document.getElementById('textEditor');
+var postImg = document.getElementById('postBody');
 
+window.onload = function () {
+    var btnClear = document.getElementById("btnClear");
+    btnClear.addEventListener('click', ClearBtn)
+}
 post.addEventListener('input',function (e) {
     var val = post.value;
     if(val == null || val.trim() == ""){
         document.querySelector('.mypost-footer_publish-btn').classList.remove('mypost-footer_publishEnable');
         document.querySelector('.mypost-footer_publish-btn').classList.add('mypost-footer_publishDisable');
-        console.log("dakhlt")
+        //console.log("dakhlt")
     }
     else{
         document.querySelector('.mypost-footer_publish-btn').classList.remove('mypost-footer_publishDisable');
         document.querySelector('.mypost-footer_publish-btn').classList.add('mypost-footer_publishEnable');
-        console.log("dakhlt2")
+        //console.log("dakhlt2")
     }
 });
 var addHashtag = document.querySelector('.mypost-hashtag');
@@ -79,33 +84,44 @@ document.querySelector('.comment-like').addEventListener('click', function () {
       });
 
 
-      function readImgURL(input) {
-          if (input.files && input.files[0]) {
-              var reader = new FileReader();
-              console.log(reader);
-              document.getElementById("btnImgSelected").style.display = "none";
-              var img = document.createElement("img");
-              img.id = "imgInserted";
-              document.getElementById("imgDiv").appendChild(img);
-              reader.onload = function (e) {
-                  $('#imgInserted')
-                      .attr('src', e.target.result)
-                      .width(200)
-                      .height(250);
-              };
-              reader.readAsDataURL(input.files[0]);
-          }
-      }
-
-        function imgNext() {
-            var source = document.querySelector("#imgInserted").outerHTML;
-            document.getElementById("postBody").innerHTML = source;
-            var x = document.querySelector("#in1");
-            var y = document.querySelector("#in2");
-            y.files = x.files;
-            console.log(y.files);
+    function readImgURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            document.getElementById("btnImgSelected").style.display = "none";
+            var img = document.createElement("img");
+            img.id = "imgInserted";
+            document.getElementById("imgDiv").appendChild(img);
+            reader.onload = function (e) {
+                $('#imgInserted')
+                    .attr('src', e.target.result)
+                    .width(200)
+                    .height(250);
+            };
+            reader.readAsDataURL(input.files[0]);
         }
+    }
+
+    function imgNext() {
+        var source = document.querySelector("#imgInserted").outerHTML;
+        document.getElementById("postBody").innerHTML = source;
+        var x = document.querySelector("#in1");
+        var y = document.querySelector("#in2");
+        y.files = x.files;
+        //console.log(y.files);
+    }
 
       //function HidePostModal() {
       //    $("#post").modal('hide')
       //}
+
+    function ClearBtn() {
+        if (confirm("Want to clear?")) {
+            $('#post #textEditor').val('');
+            var postImg = document.getElementById("postBody");  
+            postImg.removeChild(postImg.childNodes[0]);
+            var imgNext = document.getElementById("imgDiv");  
+            imgNext.removeChild(imgNext.lastChild);
+            console.log(imgNext.lastChild)
+            document.getElementById("btnImgSelected").style.display = "block"
+        }
+    }

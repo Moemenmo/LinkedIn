@@ -7,7 +7,14 @@
             <div class="card-body post-body ">
                 <div class="card post ">
                     <div class="post-header card-header">
-                        <img class="post-profile-img" src="@Model.Author.ProfilePicURL">
+                        @if(@Model.Author.ProfilePicURL != null )
+                        {
+                            <img class="post-profile-img" src="@Model.Author.ProfilePicURL">
+                        }
+                        else
+                        {
+                            <img class="mypost-profilepic" src="~/images/defaultImage.png" alt="Card image cap">
+                        }
                         <div class="post-header-creator-info">
                             <h6>@Model.Author.FirstName @Model.Author.LastName</h6>
                             <small class="text-muted">@Model.Author.Indstry</small>
@@ -15,12 +22,11 @@
                         </div>
                     </div>
                     <div class="post-body card-body">
-
                         <p class="card-text">@Model.Status @Model.Date.Year @Model.Date.Month @Model.Date.Day @Model.Date.TimeOfDay</p>
                     </div>
                     @if (Model.ImageUrl != null)
-            {
-                        <img class="card-img-top" src=@Model.ImageUrl alt="Card image cap">
+                    {
+                        <img class="card-img-top" src="@Url.Content(Model.ImageUrl) " alt="Card image cap">
                     }
 
 
