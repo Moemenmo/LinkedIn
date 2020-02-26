@@ -1,6 +1,6 @@
 ﻿@model Linkedin.Models.Entites.WorkExperience
 
-<div class="background__hide-icon media row py-3 ">
+<div id="@Model.Id" class="background__hide-icon media row py-3 ">
     <div class="col-sm-1">
         <img src="~/images/itiLogo.png" class="align-self-start background__img" />
     </div>
@@ -44,8 +44,8 @@
     <a class="col-1 text-right" data-toggle="modal" onclick="EditExp('@Model.Id')">
         <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i>
     </a>
-    <a href="Profile/DeleteExperience/@Model.Id"><i style="font-size: 1.5rem; padding: 2.5rem;color: indianred;" class="fas fa-trash delete-icon"></i> </a>
-
+    <a onclick="DeleteExp('@Model.Id')"><i style="font-size: 1.5rem; padding: 2.5rem;color: indianred;" class="fas fa-trash delete-icon"></i> </a>
+    @*href="Profile/DeleteExperience/@Model.Id"*@
 </div>
 <div class="u-border-bottom offset-1 row"></div>
  
