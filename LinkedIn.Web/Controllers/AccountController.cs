@@ -524,6 +524,43 @@ namespace LinkedIn.Web.Controllers
             return View(userList);
 
         }
+        public ActionResult Search(string fname, string lname)
+        {
+            List<UseSearchViewModel> searchResults = new List<UseSearchViewModel>();
+            var userManager = UnitOfWork.ApplicationUserManager;
+            var user = userManager.FindById(User.Identity.GetUserId());
+            var connections = userManager.GetAllConnections(User.Identity.GetUserId());
+            var requests = userManager.GetRequestUsers(User.Identity.GetUserId());
+
+            List<ApplicationUser> listOfUsers = UserManager.Users.Where(e => (fname.Length > 0 && e.FirstName.Contains(fname))
+                                                  || (lname.Length > 0 && e.LastName.Contains(lname))).ToList();
+            foreach (var item in listOfUsers)
+            {
+                UseSearchViewModel temp = new UseSearchViewModel();
+                if (connections.Contains(item))
+                {
+                    temp.User = item;
+                    temp.UserType = UserType.Connected;
+                }
+                else if (user.Requests.Contains(item))
+                {
+                    temp.User = item;
+                    temp.UserType = UserType.requested;
+                }
+                else if (requests.Contains(item))
+                {
+                    temp.User = item;
+                    temp.UserType = UserType.pending;
+                }
+                else  
+                {
+                    temp.User = item;
+                    temp.UserType = UserType.noConnection;
+                }
+                searchResults.Add(temp);
+            }
+            return View(searchResults);
+        }
     }
 
 }

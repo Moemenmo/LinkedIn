@@ -211,6 +211,8 @@
     <Compile Include="Models\CustomValidators\ImgValidationAttribute.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PostViewModel.cs" />
+    <Compile Include="Models\UserType.cs" />
+    <Compile Include="Models\UseSearchViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -418,7 +420,9 @@
     <Content Include="Views\NewsFeed\_LikeAndComment.cshtml" />
     <Content Include="Views\NewsFeed\_UserCard.cshtml" />
     <Content Include="Views\Account\Connections.cshtml" />
-    <Content Include="Views\Account\_Searchresult.cshtml" />
+    <Content Include="Views\Account\_ConnecttionCard.cshtml" />
+    <Content Include="Views\Account\Search.cshtml" />
+    <Content Include="Views\Account\_SearchCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
