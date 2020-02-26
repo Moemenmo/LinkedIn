@@ -1,5 +1,6 @@
-﻿function HideResetModel()
-{
+﻿function HideResetModel(){
+    //console.log("Hide Clear");
+
     $("#FullModal").modal('hide');
     document.getElementById("ModelForm").reset();
 }
@@ -7,15 +8,16 @@ function ResetModel() {
     document.getElementById("ModelForm").reset();
 }
 
-
-$("#1").click(function () {
-    console.log("HEREEEEEEEEEEEEE");
-    //var url = "/Profile/EditWorkExperience?userId=" + userId;
+function EditExp(expId){
+    console.log("EDIT BUTTON => " + expId);
+    //var url = "/Profile/EditWorkExperience?expId=" + expId;
 
     //$("#exp-modal-body").load(url, function () {
-    //    $("#ExpFullModal").modal('show');
+    //    $("#FullModal").modal('show');
     //});
-})
+    //$.ajax({})
+}
+
 
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip({
