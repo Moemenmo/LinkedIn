@@ -10,12 +10,19 @@ function ResetModel() {
 
 function EditExp(expId){
     console.log("EDIT BUTTON => " + expId);
-    //var url = "/Profile/EditWorkExperience?expId=" + expId;
-
-    //$("#exp-modal-body").load(url, function () {
-    //    $("#FullModal").modal('show');
-    //});
-    //$.ajax({})
+    $.ajax({
+        method: "GET",
+        data: { id: expId},
+        url: 'Profile/GetWorkExp',
+        contentType: "application/json",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+        },
+        error: function () {
+            console.log('error');
+        }
+    })
 }
 
 

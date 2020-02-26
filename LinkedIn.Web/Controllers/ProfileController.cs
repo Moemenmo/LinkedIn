@@ -33,6 +33,13 @@ namespace LinkedIn.Web.Controllers
             ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
             return View(user);
         }
+        [HttpGet]
+        public JsonResult GetWorkExp(Guid id)
+        {
+            var workExp = UnitOfWork.WorkExperienceManager.GetById(id);
+            string s = "eshta";
+            return Json(workExp, JsonRequestBehavior.AllowGet);
+        }
         [HttpPost]
         public ActionResult AddWorkExperience(WorkExperienceViewModel workExpVM)
         {
