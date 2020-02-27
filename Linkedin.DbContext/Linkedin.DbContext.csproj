@@ -103,6 +103,13 @@
     <Compile Include="Migrations\202002262102551_testit.cs" />
     <Compile Include="Migrations\202002262102551_testit.designer.cs">
       <DependentUpon>202002262102551_testit.cs</DependentUpon>
+    <Compile Include="Migrations\202002270710428_mariam-mshFahma7agabsOkay.cs" />
+    <Compile Include="Migrations\202002270710428_mariam-mshFahma7agabsOkay.designer.cs">
+      <DependentUpon>202002270710428_mariam-mshFahma7agabsOkay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002270715183_mariam_Add-EmploymentType-To-WE.cs" />
+    <Compile Include="Migrations\202002270715183_mariam_Add-EmploymentType-To-WE.designer.cs">
+      <DependentUpon>202002270715183_mariam_Add-EmploymentType-To-WE.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -151,6 +158,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002262102551_testit.resx">
       <DependentUpon>202002262102551_testit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002270710428_mariam-mshFahma7agabsOkay.resx">
+      <DependentUpon>202002270710428_mariam-mshFahma7agabsOkay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002270715183_mariam_Add-EmploymentType-To-WE.resx">
+      <DependentUpon>202002270715183_mariam_Add-EmploymentType-To-WE.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
