@@ -527,7 +527,7 @@ namespace LinkedIn.Web.Controllers
 
         }
         public ActionResult Search(string fname, string lname)
-        {
+      {
             List<UserSearchViewModel> searchResults = new List<UserSearchViewModel>();
             var userManager = UnitOfWork.ApplicationUserManager;
             var user = userManager.FindById(User.Identity.GetUserId());
@@ -574,6 +574,14 @@ namespace LinkedIn.Web.Controllers
                 loginedUser.Connections.Add(requestedUser);
             }
             UserManager.Update(loginedUser);
+
+        public ActionResult Connect(string id)
+        {
+            //var userManager = UnitOfWork.ApplicationUserManager;
+            //var requestedUser = userManager.FindById(User.Identity.GetUserId());
+            //var user = userManager.FindById(id);
+            //user.Requested(requestedUser);
+            return View();
         }
     }
     
