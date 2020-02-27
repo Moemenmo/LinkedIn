@@ -1,0 +1,63 @@
+﻿@model UserSearchViewModel
+@{
+    AjaxOptions optsConnect = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnSuccess = "HidePostModal()",
+        InsertionMode = InsertionMode.InsertBefore,
+        UpdateTargetId = "posts"
+    };
+    AjaxOptions optsRespond = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnSuccess = "HidePostModal()",
+        InsertionMode = InsertionMode.InsertBefore,
+        UpdateTargetId = "posts"
+    };
+}
+<li>
+    <div class="search-result">
+
+        <div class="search-result__img">
+            <a href="@Model.User.ProfilePicURL"></a>
+        </div>
+
+        <div class="search-result__info">
+            <a href="" class="name">@Model.User.FirstName @Model.User.LastName</a>
+            <p class="data"> @Model.User.HeadLine</p>
+            <p class="country">@Model.User.Country</p>
+        </div>
+
+        <div class="search-result__action">
+            @if (Model.UserType==UserType.Connected)
+            {
+                using (Html.BeginForm("Index", "Profile"))
+                {
+                <button class="connect">ViewProfile</button>
+                }
+            }
+            else if (Model.UserType == UserType.pending)
+            {
+
+                    <button class="connect" disabled>Pending</button>
+                
+            }
+            else if (Model.UserType == UserType.requested)
+            {
+                using (Ajax.BeginForm("RespondRequest", "Account", optsRespond, new { enctype = "multipart/form-data" }))
+                {
+                    <button class="connect">Accept</button>
+                    <button class="connect">Reject</button>
+
+                }
+            }
+            else if (Model.UserType == UserType.noConnection)
+            {
+                using (Ajax.BeginForm("AddRequest", "Account", optsConnect, new { enctype = "multipart/form-data" }))
+                {
+                    <button class="connect">Message</button>
+                }
+            }
+        </div>
+    </div>
+</li>
