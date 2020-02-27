@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Linkedin.Models.Enum;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -19,7 +20,7 @@ namespace Linkedin.Models.Entites
         public Guid Id { get; set; }
         [Required]
         public string Title { get; set; }
-
+        public EmploymentType EmploymentType { get; set; }
         [ForeignKey("Company")]
         public Guid? CompanyId { get; set; }
         public virtual SavedPlace Company { get; set; }

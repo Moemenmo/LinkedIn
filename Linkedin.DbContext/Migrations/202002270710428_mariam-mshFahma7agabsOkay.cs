@@ -27,10 +27,10 @@
             CreateIndex("dbo.Language", "UserId");
             CreateIndex("dbo.Skill", "UserId");
             CreateIndex("dbo.TestScore", "UserId");
-            AddForeignKey("dbo.Language", "UserId", "dbo.AspNetUsers", "Id", cascadeDelete: true);
-            AddForeignKey("dbo.Skill", "UserId", "dbo.AspNetUsers", "Id", cascadeDelete: true);
-            AddForeignKey("dbo.TestScore", "UserId", "dbo.AspNetUsers", "Id", cascadeDelete: true);
-            AddForeignKey("dbo.VolunteerExperience", "UserId", "dbo.AspNetUsers", "Id", cascadeDelete: true);
+            AddForeignKey("dbo.Language", "UserId", "dbo.AspNetUsers", "Id", cascadeDelete: false);
+            AddForeignKey("dbo.Skill", "UserId", "dbo.AspNetUsers", "Id", cascadeDelete: false);
+            AddForeignKey("dbo.TestScore", "UserId", "dbo.AspNetUsers", "Id", cascadeDelete: false);
+            AddForeignKey("dbo.VolunteerExperience", "UserId", "dbo.AspNetUsers", "Id", cascadeDelete: false);
             AddForeignKey("dbo.WorkExperience", "CompanyId", "dbo.SavedPlace", "Id");
             DropColumn("dbo.WorkExperience", "EmploymentType");
         }
