@@ -24,21 +24,21 @@ addHashtag.addEventListener('click',function (e) {
    document.getElementById('textEditor').value += "#";
 });
 
-var onAddBtn = function (e) {
-    //1.get Data from input fields
-    var inputComment = document.querySelector(".inputComment").value;
-    document.querySelector('.comment-sec').style.display = 'block';
-    document.querySelector('.comment--text').innerHTML +=inputComment ;
-    console.log(inputComment);
-    console.log(onAddBtn);
+//var onAddBtn = function (e) {
+//    //1.get Data from input fields
+//    var inputComment = document.querySelector(".inputComment").value;
+//    document.querySelector('.comment-sec').style.display = 'block';
+//    document.querySelector('.comment--text').innerHTML +=inputComment ;
+//    console.log(inputComment);
+//    console.log(onAddBtn);
 
-};
+//};
 
-document.addEventListener('keypress', function (event) {
-    if (event.keyCode === 13 || event.which === 13) {
-        onAddBtn(event);
-    }
-});
+//document.addEventListener('keypress', function (event) {
+//    if (event.keyCode === 13 || event.which === 13) {
+//        onAddBtn(event);
+//    }
+//});
 
 document.querySelector('.comment-like').addEventListener('click', function () {
     document.querySelector('.comment-like').classList.toggle('text-primary');
