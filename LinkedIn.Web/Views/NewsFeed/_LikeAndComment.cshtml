@@ -1,16 +1,18 @@
-﻿<div class="post-footer card-footer" style="display: flex;">
+﻿@model Post
+<div class="post-footer card-footer" style="display: flex;">
+  <div id="like">@Model.Likes.Count</div>  
     <div class="post-footer-action">
         <div class="post-footer-like">
 
-            <button class="btn btn-light reactions-container btn-lg btn btn-secondary" data-animation="true" data-html="true" data-placement="top" data-toggle="popover" data-trigger="hover focus"
-                    data-content='<i class="far fa-thumbs-up " id="reaction" ></i>&nbsp;
-                              <i class="fas fa-praying-hands " id="reaction"></i>&nbsp;
-                              <i class="fas fa-heart  " id="reaction"></i>&nbsp;
-                              <i class="fab fa-free-code-camp  " id="reaction"></i>&nbsp;
-                              <i class="far fa-angry  " id="reaction"></i>'>
+            <button onclick="LikeIt('@Model.Id')" class="btn btn-light reactions-container btn-lg btn btn-secondary" data-animation="true" data-html="true" data-placement="top" data-toggle="popover" data-trigger="hover focus">
 
-                    <i class="far fa-thumbs-up container__Sign reaction-sign"></i>  like
-                </button>
+                 <i class="far fa-thumbs-up container__Sign reaction-sign"></i>  like
+             </button>
+            @*data-content='<i class="far fa-thumbs-up " id="reaction"></i>&nbsp;
+            <i class="fas fa-praying-hands " id="reaction"></i>&nbsp;
+            <i class="fas fa-heart  " id="reaction"></i>&nbsp;
+            <i class="fab fa-free-code-camp  " id="reaction"></i>&nbsp;
+            <i class="far fa-angry  " id="reaction"></i>*@
         </div>
         &nbsp;
         <div>
@@ -28,7 +30,7 @@
         </div>
     </div>
     <div class="col-md-12 col-lg-12 col-sm-12">
-
+       
         <div class="input-group mt-2 ml-0">
             <img class="post-profile-img mr-3" src="unnamed.jpg">
             <input type="text" class=" inputComment form-control " id="validationCustomUsername" placeholder="Add new comment..." aria-describedby="inputGroupPrepend" required>
@@ -93,3 +95,24 @@
     </div>
 
 </div>
+<script>
+    function LikeIt(postId) {
+        console.log(postId);
+        document.getElementById('like').innerHTML=@Model.Likes.Count;
+
+        $.ajax({
+            method: "GET",
+            data: { postId: postId },
+            url: '/NewsFeed/Like',
+            contentType: "application/json",
+            dataType: "json",
+            success: function (response) {
+                console.log("success");
+                console.log(response.postId);
+
+            },
+
+        });
+
+    }
+</script>

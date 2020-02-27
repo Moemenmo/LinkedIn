@@ -153,6 +153,6 @@ namespace LinkedIn.Web.Controllers
             UnitOfWork.WorkExperienceManager.Delete(wExp);
             return RedirectToAction("index");
         }
-
+     
     }
 }
