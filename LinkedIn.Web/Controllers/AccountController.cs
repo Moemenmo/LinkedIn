@@ -159,12 +159,14 @@ namespace LinkedIn.Web.Controllers
             if (ModelState.IsValid)
             {
                 string pic = "";
-                string path = "";
+                string path = null;
                 if (imgFile != null)
                 {
-                    pic = System.IO.Path.GetFileName(imgFile.FileName);
-                    path = System.IO.Path.Combine(Server.MapPath("~/SavedImages"), pic);
-                    imgFile.SaveAs(path);
+                    string extension = System.IO.Path.GetExtension(imgFile.FileName);
+                    string fileName = System.IO.Path.GetFileNameWithoutExtension(imgFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    path = "~/SavedImages/" + fileName;
+                    imgFile.SaveAs(System.IO.Path.Combine(Server.MapPath("~/SavedImages"), fileName));
                 }
 
                 var user = new ApplicationUser { FirstName = model.FirstName,
@@ -474,7 +476,8 @@ namespace LinkedIn.Web.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            //return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "NewsFeed");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

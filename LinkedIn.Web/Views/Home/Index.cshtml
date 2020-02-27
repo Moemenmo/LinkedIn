@@ -23,9 +23,11 @@
 
         <div class="col-3 row nav__btns">
             <div class="col">
-                <button class="nav__btn--join btn" type="button">Join now</button>
+                @*<button class="nav__btn--join btn" type="button">Join now</button>*@
+                @Html.ActionLink("Join Now", "Register", "Account", null, new { @class = "nav__btn--join btn"} )
             </div>
-            <button class="col nav__btn--sign btn btn-outline-primary" type="button">Sign in</button>
+            @*<button class="col nav__btn--sign btn btn-outline-primary" type="button">Sign in</button>*@
+            @Html.ActionLink("Sign in", "Login", "Account", null, new { @class = "col nav__btn--sign btn btn-outline-primary" })
         </div>
     </div>
 

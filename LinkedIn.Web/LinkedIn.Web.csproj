@@ -211,6 +211,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomValidators\ImgValidationAttribute.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Models\ProfileViewModels\WorkExperienceViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -224,6 +225,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\IndexStyleSheet.css" />
     <Content Include="Content\LoginStyleSheet.css" />
+    <Content Include="Content\NewsFeedStyle.css" />
     <Content Include="Content\ProfileStyleSheet.css" />
     <Content Include="Content\RegisterStyleSheet.css" />
     <Content Include="Content\SearchStyleSheet.css" />
@@ -234,6 +236,7 @@
     <Content Include="images\arrow.svg" />
     <Content Include="images\client-3.jpg" />
     <Content Include="images\connect.svg" />
+    <Content Include="images\defaultImage.png" />
     <Content Include="images\Cover.PNG" />
     <Content Include="images\defaultImage.png" />
     <Content Include="images\itiLogo.png" />
@@ -299,6 +302,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\NewsFeedScript.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -422,6 +426,15 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\NewsFeed\Index.cshtml" />
     <Content Include="Views\Home\_Searchresult.cshtml" />
+    <Content Include="Views\NewsFeed\_WritePost.cshtml" />
+    <Content Include="Views\NewsFeed\_UploadPic.cshtml" />
+    <Content Include="Views\NewsFeed\_UploadVideo.cshtml" />
+    <Content Include="Views\NewsFeed\_UploadDoc.cshtml" />
+    <Content Include="Views\NewsFeed\_View5.cshtml" />
+    <Content Include="Views\NewsFeed\_sharedPost.cshtml" />
+    <Content Include="Views\NewsFeed\_PostBody.cshtml" />
+    <Content Include="Views\NewsFeed\_LikeAndComment.cshtml" />
+    <Content Include="Views\NewsFeed\_UserCard.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\_Experience.cshtml" />
     <Content Include="Views\Profile\__AddExperienceCard.cshtml" />
@@ -457,6 +470,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

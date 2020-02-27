@@ -68,5 +68,22 @@ namespace LinkedIn.Core.Managers
             }
             return manager;
         }
+        public List<ApplicationUser> GetAllConnections(string id)
+        {
+            ApplicationUser user = Users.FirstOrDefault(e => e.Id == id);
+            List<ApplicationUser> ConnectionList = new List<ApplicationUser>();
+            ConnectionList.AddRange(user.Connections);
+            foreach (var item in Users.ToList())
+            {
+                if (item.Connections.Count!=0)
+                {
+                    if (item.Connections.FirstOrDefault(e => e.Id == id) != null)
+                    {
+                        ConnectionList.Add(item);
+                    }
+                }
+            }
+            return ConnectionList;
+        }
     }
 }
