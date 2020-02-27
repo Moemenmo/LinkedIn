@@ -212,6 +212,7 @@
     <Compile Include="Models\CustomValidators\ImgValidationAttribute.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PostViewModel.cs" />
+    <Compile Include="Models\ConnectionsViweModel.cs" />
     <Compile Include="Models\UserType.cs" />
     <Compile Include="Models\UserSearchViewModel.cs" />
     <Compile Include="Models\ProfileViewModels\WorkExperienceViewModel.cs" />
@@ -396,6 +397,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RequestsCard.cshtml" />
+
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
