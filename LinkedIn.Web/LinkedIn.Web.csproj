@@ -235,6 +235,7 @@
     <Content Include="images\client-3.jpg" />
     <Content Include="images\connect.svg" />
     <Content Include="images\Cover.PNG" />
+    <Content Include="images\defaultImage.png" />
     <Content Include="images\itiLogo.png" />
     <Content Include="images\learn.svg" />
     <Content Include="images\linkedin-black-logo.png" />

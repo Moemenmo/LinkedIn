@@ -21,7 +21,14 @@
                 <div class="col-sm-12 profile-imgs">
                     <!--profile img -->
                     <div class="position-absolute profile-img">
-                        <img src="~/images/ProfilePic.jpg" class="rounded-circle">
+                        @if (Model.ProfilePicURL != null)
+                        {
+                            <img src="@Url.Content(Model.ProfilePicURL)" class="rounded-circle">
+                        }
+                        else
+                        {
+                            <img src="~/images/defaultImage.png" class="rounded-circle">
+                        }
                     </div>
                 </div>
                 <!-- down div -->
