@@ -564,6 +564,17 @@ namespace LinkedIn.Web.Controllers
             }
             return View(searchResults);
         }
+        public void RespondRequest (string id , int  type)
+        {
+            var requestedUser = UserManager.FindById(id);
+            var loginedUser = UserManager.FindById(User.Identity.GetUserId());
+            loginedUser.Requests.Remove(requestedUser);
+            if (type==1)
+            {
+                loginedUser.Connections.Add(requestedUser);
+            }
+            UserManager.Update(loginedUser);
+        }
     }
-
+    
 }

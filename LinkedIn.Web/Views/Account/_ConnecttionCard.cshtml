@@ -40,24 +40,34 @@
             {
 
                     <button class="connect" disabled>Pending</button>
-                
+
             }
             else if (Model.UserType == UserType.requested)
             {
-                using (Ajax.BeginForm("RespondRequest", "Account", optsRespond, new { enctype = "multipart/form-data" }))
-                {
-                    <button class="connect">Accept</button>
-                    <button class="connect">Reject</button>
+                <button id="@Model.User.Id+acc" onclick="Respond('@Model.User.Id.ToString()')" class="connect">
+                    @Ajax.ActionLink("Accept", "RespondRequest", new { id = Model.User.Id, type = 1 },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST"
 
-                }
+                    }) </button>
+                string x = "asd";
+                    <button id="@Model.User.Id+req" onclick="Respond('@Model.User.Id.ToString()')" class="connect">
+                        @Ajax.ActionLink("Reject", "RespondRequest", new { id = Model.User.Id, type = 0 },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST"
+
+                    })
+                    </button>
             }
             else if (Model.UserType == UserType.noConnection)
             {
                 using (Ajax.BeginForm("AddRequest", "Account", optsConnect, new { enctype = "multipart/form-data" }))
                 {
                     <button class="connect">Message</button>
-                }
-            }
-        </div>
+                    }
+                    }
+</div>
     </div>
 </li>
