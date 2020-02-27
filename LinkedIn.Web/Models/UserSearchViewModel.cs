@@ -6,7 +6,7 @@ using System.Web;
 
 namespace LinkedIn.Web.Models
 {
-    public class UseSearchViewModel
+    public class UserSearchViewModel
     {
         public ApplicationUser User { get; set; }
         public UserType UserType { get; set; }

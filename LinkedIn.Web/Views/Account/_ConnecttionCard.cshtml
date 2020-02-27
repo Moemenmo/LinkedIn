@@ -1,4 +1,20 @@
 ﻿@model UserSearchViewModel
+@{
+    AjaxOptions optsConnect = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnSuccess = "HidePostModal()",
+        InsertionMode = InsertionMode.InsertBefore,
+        UpdateTargetId = "posts"
+    };
+    AjaxOptions optsRespond = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnSuccess = "HidePostModal()",
+        InsertionMode = InsertionMode.InsertBefore,
+        UpdateTargetId = "posts"
+    };
+}
 <li>
     <div class="search-result">
 
@@ -15,19 +31,32 @@
         <div class="search-result__action">
             @if (Model.UserType==UserType.Connected)
             {
-                <button class="connect">Message</button>
+                using (Html.BeginForm("Index", "Profile"))
+                {
+                <button class="connect">ViewProfile</button>
+                }
             }
             else if (Model.UserType == UserType.pending)
             {
-                <button class="connect" disabled>Pending</button>
+
+                    <button class="connect" disabled>Pending</button>
+                
             }
             else if (Model.UserType == UserType.requested)
             {
-                <button class="connect">respond</button>
+                using (Ajax.BeginForm("RespondRequest", "Account", optsRespond, new { enctype = "multipart/form-data" }))
+                {
+                    <button class="connect">Accept</button>
+                    <button class="connect">Reject</button>
+
+                }
             }
             else if (Model.UserType == UserType.noConnection)
             {
-                <button class="connect">Connect</button>
+                using (Ajax.BeginForm("AddRequest", "Account", optsConnect, new { enctype = "multipart/form-data" }))
+                {
+                    <button class="connect">Message</button>
+                }
             }
         </div>
     </div>

@@ -526,7 +526,7 @@ namespace LinkedIn.Web.Controllers
         }
         public ActionResult Search(string fname, string lname)
         {
-            List<UseSearchViewModel> searchResults = new List<UseSearchViewModel>();
+            List<UserSearchViewModel> searchResults = new List<UserSearchViewModel>();
             var userManager = UnitOfWork.ApplicationUserManager;
             var user = userManager.FindById(User.Identity.GetUserId());
             var connections = userManager.GetAllConnections(User.Identity.GetUserId());
@@ -534,9 +534,10 @@ namespace LinkedIn.Web.Controllers
 
             List<ApplicationUser> listOfUsers = UserManager.Users.Where(e => (fname.Length > 0 && e.FirstName.Contains(fname))
                                                   || (lname.Length > 0 && e.LastName.Contains(lname))).ToList();
+            listOfUsers.Remove(user);
             foreach (var item in listOfUsers)
             {
-                UseSearchViewModel temp = new UseSearchViewModel();
+                UserSearchViewModel temp = new UserSearchViewModel();
                 if (connections.Contains(item))
                 {
                     temp.User = item;
