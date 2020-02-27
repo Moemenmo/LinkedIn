@@ -77,9 +77,25 @@
     <Compile Include="Migrations\202002151645298_mariam-.Designer.cs">
       <DependentUpon>202002151645298_mariam-.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002201645152_nothing.cs" />
-    <Compile Include="Migrations\202002201645152_nothing.designer.cs">
-      <DependentUpon>202002201645152_nothing.cs</DependentUpon>
+    <Compile Include="Migrations\202002211111070_AddEmpTypeInWorkExperience.cs" />
+    <Compile Include="Migrations\202002211111070_AddEmpTypeInWorkExperience.designer.cs">
+      <DependentUpon>202002211111070_AddEmpTypeInWorkExperience.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002211927588_mariam_WorkExperience-MakeCompanyRequired.cs" />
+    <Compile Include="Migrations\202002211927588_mariam_WorkExperience-MakeCompanyRequired.designer.cs">
+      <DependentUpon>202002211927588_mariam_WorkExperience-MakeCompanyRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.cs" />
+    <Compile Include="Migrations\202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.designer.cs">
+      <DependentUpon>202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002222013042_mariam_Remove-required-UserFK.cs" />
+    <Compile Include="Migrations\202002222013042_mariam_Remove-required-UserFK.designer.cs">
+      <DependentUpon>202002222013042_mariam_Remove-required-UserFK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002231452230_mariam-AddrequiredUser-fk.cs" />
+    <Compile Include="Migrations\202002231452230_mariam-AddrequiredUser-fk.designer.cs">
+      <DependentUpon>202002231452230_mariam-AddrequiredUser-fk.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,8 +125,20 @@
     <EmbeddedResource Include="Migrations\202002151645298_mariam-.resx">
       <DependentUpon>202002151645298_mariam-.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002201645152_nothing.resx">
-      <DependentUpon>202002201645152_nothing.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002211111070_AddEmpTypeInWorkExperience.resx">
+      <DependentUpon>202002211111070_AddEmpTypeInWorkExperience.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002211927588_mariam_WorkExperience-MakeCompanyRequired.resx">
+      <DependentUpon>202002211927588_mariam_WorkExperience-MakeCompanyRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.resx">
+      <DependentUpon>202002211931349_mariam_WorkExperience-MakeCompanyIDRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002222013042_mariam_Remove-required-UserFK.resx">
+      <DependentUpon>202002222013042_mariam_Remove-required-UserFK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002231452230_mariam-AddrequiredUser-fk.resx">
+      <DependentUpon>202002231452230_mariam-AddrequiredUser-fk.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

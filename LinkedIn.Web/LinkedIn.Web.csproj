@@ -211,6 +211,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomValidators\ImgValidationAttribute.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProfileViewModels\WorkExperienceViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -234,6 +235,7 @@
     <Content Include="images\client-3.jpg" />
     <Content Include="images\connect.svg" />
     <Content Include="images\Cover.PNG" />
+    <Content Include="images\defaultImage.png" />
     <Content Include="images\itiLogo.png" />
     <Content Include="images\learn.svg" />
     <Content Include="images\linkedin-black-logo.png" />
@@ -290,6 +292,8 @@
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -299,6 +303,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\MyScripts\ProfileScript.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\src\index.js" />
@@ -419,6 +424,7 @@
     <Content Include="Views\Home\_Searchresult.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\_Experience.cshtml" />
+    <Content Include="Views\Profile\__AddExperienceCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -443,6 +449,10 @@
     <ProjectReference Include="..\Linkedin.Models\Linkedin.Models.csproj">
       <Project>{97417add-a8ff-496b-acfd-53a79853d06b}</Project>
       <Name>Linkedin.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LinnkedIn.Repository\LinkedIn.Repository.csproj">
+      <Project>{6a04012f-25a6-4384-aa5c-2b0eb3d383aa}</Project>
+      <Name>LinkedIn.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

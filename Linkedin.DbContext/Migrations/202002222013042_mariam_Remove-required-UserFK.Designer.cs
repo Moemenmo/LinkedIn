@@ -7,13 +7,13 @@ namespace Linkedin.DbContext.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class nothing : IMigrationMetadata
+    public sealed partial class mariam_RemoverequiredUserFK : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(nothing));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(mariam_RemoverequiredUserFK));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002201645152_nothing"; }
+            get { return "202002222013042_mariam_Remove-required-UserFK"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class nothing : DbMigration
+    public partial class mariam_WorkExperienceMakeCompanyIDRequired : DbMigration
     {
         public override void Up()
         {

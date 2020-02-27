@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model Linkedin.Models.Entites.ApplicationUser
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,7 +21,14 @@
                 <div class="col-sm-12 profile-imgs">
                     <!--profile img -->
                     <div class="position-absolute profile-img">
-                        <img src="~/images/ProfilePic.jpg" class="rounded-circle">
+                        @if (Model.ProfilePicURL != null)
+                        {
+                            <img src="@Url.Content(Model.ProfilePicURL)" class="rounded-circle">
+                        }
+                        else
+                        {
+                            <img src="~/images/defaultImage.png" class="rounded-circle">
+                        }
                     </div>
                 </div>
                 <!-- down div -->
@@ -313,8 +321,8 @@
                         <div class="col-sm-6 user-info">
                             <div class="p-sm-3">
                                 <div>
-                                    <h2 class="d-inline-block">Nora </h2>
-                                    <h2 class="d-inline-block"> Mohamed</h2>
+                                    <h2 class="d-inline-block">@Model.FirstName</h2>
+                                    <h2 class="d-inline-block">@Model.LastName</h2>
                                 </div>
                                 <div>
                                     <h4> ITI Intake 40</h4>
@@ -396,55 +404,20 @@
     <section class="p-3" id="Background">
         <div class="background container u-border rounded p-0">
             <!-- Experience -->
-            <div class="p-4">
+            <div class="p-4" id="Exps">
                 <div class="row">
                     <h2 class="col-sm-11 background__section-heading">Experience</h2>
                     <a href="" class="col-sm-1 text-right " data-toggle="modal" data-target="#FullModal">
                         <i class="fas fa-plus p-3 profile-icon "></i>
                     </a>
                 </div>
-                <div class="background__hide-icon media row py-3 ">
-                    <div class="col-sm-1">
-                        <img src="~/images/itiLogo.png" class="align-self-start background__img" />
-                    </div>
-                    <div class="media-body col-sm-10 ">
-                        <h3>Student</h3>
-                        <a href="http://" class="stretched-link text-decoration-none text-reset">
-                            <p class="mb-0 d-inline ">Information technology institute</p>
-                        </a>
-                        <p class="mb-0 d-inline ">. Full Time</p>
-                        <br />
-                        <p class="mb-0 d-inline text-muted">Oct2019</p>
-                        <p class="mb-0 d-inline text-muted">- Present</p>
-                        <p class="mb-0 text-muted">Egypt</p>
-                        <p class="mb-0 text-muted">Enterprise and web development track</p>
-                    </div>
-                    <a href="" class="col-1 text-right" data-toggle="modal" data-target="#FullModal">
-                        <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i>
-                    </a>
-                </div>
-                <div class="u-border-bottom offset-1 row"></div>
-                <div class="background__hide-icon media row py-3 ">
-                    <div class="col-sm-1">
-                        <img src="~/images/itiLogo.png" class="align-self-start background__img" />
-                    </div>
-                    <div class="media-body col-sm-10">
-                        <h3>Student</h3>
-                        <a href="http://" class="stretched-link text-decoration-none text-reset">
-                            <p class="mb-0 d-inline ">Information technology institute</p>
-                        </a>
-                        <p class="mb-0 d-inline">. Full Time</p>
-                        <br />
-                        <p class="mb-0 d-inline text-muted">Oct2019</p>
-                        <p class="mb-0 d-inline text-muted">- Present</p>
-                        <p class="mb-0 text-muted">Egypt</p>
-                        <p class="mb-0 text-muted">Enterprise and web development track</p>
-                    </div>
-                    <a href="" class="col-1 text-right" data-toggle="modal" data-target="#FullModal">
-                        <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i>
-                    </a>
-
-                </div>
+             
+              @{ 
+                  foreach(var item in Model.WorkExperiences)
+                  {
+                      Html.RenderPartial("__AddExperienceCard", item);
+                  }
+              }
             </div>
 
             <!-- hr -->
@@ -1211,110 +1184,11 @@
     </div>
 
     <!-- Full Modal -->
-    <div class="modal fade" id="FullModal" tabindex="-1" role="dialog" aria-labelledby="FullModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content row">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="FullModalLabel">Add Bla Bla Bla</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="">
-                        <div class="form-controls">
-                            <div class="form-group">
-                                <label for="" class="required">Title</label>
-                                <input class="form-control" type="text" name="" id="" placeholder="Bla Bla Bla">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Employment type</label>
-                                <select class="form-control" name="" id="">
-                                    <option value="" disabled selected hidden>-</option>
-                                    <option value="">Opa</option>
-                                    <option value="">Opaa</option>
-                                    <option value="">Opaaa</option>
-                                    <option value="">Opaaaa</option>
-                                    <option value="">Opaaaaa</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Description</label>
-                                <textarea class="form-control" name="" id="" cols="30" rows="4"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <div>
-                                    <input type="checkbox" name="" id="CurrentlyWorking"><span>
-                                        I am
-                                        currently working in this role
-                                        Transfare
-                                    </span>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <label for="" class="required">Start Date</label>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <select class="form-control" name="" id="">
-                                                    <option value="" disabled selected hidden>Month</option>
-                                                    <option value="">Opa</option>
-                                                    <option value="">Opaa</option>
-                                                    <option value="">Opaaa</option>
-                                                    <option value="">Opaaaa</option>
-                                                    <option value="">Opaaaaa</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <select class="form-control" name="" id="">
-                                                    <option value="" disabled selected hidden>Year</option>
-                                                    <option value="">Opa</option>
-                                                    <option value="">Opaa</option>
-                                                    <option value="">Opaaa</option>
-                                                    <option value="">Opaaaa</option>
-                                                    <option value="">Opaaaaa</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label for="" class="required">End Date</label>
-                                        <h4 id="PresentWorkDate">Present</h4>
-                                        <div class="row" id="EndWorkDate">
-                                            <div class="col-sm-12">
-                                                <select class="form-control" name="" id="">
-                                                    <option value="" disabled selected hidden>Month</option>
-                                                    <option value="">Opa</option>
-                                                    <option value="">Opaa</option>
-                                                    <option value="">Opaaa</option>
-                                                    <option value="">Opaaaa</option>
-                                                    <option value="">Opaaaaa</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <select class="form-control" name="" id="">
-                                                    <option value="" disabled selected hidden>Year</option>
-                                                    <option value="">Opa</option>
-                                                    <option value="">Opaa</option>
-                                                    <option value="">Opaaa</option>
-                                                    <option value="">Opaaaa</option>
-                                                    <option value="">Opaaaaa</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
+          @{ 
+               Html.RenderPartial("_Experience", new LinkedIn.Web.Models.ProfileViewModels.WorkExperienceViewModel());
+           }
 
+   
     <!-- Skills Modal -->
     <div class="modal fade" id="SkillsModal" tabindex="-1" role="dialog" aria-labelledby="SkillsModalLabel"
          aria-hidden="true">
@@ -1592,9 +1466,14 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/MyScripts/ProfileScript.js"></script>
+
 </body>
 
 </html>
