@@ -87,5 +87,12 @@ namespace LinkedIn.Web.Controllers
             PostViewModel postVM = new PostViewModel();
             return View("Index", postVM);
         }
+        
+        public ActionResult Like(Guid id)
+        {
+            var postManager = UnitOfWork.PostManager;
+           
+            return PartialView("_PostBody");
+        }
     }
 }
