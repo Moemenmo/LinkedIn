@@ -1,4 +1,22 @@
+function LikeIt(postId) {
+    console.log(postId);
+    document.getElementById('like').innerHTML=@Model.Likes.Count;
 
+    $.ajax({
+        method: "GET",
+        data: { postId: postId },
+        url: '/NewsFeed/Like',
+        contentType: "application/json",
+        dataType: "json",
+        success: function (response) {
+            console.log("success");
+            console.log(response.postId);
+
+        },
+
+    });
+
+}
 var post = document.getElementById('textEditor');
 var postImg = document.getElementById('postBody');
 

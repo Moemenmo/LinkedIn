@@ -96,7 +96,7 @@ namespace LinkedIn.Web.Controllers
             ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
             post.Likes.Add( user);
             UnitOfWork.PostManager.Update(post);
-            return View("index",user);
+            return RedirectToAction("index",user);
         }
         
         //public JsonResult GetLike(string postId)
