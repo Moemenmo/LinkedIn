@@ -1,29 +1,47 @@
 ﻿function HideResetModel(){
-    //console.log("Hide Clear");
-
-    $("#FullModal").modal('hide');
+    $("#ExpFullModal").modal('hide');
+    $("#ExpFullModal-edit").modal('hide');
     document.getElementById("ModelForm").reset();
 }
 function ResetModel() {
     document.getElementById("ModelForm").reset();
 }
+function EditExpModal(response) {
 
+}
 function EditExp(expId){
     console.log("EDIT BUTTON => " + expId);
     $.ajax({
         method: "GET",
         data: { id: expId},
-        url: 'Profile/GetWorkExp',
+        url: "/Profile/GetWorkExp",
         contentType: "application/json",
         dataType: "json",
         success: function (response) {
             console.log("success");
-            console.log(response.Title);
-            console.log(response.EmploymentType);
-            console.log(response.Location);
-            console.log(response.Description);
-            console.log(response.StartMonth);
-            console.log(response.StartYear);
+            console.log("M => " + response.StartMonth);
+         //   document.querySelector(".expId-edit").value = expId;
+            document.querySelector(".expTitle-edit").value = response.Title;
+            document.querySelector(".expLocation-edit").value = response.Location;
+            document.querySelector(".expDescription-edit").value = response.Description;
+            document.querySelector(".expEmploymentType-edit").selectedIndex = response.EmploymentType;
+            document.querySelector(".expStartMonth-edit").value = response.StartMonth;
+            document.querySelector(".expStartYear-edit").value = response.StartYear;
+            if (response.IsPresent === true)
+            {
+                console.log("PRESENT");
+                document.querySelector(".expIsPresent-edit").checked = response.IsPresent;
+                $("#PresentWorkDate-exp-edit").css({ display: "block" });
+                $("#EndWorkDate-exp-edit").css({ display: "none" });
+            }
+            else
+            {
+                $("#PresentWorkDate-exp-edit").css({ display: "none" });
+                $("#EndWorkDate-exp-edit").css({ display: "flex" });
+                $(".expEndMonth-edit").val = response.EndMonth;
+                $(".expEndMonth-edit").val = response.EndYear;
+            }
+            $("#ExpFullModal-edit").modal('show');
         },
         error: function (response) {
             console.log('error = ' + response.responseText);

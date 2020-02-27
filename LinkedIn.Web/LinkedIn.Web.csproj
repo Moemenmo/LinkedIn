@@ -442,6 +442,8 @@
     <Content Include="Views\Profile\__AddExperienceCard.cshtml" />
     <Content Include="Views\NewsFeed\_Comment.cshtml" />
     <Content Include="Views\NewsFeed\_AddCommentTxtBox.cshtml" />
+    <Content Include="Views\Profile\_EditExperience.cshtml" />
+    <Content Include="Views\Profile\_EditExperienceCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

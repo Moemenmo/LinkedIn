@@ -5,28 +5,29 @@
     AjaxOptions opts = new AjaxOptions
     {
         HttpMethod = "POST",
-        UpdateTargetId = "Exps",
-        InsertionMode = InsertionMode.InsertAfter,
+        UpdateTargetId = "exp" + Model.Id,
+        InsertionMode = InsertionMode.Replace,
         OnSuccess = "HideResetModel()"
     };
 }
-<div class="modal fade" id="ExpFullModal" tabindex="-1" role="dialog" aria-labelledby="FullModalLabel"
+<div class="modal fade" id="ExpFullModal-edit" tabindex="-1" role="dialog" aria-labelledby="FullModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content row">
             <div class="modal-header">
-                <h5 class="modal-title" id="FullModalLabel">Add Experience</h5>
+                <h5 class="modal-title" id="FullModalLabel">Edit Experience</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            @using (Ajax.BeginForm("AddWorkExperience", "Profile", opts, new { id = "ModelForm" }))
+            @using (Ajax.BeginForm("EditWorkExperience", "Profile", opts, new { id = "ModelForm" }))
             {
+                @Html.HiddenFor(e => e.Id, new { @class = "expId-edit"});
                 <div class="modal-body" id="exp-modal-body">
                     <div class="form-controls">
                         <div class="form-group">
                             @Html.LabelFor(m => m.Title, new { @class = "required" })
-                            @Html.TextBoxFor(m => m.Title, new { @class = "form-control expTitle" })
+                            @Html.TextBoxFor(m => m.Title, new { @class = "form-control expTitle-edit" })
                             @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
                         </div>
 
@@ -37,36 +38,36 @@
                             Enum.GetValues(typeof(EmploymentType))
                                 .Cast<EmploymentType>()
                                 .Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }),
-                                new { @class = "form-control expEmploymentType" })
-                            
+                                new { @class = "form-control expEmploymentType-edit" })
+
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(m => m.Company)
-                            @Html.TextBoxFor(m => m.Company.Name, new { @class = "form-control expCompanyName" })
+                            @Html.TextBoxFor(m => m.Company.Name, new { @class = "form-control expCompanyName-edit" })
                             @Html.ValidationMessageFor(e => e.Company.Name, "", new { @class = "text-danger" })
 
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(m => m.Location)
-                            @Html.TextBoxFor(m => m.Location, new { @class = "form-control expLocation" })
+                            @Html.TextBoxFor(m => m.Location, new { @class = "form-control expLocation-edit" })
                             @Html.ValidationMessageFor(e => e.Location)
 
 
                         </div>
-                        
+
                         <div class="form-group">
                             @Html.LabelFor(m => m.Description)
-                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control expDescription", @cols = "30", @rows = "4" })
+                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control expDescription-edit", @cols = "30", @rows = "4" })
                             @Html.ValidationMessageFor(m => m.Description)
 
 
                         </div>
                         <div class="form-group">
                             <div>
-                                @Html.CheckBoxFor(m => m.IsPresent, new { @class="expIsPresent", id = "CurrentlyWorking"})
-                               
+                                @Html.CheckBoxFor(m => m.IsPresent, new { @class = "expIsPresent-edit", id = "CurrentlyWorking" })
+
                                 <span>
                                     I am
                                     currently working in this role
@@ -87,7 +88,7 @@
                                                     Text = System.Globalization.CultureInfo.InvariantCulture.DateTimeFormat.GetMonthName(i)
                                                 }),
                                                 "Month",
-                                                new { @class = "form-control expStartMonth" })
+                                                new { @class = "form-control expStartMonth-edit" })
                                             @Html.ValidationMessageFor(m => m.StartMonth, "", new { @class = "text-danger" })
                                         </div>
                                         <div class="col-sm-12">
@@ -99,15 +100,15 @@
                                                                     Text = i.ToString()
                                                                 }),
                                                                 "Year",
-                                                                new { @class = "form-control expStartYear" })
+                                                                new { @class = "form-control expStartYear-edit" })
                                             @Html.ValidationMessageFor(m => m.StartYear, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="" class="required">End Date</label>
-                                    <h4 id="PresentWorkDate">Present</h4>
-                                    <div class="row" id="EndWorkDate">
+                                    <h4 id="PresentWorkDate-exp-edit">Present</h4>
+                                    <div class="row" id="EndWorkDate-exp-edit">
                                         <div class="col-sm-12">
                                             @Html.DropDownListFor(
                                                 model => model.EndMonth,
@@ -118,8 +119,8 @@
                                                     Text = System.Globalization.CultureInfo.InvariantCulture.DateTimeFormat.GetMonthName(i)
                                                 }),
                                                 "Month",
-                                                new { @class = "form-control expEndMonth" })
-                                           @* @Html.ValidationMessageFor(m => m.EndMonth, "", new { @class = "text-danger" })*@
+                                                new { @class = "form-control expEndMonth-edit" })
+                                            @* @Html.ValidationMessageFor(m => m.EndMonth, "", new { @class = "text-danger" })*@
                                         </div>
                                         <div class="col-sm-12">
                                             @Html.DropDownListFor(model => model.EndYear,
@@ -130,9 +131,9 @@
                                                                     Text = i.ToString()
                                                                 }),
                                                                 "Year",
-                                                                new { @class = "form-control expEndYear" })
+                                                                new { @class = "form-control expEndYear-edit" })
 
-                                          @*  @Html.ValidationMessageFor(m => m.EndYear, "", new { @class = "text-danger" })*@
+                                            @*  @Html.ValidationMessageFor(m => m.EndYear, "", new { @class = "text-danger" })*@
                                         </div>
                                     </div>
                                 </div>

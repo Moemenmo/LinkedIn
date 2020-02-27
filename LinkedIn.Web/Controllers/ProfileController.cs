@@ -37,11 +37,17 @@ namespace LinkedIn.Web.Controllers
         public JsonResult GetWorkExp(Guid id)
         {
             WorkExperience workExp = UnitOfWork.WorkExperienceManager.GetById(id);
-            int endMonth = 0, endYear = 0;
-            if(workExp.EndDate != null)
+            string[] startDate = workExp.StartDate.ToString("MMMM dd yyyy").Split(' ');
+            string startMonth = startDate[0];
+            string startYear = startDate[2];
+            string endMonth = "", endYear = "";
+            workExp.IsPresent = true;
+            if (workExp.EndDate != null)
             {
-                endMonth = workExp.EndDate.Value.Month;
-                endYear = workExp.EndDate.Value.Year;
+                string[] endDate = workExp.EndDate.Value.ToString("MMMM dd yyyy").Split(' ');
+                endMonth = endDate[0];
+                endYear = endDate[2];
+                workExp.IsPresent = false;
             }
             return Json(new
             {
@@ -49,12 +55,12 @@ namespace LinkedIn.Web.Controllers
                 EmploymentType = workExp.EmploymentType,
                 Location = workExp.Location,
                 Description = workExp.Description,
-                StartMonth = workExp.StartDate.Month,
-                StartYear = workExp.StartDate.Year,
-               // EndMonth =endMonth,
-                //EndYear = endYear,
+                StartMonth = startMonth,
+                StartYear = startYear,
+                EndMonth = endMonth,
+                EndYear = endYear,
                 IsPresent = workExp.IsPresent
-            }, JsonRequestBehavior.AllowGet);
+            },JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public ActionResult AddWorkExperience(WorkExperienceViewModel workExpVM)
@@ -84,33 +90,37 @@ namespace LinkedIn.Web.Controllers
             return View("Index");
         }
 
-        [HttpGet]
-        public ActionResult EditWorkExperience(Guid id)
-        {
-            WorkExperience wExp = UnitOfWork.WorkExperienceManager.GetById(id);
-          
-            WorkExperienceViewModel wExpVM = new WorkExperienceViewModel
-            {
-                //  UserId = User.Identity.GetUserId(),
-                Title = wExp.Title,
-                Location = wExp.Location,
-                Description = wExp.Description,
-                EmploymentType = wExp.EmploymentType,
-                // CompanyId = wExp.Company.Id,
-                //  StartDate = new DateTime(wExp.StartYear, wExp.StartMonth, 1)
-
-            };
-            return PartialView("_Experience",wExpVM);
-
-        }
         [HttpPost]
-        public ActionResult EditWorkExperience(WorkExperience wExp)
+        public ActionResult EditWorkExperience(WorkExperienceViewModel workExpVM)
         {
-            UnitOfWork.WorkExperienceManager.Update(wExp);
-            ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
-            return RedirectToAction("index", user);
+            if (ModelState.IsValid)
+            {
+                workExpVM.Company.PlaceType = PlaceType.Company;
+                UnitOfWork.SavedPlaceManager.Add(workExpVM.Company);
+                WorkExperience workExp = new WorkExperience
+                {
+                    Id = workExpVM.Id,
+                    UserId = User.Identity.GetUserId(),
+                    Title = workExpVM.Title,
+                    Location = workExpVM.Location,
+                    Description = workExpVM.Description,
+                    EmploymentType = workExpVM.EmploymentType,
+                    CompanyId = workExpVM.Company.Id,
+                    StartDate = new DateTime(workExpVM.StartYear, workExpVM.StartMonth, 1)
+                };
+                if (workExpVM.EndMonth != null && workExpVM.EndYear != null)
+                {
+                    workExp.EndDate = new DateTime((int)workExpVM.EndYear, (int)workExpVM.EndMonth, 1);
+                }
 
+                UnitOfWork.WorkExperienceManager.Update(workExp);
+                return PartialView("__AddExperienceCard", workExp);
+            }
+
+            return View("Index");
         }
+
+    
         public ActionResult DeleteExperience(Guid id)
         {
             var w = UnitOfWork.WorkExperienceManager.GetAll();
