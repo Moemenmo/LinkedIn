@@ -9,7 +9,12 @@
 
 
 }
+<style>
+    .active{
+        color:blue;
 
+    }
+</style>
 <div class="comment-sec pl-5">
     <!--Comment-->
     <div class="row ">
@@ -47,7 +52,8 @@
         <div class="col-sm-6 ml-5 ">
             <div class="card comment-bar ">
                 <div class="card-body pt-1">
-                    <i class="far fa-thumbs-up pr-2 comment-like"></i>
+                    <div id="likeComm">@Model.Likes.Count</div>
+                    <i class="far fa-thumbs-up pr-2 comment-like" onclick="LikeComment('@Model.Id')"></i>
                     <span class="line"><span class="font-weight-light likes-no">.1 Like</span> </span>
                     <i class="far fa-comment-alt pl-3"></i>
                 </div>
@@ -56,3 +62,22 @@
     </div>
     <!--End React-->
 </div>
+<script>
+    function LikeComment(commId) {
+        console.log(commId);
+      
+
+        $.ajax({
+            method: "GET",
+            data: { commId: commId },
+            url: '/NewsFeed/LikeComment',
+            contentType: "application/json",
+            dataType: "json",
+          
+
+        });
+        $("#likeComm").innerHTML=@Model.Likes.Count;
+        $(".comment-like").classList.toggle('active');
+
+    }
+</script>

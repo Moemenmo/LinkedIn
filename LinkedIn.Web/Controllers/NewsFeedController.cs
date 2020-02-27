@@ -125,12 +125,7 @@ namespace LinkedIn.Web.Controllers
             //    Date = DateTime.Now
             //}, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult Like(Guid id)
-        {
-            var postManager = UnitOfWork.PostManager;
-           
-            return PartialView("_PostBody");
-        }
+    
     [HttpGet]
     public ActionResult Like(string postId)
     {
@@ -142,6 +137,18 @@ namespace LinkedIn.Web.Controllers
         UnitOfWork.PostManager.Update(post);
         return RedirectToAction("index", user);
     }
+        
+               [HttpGet]
+    public ActionResult LikeComment(string commId)
+        {
+            var comments = UnitOfWork.CommentManager.GetAll();
+            Guid id = Guid.Parse(commId);
+            var comment = comments.FirstOrDefault(p => p.Id == id);
+            ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
+            comment.Likes.Add(user);
+            UnitOfWork.CommentManager.Update(comment);
+            return RedirectToAction("index", user);
+        }
     }
 
 
