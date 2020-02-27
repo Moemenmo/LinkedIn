@@ -167,7 +167,7 @@ namespace LinkedIn.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                string pic = "";
+                //string pic = "";
                 string path = null;
                 if (imgFile != null)
                 {
