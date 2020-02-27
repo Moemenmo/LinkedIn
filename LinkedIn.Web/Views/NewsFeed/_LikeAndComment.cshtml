@@ -1,4 +1,4 @@
-﻿<div class="post-footer card-footer" style="display: flex;" id="comments@(Model.Id)">
+﻿﻿<div class="post-footer card-footer" style="display: flex;" id="comments@(Model.Id)">
     <div class="post-footer-action">
         <div class="post-footer-like">
 
@@ -8,9 +8,21 @@
                               <i class="fas fa-heart  " id="reaction"></i>&nbsp;
                               <i class="fab fa-free-code-camp  " id="reaction"></i>&nbsp;
                               <i class="far fa-angry  " id="reaction"></i>'
+﻿@model Post
+<div class="post-footer card-footer" style="display: flex;">
+  <div id="like">@Model.Likes.Count</div>  
+    <div class="post-footer-action">
+        <div class="post-footer-like">
 
-                    <i class="far fa-thumbs-up container__Sign reaction-sign"></i>  like
-                </button>
+            <button onclick="LikeIt('@Model.Id')" class="btn btn-light reactions-container btn-lg btn btn-secondary" data-animation="true" data-html="true" data-placement="top" data-toggle="popover" data-trigger="hover focus">
+
+                 <i class="far fa-thumbs-up container__Sign reaction-sign"></i>  like
+             </button>
+            @*data-content='<i class="far fa-thumbs-up " id="reaction"></i>&nbsp;
+            <i class="fas fa-praying-hands " id="reaction"></i>&nbsp;
+            <i class="fas fa-heart  " id="reaction"></i>&nbsp;
+            <i class="fab fa-free-code-camp  " id="reaction"></i>&nbsp;
+            <i class="far fa-angry  " id="reaction"></i>*@
         </div>
         &nbsp;
         <div>
@@ -40,3 +52,24 @@
 
 
 </div>
+<script>
+    function LikeIt(postId) {
+        console.log(postId);
+        document.getElementById('like').innerHTML=@Model.Likes.Count;
+
+        $.ajax({
+            method: "GET",
+            data: { postId: postId },
+            url: '/NewsFeed/Like',
+            contentType: "application/json",
+            dataType: "json",
+            success: function (response) {
+                console.log("success");
+                console.log(response.postId);
+
+            },
+
+        });
+
+    }
+</script>

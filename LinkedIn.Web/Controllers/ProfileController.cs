@@ -2,6 +2,7 @@
 using Linkedin.Models.Enum;
 using LinkedIn.Core;
 using LinkedIn.Core.Managers;
+using LinkedIn.Web.Models;
 using LinkedIn.Web.Models.ProfileViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -28,11 +29,44 @@ namespace LinkedIn.Web.Controllers
             System.Web.HttpContext.Current.User.Identity.GetUserId();
         }
         // GET: Profile
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
-            ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
-            return View(user);
+            ApplicationUser user;
+            var userManager = UnitOfWork.ApplicationUserManager;
+            var connections = userManager.GetAllConnections(User.Identity.GetUserId());
+            var requests = userManager.GetRequestUsers(User.Identity.GetUserId());
+            if (id == null)
+            {
+                user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
+            }
+            else
+            {
+                user = UnitOfWork.ApplicationUserManager.FindById(id);
+            }
+            UserSearchViewModel userVM = new UserSearchViewModel();
+            if (connections.Contains(user))
+            {
+                userVM.User = user;
+                userVM.UserType = UserType.Connected;
+            }
+            else if (user.Requests.Contains(user))
+            {
+                userVM.User = user;
+                userVM.UserType = UserType.requested;
+            }
+            else if (requests.Contains(user))
+            {
+                userVM.User = user;
+                userVM.UserType = UserType.pending;
+            }
+            else
+            {
+                userVM.User = user;
+                userVM.UserType = UserType.noConnection;
+            }
+            return View(userVM);
         }
+
         [HttpGet]
         public JsonResult GetWorkExp(Guid id)
         {
@@ -119,6 +153,6 @@ namespace LinkedIn.Web.Controllers
             UnitOfWork.WorkExperienceManager.Delete(wExp);
             return RedirectToAction("index");
         }
-
+     
     }
 }
