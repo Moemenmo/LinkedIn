@@ -129,19 +129,19 @@ namespace LinkedIn.Web.Controllers
            
             return PartialView("_PostBody");
         }
+    [HttpGet]
+    public ActionResult Like(string postId)
+    {
+        var posts = UnitOfWork.PostManager.GetAll();
+        Guid id = Guid.Parse(postId);
+        var post = posts.FirstOrDefault(p => p.Id == id);
+        ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
+        post.Likes.Add(user);
+        UnitOfWork.PostManager.Update(post);
+        return RedirectToAction("index", user);
     }
-        //[HttpGet]
-        //public ActionResult Like(string postId)
-        //{
-        //    var posts = UnitOfWork.PostManager.GetAll();
-        //    Guid id=Guid.Parse(postId);
-        //    var post = posts.FirstOrDefault(p => p.Id == id);
-        //    ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
-        //    post.Likes.Add( user);
-        //    UnitOfWork.PostManager.Update(post);
-        //    return RedirectToAction("index",user);
-        //}
-        
+    }
 
-    } 
+
+} 
 
