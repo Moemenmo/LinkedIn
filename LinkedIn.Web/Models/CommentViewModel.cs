@@ -5,12 +5,9 @@ using System.Web;
 
 namespace LinkedIn.Web.Models
 {
-    public enum UserType
+    public class CommentViewModel
     {
-        pending,
-        Connected,
-        requested,
-        noConnection
-
+        public string Content { get; set; }
+        public Guid PostId { get; set; }
     }
 }

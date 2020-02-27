@@ -42,11 +42,19 @@ namespace LinkedIn.Web.Controllers
             PostViewModel postVM = new PostViewModel();
             if (postVM.User.Posts != null)
             {
+                foreach (var post in postVM.User.Posts)
+                {
+                    post.Comments = post.Comments.OrderBy(d => Convert.ToDateTime(d.Date)).ToList();
+                }
                 darft.AddRange(postVM.User.Posts);
             }
 
             foreach (var item in userManager.GetAllConnections(User.Identity.GetUserId().ToString()))
             {
+                foreach (var post in item.Posts)
+                {
+                    post.Comments = post.Comments.OrderBy(d => Convert.ToDateTime(d.Date)).ToList();
+                }
                 darft.AddRange(item.Posts);
             }
             //postVM.PagePosts.OrderBy(e => e.Date.Year)
@@ -87,6 +95,41 @@ namespace LinkedIn.Web.Controllers
             PostViewModel postVM = new PostViewModel();
             return View("Index", postVM);
         }
+
+        [HttpPost]
+        public ActionResult AddComment(CommentViewModel commentVM)
+        {
+            if(commentVM.Content.Length > 0)
+            {
+                string userId = User.Identity.GetUserId();
+                var user = UnitOfWork.ApplicationUserManager.FindById(userId);
+                Comment comment = new Comment
+                                  {
+                                        Content = commentVM.Content,
+                                        Date = DateTime.Now,
+                                        PostId = commentVM.PostId,
+                                        AuthorId = userId
+                                   };
+
+
+                UnitOfWork.CommentManager.Add(comment);
+                return PartialView("_Comment", comment);
+            }
+            return null;
+            //return Json(new
+            //{
+            //    AuthorName = (user.FirstName + " " + user.LastName),
+            //    CommentContent = CommentContent,
+            //    Date = DateTime.Now
+            //}, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Like(Guid id)
+        {
+            var postManager = UnitOfWork.PostManager;
+           
+            return PartialView("_PostBody");
+        }
+    }
         [HttpGet]
         public ActionResult Like(string postId)
         {
