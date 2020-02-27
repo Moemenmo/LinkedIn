@@ -96,7 +96,7 @@ table {
       display: flex; }
       .search-ul li .search-result__img {
         margin: 2px 16px 15px 25px; }
-        .search-ul li .search-result__img a {
+        .search-ul li .search-result__img img {
           display: block;
           width: 52px;
           height: 52px;
