@@ -83,7 +83,7 @@ namespace LinkedIn.Web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToAction("Index", "Profile");
+                    return RedirectToAction("Index", "NewsFeed");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

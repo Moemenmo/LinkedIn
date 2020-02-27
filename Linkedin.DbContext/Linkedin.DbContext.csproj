@@ -80,6 +80,7 @@
     <Compile Include="Migrations\202002211249382_RemoveRequiredInPost.cs" />
     <Compile Include="Migrations\202002211249382_RemoveRequiredInPost.designer.cs">
       <DependentUpon>202002211249382_RemoveRequiredInPost.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202002211111070_AddEmpTypeInWorkExperience.cs" />
     <Compile Include="Migrations\202002211111070_AddEmpTypeInWorkExperience.designer.cs">
       <DependentUpon>202002211111070_AddEmpTypeInWorkExperience.cs</DependentUpon>
@@ -103,6 +104,7 @@
     <Compile Include="Migrations\202002262102551_testit.cs" />
     <Compile Include="Migrations\202002262102551_testit.designer.cs">
       <DependentUpon>202002262102551_testit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202002270710428_mariam-mshFahma7agabsOkay.cs" />
     <Compile Include="Migrations\202002270710428_mariam-mshFahma7agabsOkay.designer.cs">
       <DependentUpon>202002270710428_mariam-mshFahma7agabsOkay.cs</DependentUpon>
@@ -141,6 +143,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002211249382_RemoveRequiredInPost.resx">
       <DependentUpon>202002211249382_RemoveRequiredInPost.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002211111070_AddEmpTypeInWorkExperience.resx">
       <DependentUpon>202002211111070_AddEmpTypeInWorkExperience.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +161,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002262102551_testit.resx">
       <DependentUpon>202002262102551_testit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002270710428_mariam-mshFahma7agabsOkay.resx">
       <DependentUpon>202002270710428_mariam-mshFahma7agabsOkay.cs</DependentUpon>
     </EmbeddedResource>
