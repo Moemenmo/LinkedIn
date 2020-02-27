@@ -1,34 +1,27 @@
 ﻿@model Post
-    @if (Model.SharedPostId!=null)
-    {
-        @Html.Partial("_SharedPost")
-    }
+@if (Model.SharedPostId != null)
+{
+    @Html.Partial("_SharedPost")
+}
 
-    <div class="card post shadow mb-4" id="@Model.Id">
-            <div class="card-body post-body ">
-                <div class="card post ">
-                    <div class="post-header card-header">
-                        <img class="post-profile-img" src="@Model.Author.ProfilePicURL">
-                        <div class="post-header-creator-info">
-                            <h6>@Model.Author.FirstName @Model.Author.LastName</h6>
-                            <small class="text-muted">@Model.Author.Indstry</small>
-                            <small class="text-muted">Add at @Model.Date.Day</small>
-                        </div>
-                    </div>
-                    <div class="post-body card-body">
-
-                        <p class="card-text">@Model.Status @Model.Date.Year @Model.Date.Month @Model.Date.Day @Model.Date.TimeOfDay</p>
-                    </div>
-                    @if (Model.ImageUrl != null)
-            {
-                        <img class="card-img-top" src=@Model.ImageUrl alt="Card image cap">
-                    }
+<div class="card post shadow mb-4" id="@Model.Id">
+    <div class="post-header card-header">
+        @if (@Model.Author.ProfilePicURL != null)
+        {
+            <img class="post-profile-img" src="@Model.Author.ProfilePicURL">
+        }
+        else
+        {
+            <img class="mypost-profilepic" src="~/images/defaultImage.png" alt="Card image cap">
+        }
+        <div class="post-header-creator-info">
+            <h6>@Model.Author.FirstName @Model.Author.LastName</h6>
+            <small class="text-muted">@Model.Author.Indstry</small>
+            <small class="text-muted">Add at @Model.Date.Day</small>
+        </div>
+    </div>
 
 
-                </div>
-            </div>
-            @*number of likes and comments*@
-            <div class="post-status">
 
     <div class="post-body card-body">
         <div class="card post">
