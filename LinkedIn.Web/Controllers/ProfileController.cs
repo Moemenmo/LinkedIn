@@ -54,8 +54,7 @@ namespace LinkedIn.Web.Controllers
                // EndMonth =endMonth,
                 //EndYear = endYear,
                 IsPresent = workExp.IsPresent
-            }, 
-           JsonRequestBehavior.AllowGet);
+            }, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public ActionResult AddWorkExperience(WorkExperienceViewModel workExpVM)

@@ -1,5 +1,17 @@
 ﻿@model Linkedin.Models.Entites.WorkExperience
-
+@{ 
+    string[] endDate;
+    string startMonth = "", startYear = "", endMonth ="", endYear="";
+    string[] startDate = Model.StartDate.ToString("MMM dd yyyy").Split(' ');
+    startMonth = startDate[0];
+    startYear = startDate[2];
+    if (Model.EndDate != null)
+    {
+        endDate = Model.EndDate.Value.ToString("MMM dd yyyy").Split(' ');
+        endMonth = endDate[0];
+        endYear = endDate[2];
+    }
+}
 <div id="@Model.Id" class="background__hide-icon media row py-3 ">
     <div class="col-sm-1">
         <img src="~/images/itiLogo.png" class="align-self-start background__img" />
@@ -13,15 +25,15 @@
         </a>
         <p class="mb-0 d-inline ">. @Model.EmploymentType </p>
         <br />
-        <p class="mb-0 d-inline text-muted">@Model.StartDate.Month.ToString("MMM")@Model.StartDate.Year</p>
+        <p class="mb-0 d-inline text-muted">@startMonth @startYear</p>
         @{
-            if (Model.EndDate== null)
+            if (Model.EndDate == null)
             {
                 <p class="mb-0 d-inline text-muted">- Present</p>
             }
             else
             {
-                <p class="mb-0 d-inline text-muted">- @Model.EndDate.Value.Month.ToString("MMM")@Model.EndDate.Value.Year</p>
+                <p class="mb-0 d-inline text-muted">- @endMonth @endYear</p>
             }
         }
 
