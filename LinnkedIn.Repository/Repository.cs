@@ -49,5 +49,10 @@ namespace LinkedIn.Repository
             context.Entry(entity).State = EntityState.Deleted;
             return context.SaveChanges() > 0;
         }
+
+        public void Dispose()
+        {
+            
+        }
     }
 }

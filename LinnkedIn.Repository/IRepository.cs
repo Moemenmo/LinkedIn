@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LinkedIn.Repository
 {
-    public interface IRepository<TEntity>
+    public interface IRepository<TEntity>: IDisposable
     {
         IQueryable<TEntity> GetAll();
         List<TEntity> GetAllBind();

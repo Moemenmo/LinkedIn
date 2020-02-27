@@ -3,6 +3,7 @@
     {
         @Html.Partial("_SharedPost")
     }
+
     <div class="card post shadow mb-4" id="@Model.Id">
             <div class="card-body post-body ">
                 <div class="card post ">
@@ -29,13 +30,34 @@
             @*number of likes and comments*@
             <div class="post-status">
 
-                <p class="card-text">
-                    <small class="text-muted">
-                        <small class="text-muted" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="far fa-thumbs-up"></i>&nbsp;<i class="far fa-comments"></i>&nbsp;<i class="fas fa-share"></i>@Model.Likes.Count</small>
-                        <small class="text-muted">@Model.Comments.Count</small>
-                    </small>
-                </p>
-
+    <div class="post-body card-body">
+        <div class="card post">
+            <div class="post-body card-body">
+                <p class="card-text">@Model.Status @Model.Date.Year @Model.Date.Month @Model.Date.Day @Model.Date.TimeOfDay</p>
             </div>
-            @Html.Partial("_LikeAndComment")
         </div>
+
+
+        @if (Model.ImageUrl != null)
+        {
+            <img class="card-img-top" src="@Url.Content(Model.ImageUrl) " alt="Card image cap">
+        }
+
+
+    </div>
+
+
+    @*number of likes and comments*@
+    @*<div class="post-status">
+
+            <p class="card-text">
+                <small class="text-muted">
+                    <small class="text-muted" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="far fa-thumbs-up"></i>&nbsp;<i class="far fa-comments"></i>&nbsp;<i class="fas fa-share"></i>@Model.Likes.Count</small>
+                    <small class="text-muted">@Model.Comments.Count</small>
+                </small>
+            </p>
+
+        </div>*@
+    @Html.Partial("_LikeAndComment")
+</div>
+

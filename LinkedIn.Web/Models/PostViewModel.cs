@@ -18,7 +18,7 @@ namespace LinkedIn.Web.Models
         public string Status { get; set; }
         [DataType(DataType.ImageUrl)]
         [ImgValidation("JPG,JPEG,PNG")]
-        public IEnumerable<HttpPostedFileBase> ImageUrl { get; set; }
+        public IEnumerable<HttpPostedFileBase> imgFile { get; set; }
         public string AuthorId { get; set; }
         public virtual ApplicationUser Author { get; set; }
         public virtual ICollection<ApplicationUser> Likes { get; set; }
