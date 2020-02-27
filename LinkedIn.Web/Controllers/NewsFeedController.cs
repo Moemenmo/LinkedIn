@@ -87,5 +87,13 @@ namespace LinkedIn.Web.Controllers
             PostViewModel postVM = new PostViewModel();
             return View("Index", postVM);
         }
+        public ActionResult Like(Guid id)
+        {
+            var post = UnitOfWork.PostManager.GetById(id);
+            ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
+
+            post.Likes.Add(user);
+            return View("index");
+        }
     }
 }
