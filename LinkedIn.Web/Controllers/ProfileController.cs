@@ -36,9 +36,26 @@ namespace LinkedIn.Web.Controllers
         [HttpGet]
         public JsonResult GetWorkExp(Guid id)
         {
-            var workExp = UnitOfWork.WorkExperienceManager.GetById(id);
-            string s = "eshta";
-            return Json(s, JsonRequestBehavior.AllowGet);
+            WorkExperience workExp = UnitOfWork.WorkExperienceManager.GetById(id);
+            int endMonth = 0, endYear = 0;
+            if(workExp.EndDate != null)
+            {
+                endMonth = workExp.EndDate.Value.Month;
+                endYear = workExp.EndDate.Value.Year;
+            }
+            return Json(new
+            {
+                Title = workExp.Title,
+                EmploymentType = workExp.EmploymentType,
+                Location = workExp.Location,
+                Description = workExp.Description,
+                StartMonth = workExp.StartDate.Month,
+                StartYear = workExp.StartDate.Year,
+               // EndMonth =endMonth,
+                //EndYear = endYear,
+                IsPresent = workExp.IsPresent
+            }, 
+           JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public ActionResult AddWorkExperience(WorkExperienceViewModel workExpVM)

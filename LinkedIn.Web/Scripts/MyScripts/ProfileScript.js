@@ -16,11 +16,17 @@ function EditExp(expId){
         url: 'Profile/GetWorkExp',
         contentType: "application/json",
         dataType: "json",
-        success: function (data) {
-            console.log(data);
+        success: function (response) {
+            console.log("success");
+            console.log(response.Title);
+            console.log(response.EmploymentType);
+            console.log(response.Location);
+            console.log(response.Description);
+            console.log(response.StartMonth);
+            console.log(response.StartYear);
         },
-        error: function () {
-            console.log('error');
+        error: function (response) {
+            console.log('error = ' + response.responseText);
         }
     })
 }
