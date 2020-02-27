@@ -13,6 +13,8 @@ using System.Web.Mvc;
 
 namespace LinkedIn.Web.Controllers
 {
+    [Authorize]
+
     public class NewsFeedController : Controller
     {
 
