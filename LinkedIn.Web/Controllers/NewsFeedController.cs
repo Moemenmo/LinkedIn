@@ -130,4 +130,26 @@ namespace LinkedIn.Web.Controllers
             return PartialView("_PostBody");
         }
     }
+        [HttpGet]
+        public ActionResult Like(string postId)
+        {
+            var posts = UnitOfWork.PostManager.GetAll();
+            Guid id=Guid.Parse(postId);
+            var post = posts.FirstOrDefault(p => p.Id == id);
+            ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
+            post.Likes.Add( user);
+            UnitOfWork.PostManager.Update(post);
+            return RedirectToAction("index",user);
+        }
+        
+        //public JsonResult GetLike(string postId)
+        //{
+        //    var post = UnitOfWork.PostManager.GetById(postId);
+        //    ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
+
+        //    post.Likes.Add(user);
+
+        //    return Json(new{ },JsonRequestBehavior.AllowGet);
+        //}
+    } 
 }

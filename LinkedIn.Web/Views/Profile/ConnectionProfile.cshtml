@@ -1,10 +1,4 @@
-﻿@model UserSearchViewModel 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-
-
+﻿@model Linkedin.Models.Entites.ApplicationUser
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +13,6 @@
 </head>
 
 <body>
-
     <!-- Profile Header Section -->
     <section class="p-3" id="ProfileSummary">
         <div class="container u-border">
@@ -28,9 +21,9 @@
                 <div class="col-sm-12 profile-imgs">
                     <!--profile img -->
                     <div class="position-absolute profile-img">
-                        @if (Model.User.ProfilePicURL != null)
+                        @if (Model.ProfilePicURL != null)
                         {
-                            <img src="@Url.Content(Model.User.ProfilePicURL)" class="rounded-circle">
+                            <img src="@Url.Content(Model.ProfilePicURL)" class="rounded-circle">
                         }
                         else
                         {
@@ -44,317 +37,281 @@
                     <div class="row pt-sm-3 pb-sm-3">
                         <div class="col-sm-6 offset-6 dropdown">
                             <div class="d-flex justify-content-end align-items-center edit-profile">
-
-                                @if (Model.User.Email == User.Identity.Name)
-                                {
-                                    <div class="p-2">
-                                        <a role="button" href="#" class="dropdown-toggle btn-primary btn-lg add-section"
-                                           id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Add Profile Section <!-- <i class="fas fa-sort-down"></i> -->
-                                        </a>
-                                        <!-- Add Profile Section Modal -->
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                            <!-- Add Profile Section form -->
-                                            <form class="accordion list " id="accordionExample">
-                                                <!-- intro card -->
-                                                <div class="card">
-                                                    <div class="card-header" id="headingOne">
-                                                        <h2 class="mb-0">
-                                                            <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                                               aria-expanded="true" aria-controls="collapseOne">
-                                                                <span class="card-title"> Intro</span>
-                                                            </a>
-                                                        </h2>
+                                <div class="p-2">
+                                    <a role="button" href="#" class="dropdown-toggle btn-primary btn-lg add-section"
+                                       id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Add Profile Section <!-- <i class="fas fa-sort-down"></i> -->
+                                    </a>
+                                    <!-- Add Profile Section Modal -->
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <!-- Add Profile Section form -->
+                                        <form class="accordion list " id="accordionExample">
+                                            <!-- intro card -->
+                                            <div class="card">
+                                                <div class="card-header" id="headingOne">
+                                                    <h2 class="mb-0">
+                                                        <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                                           aria-expanded="true" aria-controls="collapseOne">
+                                                            <span class="card-title"> Intro</span>
+                                                        </a>
+                                                    </h2>
+                                                </div>
+                                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                                     data-parent="#accordionExample">
+                                                    <div class="card-body">
+                                                        <div>
+                                                            <p class="font-weight-normal">
+                                                                Help the right people find you by showing what opportunities
+                                                                you’re open to.
+                                                            </p>
+                                                        </div>
+                                                        <div style="display: flex; align-items: center; font-size: 2rem;">
+                                                            <i class="fab fa-stumbleupon-circle p-2"></i>
+                                                            <p class="p-2 font-weight-light">
+                                                                Looking for job opportunities Show recruiters and others
+                                                                you’re open to job opportunities.
+                                                            </p>
+                                                            <a> <i class="far fa-plus-square p-2"></i></a>
+                                                        </div>
                                                     </div>
-                                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                                         data-parent="#accordionExample">
-                                                        <div class="card-body">
-                                                            <div>
-                                                                <p class="font-weight-normal">
-                                                                    Help the right people find you by showing what opportunities
-                                                                    you’re open to.
+                                                </div>
+                                            </div>
+                                            <!-- About card -->
+                                            <div class="card">
+                                                <div class="card-header d-flex justify-content-between " id="headingTwo">
+                                                    <!-- <h2 class="mb-0 justify-content-between "> -->
+                                                    <div class="p-2">
+                                                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
+                                                           data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                            About
+                                                        </a>
+                                                    </div>
+                                                    <div class="p-2" style="margin: auto 0;">
+                                                        <i class="fas fa-chevron-down"></i>
+                                                    </div>
+                                                    <!-- </h2> -->
+                                                </div>
+                                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                                     data-parent="#accordionExample">
+                                                    <div class="card-body">
+
+                                                        <div style="display: flex; align-items: center; font-size: 2rem;">
+                                                            <i class="fas fa-indent"></i>
+                                                            <div class="d-block">
+                                                                <p>Education</p>
+                                                                <p class="font-weight-lighter p-0 m-0">
+                                                                    Use summary to share what you do or the opportunities you’re looking for.
                                                                 </p>
                                                             </div>
-                                                            <div style="display: flex; align-items: center; font-size: 2rem;">
-                                                                <i class="fab fa-stumbleupon-circle p-2"></i>
-                                                                <p class="p-2 font-weight-light">
-                                                                    Looking for job opportunities Show recruiters and others
-                                                                    you’re open to job opportunities.
+                                                            <a> <i class="far fa-plus-square p-2"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Background card -->
+                                            <div class="card">
+                                                <div class="card-header" id="headingThree">
+                                                    <h2 class="mb-0">
+                                                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
+                                                           data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                            Background
+                                                        </a>
+                                                    </h2>
+                                                </div>
+                                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                                     data-parent="#accordionExample">
+                                                    <div class="card-body" style="font-size: 2rem;">
+                                                        <a class="work text-reset" href="#">
+                                                            <div class="d-flex m-auto p-2">
+                                                                <div class="p-2" style="display: flex; align-items: center;">
+                                                                    <i class="fas fa-briefcase" style="margin-right: 1rem;"></i>
+                                                                    <div class="d-block">
+                                                                        <p class="font-weight-light p-0 m-0">3 positions on your profile.</p>
+                                                                        <p>Work experience</p>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="p-2" style="margin: auto 0;">
+                                                                    <i class="far fa-plus-square"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="education text-reset " href="# ">
+                                                            <div class="d-flex m-auto p-2">
+                                                                <div class="p-2" style="display: flex; align-items: center; ">
+                                                                    <i class="fas fa-university" style="margin-right: 1rem;"></i>
+                                                                    <div class="d-block">
+                                                                        <p>Education</p>
+                                                                        <p class="font-weight-lighter p-0 m-0">1 school in your profile.</p>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="p-2" style="margin: auto 0;">
+                                                                    <i class="far fa-plus-square"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="licenses  text-reset" href="# ">
+                                                            <div class="d-flex m-auto p-2">
+
+                                                                <div class="p-2" style="display: flex; align-items: center; ">
+
+                                                                    <i class="fas fa-pager" style="margin-right: 1rem;"></i>
+                                                                    <div class="d-block">
+                                                                        <p>Licenses & Certifications</p>
+                                                                        <p class="font-weight-light p-0 m-0">
+                                                                            Showcase your expertise with your credentials.
+                                                                        </p>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="p-2" style="margin: auto 0;">
+                                                                    <i class="far fa-plus-square"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+
+                                                        <a class="volunteer  text-reset" href="# ">
+                                                            <div class="d-flex j m-auto p-2">
+                                                                <div class="p-2" style="display: flex; align-items: center; ">
+                                                                    <i class="far fa-heart" style="margin-right: 1rem;"></i>
+                                                                    <div class="d-block">
+                                                                        <p class="font-weight-light p-0 m-0">3 positions on your profile.</p>
+                                                                        <p>Work experience</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="p-2" style="margin: auto 0;">
+                                                                    <i class="far fa-plus-square"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- skills card -->
+                                            <div class="card">
+                                                <div class="card-header d-flex justify-content-between " id="headingFour">
+                                                    <!-- <h2 class="mb-0 justify-content-between "> -->
+                                                    <div class="p-2">
+                                                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
+                                                           data-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
+                                                            Skills
+                                                        </a>
+                                                    </div>
+                                                    <div class="p-2" style="margin: auto 0;">
+                                                        <i class="fas fa-chevron-down "></i>
+                                                    </div>
+                                                    <!-- </h2> -->
+                                                </div>
+                                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                                     data-parent="#accordionExample">
+                                                    <div class="card-body">
+
+                                                        <div style="display: flex; justify-content:space-between; align-items: center; font-size: 2rem;">
+                                                            <i class="fas fa-medal"></i>
+                                                            <div class="d-block">
+                                                                <p class="font-weight-bold">Slills</p>
+                                                                <p class="font-weight-lighter p-0 m-0">
+                                                                    11 skills on your profile.
                                                                 </p>
-                                                                <a> <i class="far fa-plus-square p-2"></i></a>
+                                                            </div>
+                                                            <div class="p-2" style="margin: auto 0;">
+                                                                <i class="far fa-plus-square"></i>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- About card -->
-                                                <div class="card">
-                                                    <div class="card-header d-flex justify-content-between " id="headingTwo">
-                                                        <!-- <h2 class="mb-0 justify-content-between "> -->
-                                                        <div class="p-2">
-                                                            <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
-                                                               data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                                About
-                                                            </a>
-                                                        </div>
-                                                        <div class="p-2" style="margin: auto 0;">
-                                                            <i class="fas fa-chevron-down"></i>
-                                                        </div>
-                                                        <!-- </h2> -->
+                                            </div>
+                                            <!-- accomplishment -->
+                                            <div class="card">
+                                                <div class="card-header d-flex justify-content-between " id="headingFive">
+                                                    <!-- <h2 class="mb-0 justify-content-between "> -->
+                                                    <div class="p-2">
+                                                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
+                                                           data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                            Acccomplishment
+                                                        </a>
                                                     </div>
-                                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                                         data-parent="#accordionExample">
-                                                        <div class="card-body">
-
-                                                            <div style="display: flex; align-items: center; font-size: 2rem;">
-                                                                <i class="fas fa-indent"></i>
-                                                                <div class="d-block">
-                                                                    <p>Education</p>
-                                                                    <p class="font-weight-lighter p-0 m-0">
-                                                                        Use summary to share what you do or the opportunities you’re looking for.
-                                                                    </p>
-                                                                </div>
-                                                                <a> <i class="far fa-plus-square p-2"></i></a>
+                                                    <div class="p-2" style="margin: auto 0;">
+                                                        <i class="fas fa-chevron-down "></i>
+                                                    </div>
+                                                    <!-- </h2> -->
+                                                </div>
+                                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+                                                     data-parent="#accordionExample">
+                                                    <div class="card-body">
+                                                        <p class="font-weight-bold">Additional Information</p>
+                                                        <div style="display: flex; justify-content:space-between; align-items: center; font-size: 2rem;">
+                                                            <i class="fas fa-medal"></i>
+                                                            <div class="d-block">
+                                                                <p>Request & Recommendation</p>
+                                                                <p class="font-weight-lighter p-0 m-0">
+                                                                    Ask your connections to write you a recommendation.
+                                                                </p>
+                                                            </div>
+                                                            <div class="p-2" style="margin: auto 0;">
+                                                                <i class="far fa-plus-square"></i>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- Background card -->
-                                                <div class="card">
-                                                    <div class="card-header" id="headingThree">
-                                                        <h2 class="mb-0">
-                                                            <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
-                                                               data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                                Background
-                                                            </a>
-                                                        </h2>
+                                            </div>
+                                            <!-- Supported language -->
+                                            <div class="card">
+                                                <div class="card-header d-flex justify-content-between " id="headingSix">
+                                                    <!-- <h2 class="mb-0 justify-content-between "> -->
+                                                    <div class="p-2">
+                                                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
+                                                           data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                                            Supported & Language
+                                                        </a>
                                                     </div>
-                                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                                         data-parent="#accordionExample">
-                                                        <div class="card-body" style="font-size: 2rem;">
-                                                            <a class="work text-reset" href="#">
-                                                                <div class="d-flex m-auto p-2">
-                                                                    <div class="p-2" style="display: flex; align-items: center;">
-                                                                        <i class="fas fa-briefcase" style="margin-right: 1rem;"></i>
-                                                                        <div class="d-block">
-                                                                            <p class="font-weight-light p-0 m-0">3 positions on your profile.</p>
-                                                                            <p>Work experience</p>
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="p-2" style="margin: auto 0;">
-                                                                        <i class="far fa-plus-square"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a class="education text-reset " href="# ">
-                                                                <div class="d-flex m-auto p-2">
-                                                                    <div class="p-2" style="display: flex; align-items: center; ">
-                                                                        <i class="fas fa-university" style="margin-right: 1rem;"></i>
-                                                                        <div class="d-block">
-                                                                            <p>Education</p>
-                                                                            <p class="font-weight-lighter p-0 m-0">1 school in your profile.</p>
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="p-2" style="margin: auto 0;">
-                                                                        <i class="far fa-plus-square"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a class="licenses  text-reset" href="# ">
-                                                                <div class="d-flex m-auto p-2">
-
-                                                                    <div class="p-2" style="display: flex; align-items: center; ">
-
-                                                                        <i class="fas fa-pager" style="margin-right: 1rem;"></i>
-                                                                        <div class="d-block">
-                                                                            <p>Licenses & Certifications</p>
-                                                                            <p class="font-weight-light p-0 m-0">
-                                                                                Showcase your expertise with your credentials.
-                                                                            </p>
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="p-2" style="margin: auto 0;">
-                                                                        <i class="far fa-plus-square"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-
-                                                            <a class="volunteer  text-reset" href="# ">
-                                                                <div class="d-flex j m-auto p-2">
-                                                                    <div class="p-2" style="display: flex; align-items: center; ">
-                                                                        <i class="far fa-heart" style="margin-right: 1rem;"></i>
-                                                                        <div class="d-block">
-                                                                            <p class="font-weight-light p-0 m-0">3 positions on your profile.</p>
-                                                                            <p>Work experience</p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="p-2" style="margin: auto 0;">
-                                                                        <i class="far fa-plus-square"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-
-                                                        </div>
+                                                    <div class="p-2" style="margin: auto 0;">
+                                                        <i class="fas fa-chevron-down"></i>
                                                     </div>
+                                                    <!-- </h2> -->
                                                 </div>
-                                                <!-- skills card -->
-                                                <div class="card">
-                                                    <div class="card-header d-flex justify-content-between " id="headingFour">
-                                                        <!-- <h2 class="mb-0 justify-content-between "> -->
-                                                        <div class="p-2">
-                                                            <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
-                                                               data-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
-                                                                Skills
-                                                            </a>
-                                                        </div>
-                                                        <div class="p-2" style="margin: auto 0;">
-                                                            <i class="fas fa-chevron-down "></i>
-                                                        </div>
-                                                        <!-- </h2> -->
-                                                    </div>
-                                                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                                                         data-parent="#accordionExample">
-                                                        <div class="card-body">
+                                                <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
+                                                     data-parent="#accordionExample">
+                                                    <div class="card-body">
 
-                                                            <div style="display: flex; justify-content:space-between; align-items: center; font-size: 2rem;">
-                                                                <i class="fas fa-medal"></i>
-                                                                <div class="d-block">
-                                                                    <p class="font-weight-bold">Slills</p>
-                                                                    <p class="font-weight-lighter p-0 m-0">
-                                                                        11 skills on your profile.
-                                                                    </p>
-                                                                </div>
-                                                                <div class="p-2" style="margin: auto 0;">
-                                                                    <i class="far fa-plus-square"></i>
-                                                                </div>
+                                                        <div style="display: flex; justify-content:space-between; align-items: center; font-size: 2rem;">
+                                                            <i class="fas fa-globe"></i>
+                                                            <div class="d-block">
+                                                                <p>Add profile IN another language</p>
+                                                                <p class="font-weight-lighter p-0 m-0">
+                                                                    You can add the above sections in other languages to make it easier for people to find
+                                                                    you.
+                                                                </p>
+                                                            </div>
+                                                            <div class="p-2" style="margin: auto 0;">
+                                                                <i class="far fa-plus-square"></i>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- accomplishment -->
-                                                <div class="card">
-                                                    <div class="card-header d-flex justify-content-between " id="headingFive">
-                                                        <!-- <h2 class="mb-0 justify-content-between "> -->
-                                                        <div class="p-2">
-                                                            <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
-                                                               data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                                                Acccomplishment
-                                                            </a>
-                                                        </div>
-                                                        <div class="p-2" style="margin: auto 0;">
-                                                            <i class="fas fa-chevron-down "></i>
-                                                        </div>
-                                                        <!-- </h2> -->
-                                                    </div>
-                                                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
-                                                         data-parent="#accordionExample">
-                                                        <div class="card-body">
-                                                            <p class="font-weight-bold">Additional Information</p>
-                                                            <div style="display: flex; justify-content:space-between; align-items: center; font-size: 2rem;">
-                                                                <i class="fas fa-medal"></i>
-                                                                <div class="d-block">
-                                                                    <p>Request & Recommendation</p>
-                                                                    <p class="font-weight-lighter p-0 m-0">
-                                                                        Ask your connections to write you a recommendation.
-                                                                    </p>
-                                                                </div>
-                                                                <div class="p-2" style="margin: auto 0;">
-                                                                    <i class="far fa-plus-square"></i>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Supported language -->
-                                                <div class="card">
-                                                    <div class="card-header d-flex justify-content-between " id="headingSix">
-                                                        <!-- <h2 class="mb-0 justify-content-between "> -->
-                                                        <div class="p-2">
-                                                            <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
-                                                               data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                                                Supported & Language
-                                                            </a>
-                                                        </div>
-                                                        <div class="p-2" style="margin: auto 0;">
-                                                            <i class="fas fa-chevron-down"></i>
-                                                        </div>
-                                                        <!-- </h2> -->
-                                                    </div>
-                                                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
-                                                         data-parent="#accordionExample">
-                                                        <div class="card-body">
-
-                                                            <div style="display: flex; justify-content:space-between; align-items: center; font-size: 2rem;">
-                                                                <i class="fas fa-globe"></i>
-                                                                <div class="d-block">
-                                                                    <p>Add profile IN another language</p>
-                                                                    <p class="font-weight-lighter p-0 m-0">
-                                                                        You can add the above sections in other languages to make it easier for people to find
-                                                                        you.
-                                                                    </p>
-                                                                </div>
-                                                                <div class="p-2" style="margin: auto 0;">
-                                                                    <i class="far fa-plus-square"></i>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="dropdown p-2">
-                                        <a class="btn border border-dark btn-light" id="dropdownMenu2" data-toggle="dropdown"
-                                           aria-haspopup="true" aria-expanded="false">
-                                            More....
+
+                                </div>
+                                <div class="dropdown p-2">
+                                    <a class="btn border border-dark btn-light" id="dropdownMenu2" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">
+                                        More....
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <a class="dropdown-item">
+                                            <i class="fas fa-share p-2"></i>Share Profile vs
+                                            Message
                                         </a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <a class="dropdown-item">
-                                                <i class="fas fa-share p-2"></i>Share Profile vs
-                                                Message
-                                            </a>
-                                            <a class="dropdown-item"> <i class="fas fa-share p-2"></i>Save as PDF</a>
-                                        </div>
+                                        <a class="dropdown-item"> <i class="fas fa-share p-2"></i>Save as PDF</a>
                                     </div>
-                                    <div class="p-2">
-                                        <a href="#"><i class="fas fa-pencil-alt"></i></a>
-                                    </div>
-                                }
-
-                                else if (Model.UserType == UserType.Connected)
-                                {
-                                    <a href="" class="btn-primary btn-lg btn border">Message</a>
-                                    <a class="btn border border-dark btn-light" id="dropdownMenu2" data-toggle="dropdown"
-                                       aria-haspopup="true" aria-expanded="false">
-                                        More....
-                                    </a>
-                                }
-                                else if (Model.UserType == UserType.pending)
-                                {
-                                    <a class="connect" disabled>Pending</a>
-                                    <a href="" class="btn-primary btn-lg btn border">Message</a>
-                                    <a class="btn border border-dark btn-light" id="dropdownMenu2" data-toggle="dropdown"
-                                       aria-haspopup="true" aria-expanded="false">
-                                        More....
-                                    </a>
-                                }
-                                else if (Model.UserType == UserType.requested)
-                                {
-
-                                }
-                                else if (Model.UserType == UserType.noConnection)
-                                {
-                                    @*<a href="" class="btn-primary btn-lg btn border">Connect</a>*@
-                                    @Html.ActionLink("Connect", "Connect", "Account", new { @id = Model.User.Id, @class = "btn-primary btn-lg btn border"}, null)
-                                    <a href="" class="btn-primary btn-lg btn border">Message</a>
-                                    <a class="btn border border-dark btn-light" id="dropdownMenu2" data-toggle="dropdown"
-                                       aria-haspopup="true" aria-expanded="false">
-                                        More....
-                                    </a>
-                                }
+                                </div>
+                                <div class="p-2">
+                                    <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -364,8 +321,8 @@
                         <div class="col-sm-6 user-info">
                             <div class="p-sm-3">
                                 <div>
-                                    <h2 class="d-inline-block">@Model.User.FirstName</h2>
-                                    <h2 class="d-inline-block">@Model.User.LastName</h2>
+                                    <h2 class="d-inline-block">@Model.FirstName</h2>
+                                    <h2 class="d-inline-block">@Model.LastName</h2>
                                 </div>
                                 <div>
                                     <h4> ITI Intake 40</h4>
@@ -450,17 +407,17 @@
             <div class="p-4" id="Exps">
                 <div class="row">
                     <h2 class="col-sm-11 background__section-heading">Experience</h2>
-                    <a href="" class="col-sm-1 text-right " data-toggle="modal" data-target="#ExpFullModal">
+                    <a href="" class="col-sm-1 text-right " data-toggle="modal" data-target="#FullModal">
                         <i class="fas fa-plus p-3 profile-icon "></i>
                     </a>
                 </div>
-             
-              @{ 
-                  foreach(var item in Model.User.WorkExperiences)
-                  {
-                      Html.RenderPartial("__AddExperienceCard", item);
-                  }
-              }
+
+                @{
+                    foreach (var item in Model.WorkExperiences)
+                    {
+                        Html.RenderPartial("__AddExperienceCard", item);
+                    }
+                }
             </div>
 
             <!-- hr -->
@@ -1227,14 +1184,11 @@
     </div>
 
     <!-- Full Modal -->
-          @{ 
-              Html.RenderPartial("_Experience", new LinkedIn.Web.Models.ProfileViewModels.WorkExperienceViewModel());
-              Html.RenderPartial("_EditExperience", new LinkedIn.Web.Models.ProfileViewModels.WorkExperienceViewModel());
-           }
+    @{
+        Html.RenderPartial("_Experience", new LinkedIn.Web.Models.ProfileViewModels.WorkExperienceViewModel());
+    }
 
 
-
-   
     <!-- Skills Modal -->
     <div class="modal fade" id="SkillsModal" tabindex="-1" role="dialog" aria-labelledby="SkillsModalLabel"
          aria-hidden="true">
@@ -1512,7 +1466,14 @@
     </div>
 
     <!-- Scripts -->
-   
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/MyScripts/ProfileScript.js"></script>
+
 </body>
 
 </html>
