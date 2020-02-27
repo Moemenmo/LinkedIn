@@ -30,7 +30,7 @@ namespace LinkedIn.Core
         {
             get
             {
-                return AwardManager.GetInstance(context);
+                return new AwardManager(context);
             }
         }
 
@@ -38,35 +38,35 @@ namespace LinkedIn.Core
         {
             get
             {
-                return CommentManager.GetInstance(context);
+                return new CommentManager(context);
             }
         }
         public CourseManager CourseManager
         {
             get
             {
-                return CourseManager.GetInstance(context);
+                return new CourseManager(context);
             }
         }
         public EducationExperienceManager EducationExperienceManager
         {
             get
             {
-                return EducationExperienceManager.GetInstance(context);
+                return new EducationExperienceManager(context);
             }
         }
         public LanguageManager LanguageManager
         {
             get
             {
-                return LanguageManager.GetInstance(context);
+                return new LanguageManager(context);
             }
         }
         public PatentManager PatentManager
         {
             get
             {
-                return PatentManager.GetInstance(context);
+                return new PatentManager(context);
             }
         }
 
@@ -74,35 +74,35 @@ namespace LinkedIn.Core
         {
             get
             {
-                return PostManager.GetInstance(context);
+                return new PostManager(context);
             }
         }
         public ProjectManager ProjectManager
         {
             get
             {
-                return ProjectManager.GetInstance(context);
+                return new ProjectManager(context);
             }
         }
         public PublicationManager PublicationManager
         {
             get
             {
-                return PublicationManager.GetInstance(context);
+                return new PublicationManager(context);
             }
         }
         public SavedPlaceManager SavedPlaceManager
         {
             get
             {
-                return SavedPlaceManager.GetInstance(context);
+                return new SavedPlaceManager(context);
             }
         }
         public SkillManager SkillManager
         {
             get
             {
-                return SkillManager.GetInstance(context);
+                return new SkillManager(context);
             }
         }
 
@@ -110,7 +110,7 @@ namespace LinkedIn.Core
         {
             get
             {
-                return TestScoreManager.GetInstance(context);
+                return new TestScoreManager(context);
             }
         }
 
@@ -118,7 +118,7 @@ namespace LinkedIn.Core
         {
             get
             {
-                return VolunteerExperienceManager.GetInstance(context);
+                return new VolunteerExperienceManager(context);
             }
         }
 
@@ -126,13 +126,14 @@ namespace LinkedIn.Core
         {
             get
             {
-                return WorkExperienceManager.GetInstance(context);
+                return new WorkExperienceManager(context);
             }
         }
 
         public void Dispose()
         {
-            //throw new NotImplementedException();
+            //WorkExperienceManager = null;
+            //SavedPlaceManager = null;
         }
     }
 }
