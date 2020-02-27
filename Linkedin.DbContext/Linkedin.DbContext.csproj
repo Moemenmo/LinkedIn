@@ -80,6 +80,7 @@
     <Compile Include="Migrations\202002211249382_RemoveRequiredInPost.cs" />
     <Compile Include="Migrations\202002211249382_RemoveRequiredInPost.designer.cs">
       <DependentUpon>202002211249382_RemoveRequiredInPost.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202002211111070_AddEmpTypeInWorkExperience.cs" />
     <Compile Include="Migrations\202002211111070_AddEmpTypeInWorkExperience.designer.cs">
       <DependentUpon>202002211111070_AddEmpTypeInWorkExperience.cs</DependentUpon>
@@ -99,6 +100,10 @@
     <Compile Include="Migrations\202002231452230_mariam-AddrequiredUser-fk.cs" />
     <Compile Include="Migrations\202002231452230_mariam-AddrequiredUser-fk.designer.cs">
       <DependentUpon>202002231452230_mariam-AddrequiredUser-fk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002270901135_Errorrr.cs" />
+    <Compile Include="Migrations\202002270901135_Errorrr.designer.cs">
+      <DependentUpon>202002270901135_Errorrr.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,6 +135,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002211249382_RemoveRequiredInPost.resx">
       <DependentUpon>202002211249382_RemoveRequiredInPost.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002211111070_AddEmpTypeInWorkExperience.resx">
       <DependentUpon>202002211111070_AddEmpTypeInWorkExperience.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002231452230_mariam-AddrequiredUser-fk.resx">
       <DependentUpon>202002231452230_mariam-AddrequiredUser-fk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002270901135_Errorrr.resx">
+      <DependentUpon>202002270901135_Errorrr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
