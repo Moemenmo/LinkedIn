@@ -1,4 +1,12 @@
-﻿﻿<div class="post-footer card-footer" style="display: flex;" id="comments@(Model.Id)">
+﻿﻿@model Post
+<style>
+ .active{
+        color:blue;
+
+    }
+</style>
+
+<div class="post-footer card-footer" style="display: flex;" id="comments@(Model.Id)">
     <div class="post-footer-action">
         <div class="post-footer-like">
 
@@ -8,7 +16,7 @@
                               <i class="fas fa-heart  " id="reaction"></i>&nbsp;
                               <i class="fab fa-free-code-camp  " id="reaction"></i>&nbsp;
                               <i class="far fa-angry  " id="reaction"></i>'
-﻿@model Post
+
 <div class="post-footer card-footer" style="display: flex;">
   <div id="like">@Model.Likes.Count</div>  
     <div class="post-footer-action">

@@ -413,6 +413,10 @@
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Account\Connections.cshtml" />
+    <Content Include="Views\Account\search.cshtml" />
+    <Content Include="Views\Account\_ConnecttionCard.cshtml" />
+    
+
 
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
