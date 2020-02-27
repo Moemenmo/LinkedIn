@@ -124,3 +124,5 @@ document.querySelector('.comment-like').addEventListener('click', function () {
     function HidePostModal() {
         $("#post").modal('hide')
     }
+
+  

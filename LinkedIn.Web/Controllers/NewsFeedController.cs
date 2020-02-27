@@ -40,7 +40,7 @@ namespace LinkedIn.Web.Controllers
             List<Post> darft = new List<Post>();
             var userManager = UnitOfWork.ApplicationUserManager;
             PostViewModel postVM = new PostViewModel();
-            if (postVM.User.Posts!=null)
+            if (postVM.User.Posts != null)
             {
                 darft.AddRange(postVM.User.Posts);
             }
@@ -55,7 +55,7 @@ namespace LinkedIn.Web.Controllers
             //    .ThenBy(e => e.Date.TimeOfDay.Hours)
             //    .ThenBy(e => e.Date.TimeOfDay.Minutes)
             //    .ThenBy(e => e.Date.TimeOfDay.Seconds);
-            postVM.PagePosts=darft.OrderByDescending(d => Convert.ToDateTime(d.Date)).ToList();
+            postVM.PagePosts = darft.OrderByDescending(d => Convert.ToDateTime(d.Date)).ToList();
             return View(postVM);
         }
 
@@ -72,7 +72,7 @@ namespace LinkedIn.Web.Controllers
                     string extension = System.IO.Path.GetExtension(imgFile.FileName);
                     string fileName = System.IO.Path.GetFileNameWithoutExtension(imgFile.FileName);
                     fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                    string path = "~/SavedImages/"+ fileName;
+                    string path = "~/SavedImages/" + fileName;
                     imgFile.SaveAs(System.IO.Path.Combine(Server.MapPath("~/SavedImages"), fileName));
                     post.ImageUrl = path;
                 }
@@ -87,13 +87,26 @@ namespace LinkedIn.Web.Controllers
             PostViewModel postVM = new PostViewModel();
             return View("Index", postVM);
         }
-        public ActionResult Like(Guid id)
+        [HttpGet]
+        public ActionResult Like(string postId)
         {
-            var post = UnitOfWork.PostManager.GetById(id);
+            var posts = UnitOfWork.PostManager.GetAll();
+            Guid id=Guid.Parse(postId);
+            var post = posts.FirstOrDefault(p => p.Id == id);
             ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
-
-            post.Likes.Add(user);
-            return View("index");
+            post.Likes.Add( user);
+            UnitOfWork.PostManager.Update(post);
+            return View("index",user);
         }
-    }
+        
+        //public JsonResult GetLike(string postId)
+        //{
+        //    var post = UnitOfWork.PostManager.GetById(postId);
+        //    ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
+
+        //    post.Likes.Add(user);
+
+        //    return Json(new{ },JsonRequestBehavior.AllowGet);
+        //}
+    } 
 }
