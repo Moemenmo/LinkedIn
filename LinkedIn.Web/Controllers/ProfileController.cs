@@ -38,7 +38,7 @@ namespace LinkedIn.Web.Controllers
         {
             var workExp = UnitOfWork.WorkExperienceManager.GetById(id);
             string s = "eshta";
-            return Json(workExp, JsonRequestBehavior.AllowGet);
+            return Json(s, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public ActionResult AddWorkExperience(WorkExperienceViewModel workExpVM)
