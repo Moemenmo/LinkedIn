@@ -1,20 +1,4 @@
 ﻿@model UserSearchViewModel
-@{
-    AjaxOptions optsConnect = new AjaxOptions
-    {
-        HttpMethod = "POST",
-        OnSuccess = "HidePostModal()",
-        InsertionMode = InsertionMode.InsertBefore,
-        UpdateTargetId = "posts"
-    };
-    AjaxOptions optsRespond = new AjaxOptions
-    {
-        HttpMethod = "POST",
-        OnSuccess = "HidePostModal()",
-        InsertionMode = InsertionMode.InsertBefore,
-        UpdateTargetId = "posts"
-    };
-}
 <li>
     <div class="search-result">
 
@@ -62,7 +46,6 @@
                         HttpMethod = "POST"
 
                     }) </button>
-                string x = "asd";
                     <button id="@Model.User.Id+req" onclick="Respond('@Model.User.Id.ToString()')" class="connect">
                         @Ajax.ActionLink("Reject", "RespondRequest", new { id = Model.User.Id, type = 0 },
                     new AjaxOptions
@@ -74,11 +57,15 @@
             }
             else if (Model.UserType == UserType.noConnection)
             {
-                using (Ajax.BeginForm("AddRequest", "Account", optsConnect, new { enctype = "multipart/form-data" }))
-                {
-                    <button class="connect">Message</button>
-                    }
-                    }
+                <button id="@Model.User.Id+con" onclick="Pending('@Model.User.Id.ToString()')" class="connect">
+                    @Ajax.ActionLink("Connect", "ConenctRequest", new { id = Model.User.Id },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST"
+
+                    })
+                </button>
+            }
 </div>
     </div>
 </li>

@@ -518,15 +518,19 @@ namespace LinkedIn.Web.Controllers
             }
         }
         #endregion
-        public ActionResult Connections(string fname, string lname)
+        public ActionResult Connections()
         {
+            var user = UserManager.FindById (User.Identity.GetUserId());
             var userManager = UnitOfWork.ApplicationUserManager;
             List<ApplicationUser> userList = new List<ApplicationUser>();
-            userList = userManager.GetAllConnections(User.Identity.GetUserId());
-            return View(userList);
+            userList = userManager.GetAllConnections(user.Id);
+            ConnectionsViweModel ConVM = new ConnectionsViweModel();
+            ConVM.ConnnectionList = userList;
+            ConVM.User = user;
+            return View(ConVM);
 
         }
-        public ActionResult Search(string fname, string lname)
+        public ActionResult Search(string fname)
       {
             List<UserSearchViewModel> searchResults = new List<UserSearchViewModel>();
             var userManager = UnitOfWork.ApplicationUserManager;
@@ -534,8 +538,8 @@ namespace LinkedIn.Web.Controllers
             var connections = userManager.GetAllConnections(User.Identity.GetUserId());
             var requests = userManager.GetRequestUsers(User.Identity.GetUserId());
 
-            List<ApplicationUser> listOfUsers = UserManager.Users.Where(e => (fname.Length > 0 && e.FirstName.Contains(fname))
-                                                  || (lname.Length > 0 && e.LastName.Contains(lname))).ToList();
+            List<ApplicationUser> listOfUsers = UserManager.Users.Where(e => (fname.Length > 0 &&
+            ( e.FirstName.Contains(fname)||e.FirstName.StartsWith(fname)|| e.FirstName.EndsWith(fname)))).ToList();
             listOfUsers.Remove(user);
             foreach (var item in listOfUsers)
             {
@@ -564,24 +568,23 @@ namespace LinkedIn.Web.Controllers
             }
             return View(searchResults);
         }
-        public void RespondRequest (string id , int  type)
+        public void RespondRequest(string id, int type)
         {
             var requestedUser = UserManager.FindById(id);
             var loginedUser = UserManager.FindById(User.Identity.GetUserId());
             loginedUser.Requests.Remove(requestedUser);
-            if (type==1)
+            if (type == 1)
             {
                 loginedUser.Connections.Add(requestedUser);
             }
             UserManager.Update(loginedUser);
-
-        public ActionResult Connect(string id)
+        }
+        public void ConenctRequest(string id)
         {
-            //var userManager = UnitOfWork.ApplicationUserManager;
-            //var requestedUser = userManager.FindById(User.Identity.GetUserId());
-            //var user = userManager.FindById(id);
-            //user.Requested(requestedUser);
-            return View();
+            var requestedUser = UserManager.FindById(id);
+            var loginedUser = UserManager.FindById(User.Identity.GetUserId());
+            requestedUser.Requests.Add(loginedUser);
+            UserManager.Update(requestedUser);
         }
     }
     
