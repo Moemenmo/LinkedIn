@@ -4,7 +4,7 @@
         @Html.Partial("_SharedPost")
     }
 
-    <div class="card post shadow mb-4">
+    <div class="card post shadow mb-4" id="post@(Model.Id)">
     <div class="post-header card-header">
         @if (@Model.Author.ProfilePicURL != null)
         {

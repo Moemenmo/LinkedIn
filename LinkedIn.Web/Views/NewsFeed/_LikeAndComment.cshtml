@@ -1,4 +1,4 @@
-﻿<div class="post-footer card-footer" style="display: flex;">
+﻿<div class="post-footer card-footer" style="display: flex;" id="comments@(Model.Id)">
     <div class="post-footer-action">
         <div class="post-footer-like">
 
@@ -7,7 +7,7 @@
                               <i class="fas fa-praying-hands " id="reaction"></i>&nbsp;
                               <i class="fas fa-heart  " id="reaction"></i>&nbsp;
                               <i class="fab fa-free-code-camp  " id="reaction"></i>&nbsp;
-                              <i class="far fa-angry  " id="reaction"></i>'>
+                              <i class="far fa-angry  " id="reaction"></i>'
 
                     <i class="far fa-thumbs-up container__Sign reaction-sign"></i>  like
                 </button>
@@ -27,18 +27,7 @@
             </button>
         </div>
     </div>
-    <div class="col-md-12 col-lg-12 col-sm-12">
-        <div class="input-group mt-2 ml-0">
-            <img class="post-profile-img mr-3" src="unnamed.jpg">
-            <input type="text" class="inputComment form-control" id="validationCustomUsername" placeholder="Add new comment..." aria-describedby="inputGroupPrepend" required>
-            <div class="input-group-append">
-                <label class="comment-image mt-2 mr-1" for="customFileLang">
-                    <input type="file" id="customFileLang" lang="es" style="display: none;">
-                    <i class="fas fa-images pr-3"></i>
-                </label>
-            </div>
-        </div>
-    </div>
+    @Html.Partial("_AddCommentTxtBox", new CommentViewModel { PostId = Model.Id})
 
     @foreach(Comment item in Model.Comments)
     {

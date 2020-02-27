@@ -209,6 +209,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CommentViewModel.cs" />
     <Compile Include="Models\CustomValidators\ImgValidationAttribute.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PostViewModel.cs" />
@@ -439,6 +440,7 @@
     <Content Include="Views\Profile\_Experience.cshtml" />
     <Content Include="Views\Profile\__AddExperienceCard.cshtml" />
     <Content Include="Views\NewsFeed\_Comment.cshtml" />
+    <Content Include="Views\NewsFeed\_AddCommentTxtBox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,21 +1,28 @@
 ﻿@model Comment
+@{ 
+    var duration = DateTime.Now - Model.Date;
+    var sinceWhen = duration.Days > 0 ? duration.Days : (duration.Hours > 0 ? duration.Hours :
+                                                        (duration.Minutes > 0 ?  duration.Minutes :
+                                                         duration.Seconds));
+
+    var timeChar = duration.Days > 1 ?  "Days" : (duration.Hours > 0 ? "h" : (duration.Minutes > 0 ? "m" : "s"));
+
+
+}
 
 <div class="comment-sec pl-5">
     <!--Comment-->
     <div class="row ">
-
-        <!-- hshel ml-3 , mt-3 de fl a5er w h5li col-sm-6=> col-sm-12 -->
-
         <img class="post-profile-img mt-4 " src="unnamed.jpg">
         <div class="col-sm-10 mt-3 mr-0">
 
             <div class="card comment">
                 <div class="card-body">
-                    <div class=" comment--header ">
+                    <div class="comment--header ">
                         <a class="card-title comment--auther " href="#">@Model.Author.FirstName @Model.Author.LastName</a>
-                        <div class=" options-sec">
-                            <p class="text-right font-weight-light comment--operation"> 13h <i class="fas fa-ellipsis-h option-click "></i> </p>
-                            <div class="card comment-options  " style="width: 15rem;">
+                        <div class="options-sec">
+                            <p class="text-right font-weight-light comment--operation">@sinceWhen@timeChar <i class="fas fa-ellipsis-h option-click "></i> </p>
+                            <div class="card comment-options" style="width: 15rem">
                                 <div class="card-body pt-2 pb-1 ">
                                     <p class="card-text "> <i class="fas fa-link"></i> Copy Link to Comment</p>
                                     <p class="card-text"> <i class="far fa-flag"></i> Report</p>
