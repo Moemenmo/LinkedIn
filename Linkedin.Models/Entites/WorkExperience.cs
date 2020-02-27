@@ -20,9 +20,7 @@ namespace Linkedin.Models.Entites
         public Guid Id { get; set; }
         [Required]
         public string Title { get; set; }
-
         public EmploymentType EmploymentType { get; set; }
-
         [ForeignKey("Company")]
         [Required]
         public Guid CompanyId { get; set; }

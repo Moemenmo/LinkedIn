@@ -11,12 +11,10 @@ post.addEventListener('input',function (e) {
     if(val == null || val.trim() == ""){
         document.querySelector('.mypost-footer_publish-btn').classList.remove('mypost-footer_publishEnable');
         document.querySelector('.mypost-footer_publish-btn').classList.add('mypost-footer_publishDisable');
-        //console.log("dakhlt")
     }
     else{
         document.querySelector('.mypost-footer_publish-btn').classList.remove('mypost-footer_publishDisable');
         document.querySelector('.mypost-footer_publish-btn').classList.add('mypost-footer_publishEnable');
-        //console.log("dakhlt2")
     }
 });
 var addHashtag = document.querySelector('.mypost-hashtag');
@@ -24,21 +22,30 @@ addHashtag.addEventListener('click',function (e) {
    document.getElementById('textEditor').value += "#";
 });
 
-var onAddBtn = function (e) {
-    //1.get Data from input fields
-    var inputComment = document.querySelector(".inputComment").value;
-    document.querySelector('.comment-sec').style.display = 'block';
-    document.querySelector('.comment--text').innerHTML +=inputComment ;
-    console.log(inputComment);
-    console.log(onAddBtn);
 
-};
-
-document.addEventListener('keypress', function (event) {
-    if (event.keyCode === 13 || event.which === 13) {
-        onAddBtn(event);
-    }
-});
+//function PostComment(postId) {
+//    var txtBoxId = 'txtBox' + postId;
+//    if (!(event.keyCode === 13 || event.which === 13) || (document.getElementById(txtBoxId).value == "")) {
+//        return;
+//    }
+//    console.log('Hereeee = ' + document.getElementById(txtBoxId).value);
+//    $.ajax({
+//        method: "POST",
+//        data: JSON.stringify({ PostId: postId, CommentContent: document.getElementById(txtBoxId).value }),
+//        url: '/NewsFeed/AddComment',
+//        contentType: "application/json",
+//        dataType: "json",
+//        success: function (response) {
+//            console.log("success");
+//            console.log('before -> ' + document.getElementById(txtBoxId).value);
+//            document.getElementById(txtBoxId).value = "";
+//            console.log('after -> ' + document.getElementById(txtBoxId).value);
+//        },
+//        error: function (response) {
+//            console.log('error = ' + response.responseText);
+//        }
+//    })
+//}
 
 document.querySelector('.comment-like').addEventListener('click', function () {
     document.querySelector('.comment-like').classList.toggle('text-primary');

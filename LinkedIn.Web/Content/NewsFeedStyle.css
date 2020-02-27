@@ -830,7 +830,7 @@ input[type="file"] {
   cursor: pointer; }
 
 .comment-sec {
-  display: none; }
+  display: block; }
 
 .options-sec {
   display: flex;
@@ -846,7 +846,7 @@ input[type="file"] {
     background-color: gainsboro;
     color: #423e3e; }
 
-#validationCustomUsername {
+.inputComment {
   border: 0.5px solid grey;
   border-radius: 50px;
   height: 40px; }
