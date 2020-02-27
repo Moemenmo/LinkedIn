@@ -142,14 +142,6 @@ namespace LinkedIn.Web.Controllers
         //    return RedirectToAction("index",user);
         //}
         
-        //public JsonResult GetLike(string postId)
-        //{
-        //    var post = UnitOfWork.PostManager.GetById(postId);
-        //    ApplicationUser user = UnitOfWork.ApplicationUserManager.FindById(User.Identity.GetUserId());
 
-        //    post.Likes.Add(user);
-
-        //    return Json(new{ },JsonRequestBehavior.AllowGet);
-        //}
     } 
 

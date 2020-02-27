@@ -146,8 +146,9 @@ namespace LinkedIn.Web.Controllers
             return RedirectToAction("index", user);
 
         }
-        public ActionResult DeleteExperience(Guid id)
+        public ActionResult DeleteExperience(string expId)
         {
+            Guid id = Guid.Parse(expId);
             var w = UnitOfWork.WorkExperienceManager.GetAll();
             WorkExperience wExp = w.FirstOrDefault(x => x.Id == id);
             UnitOfWork.WorkExperienceManager.Delete(wExp);

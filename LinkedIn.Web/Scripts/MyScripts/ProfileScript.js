@@ -31,41 +31,20 @@ function EditExp(expId){
     })
 }
 function DeleteExp(expId) {
-    //console.log(expId);
-    //$.ajax({
-    //    url: "Profile/DeleteExperience?id=" + expId,
-    //    method: "GET",
-    //    success: function (expId) {
-    //        console.log(expId);
-    //    },
-    //    error: function (x,y,error) {
-    //        console.log(error);
-    //    }
+  
+    $.ajax({
+        method: "GET",
+        data: { expId: expId },
+        url: '/Profile/DeleteExperience',
+        contentType: "application/json",
+        dataType: "json",
+       
 
+    });
 
-    //});
+    $("#" + expId).remove();
+     
     
-    let res = confirm("Are you sure you want to  delete?");
-    if (res) {
-        $.ajax({
-             url: "/Profile/DeleteExperience?expId='" + expId+"'",
-
-            method: "GET",
-            success: function (result) {
-                console.log("success");
-
-                if (result) {
-                  
-                    $("#" + id).remove();
-                }
-            },
-            error: function (x, y, err) {
-                console.log(expId);
-
-                console.log(err);
-            }
-        });
-    }
 }
 
 
