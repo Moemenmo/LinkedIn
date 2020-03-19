@@ -40,12 +40,12 @@
                                 <span>@Model.User.FirstName @Model.User.LastName</span>
                             </div>
                             <div class="mypost-body_middle">
-                               @Html.TextAreaFor(p => p.Status, new { @rows = "12", @name = "post-text", @id = "textEditor", @placeholder = "What do you want to talk about?" })
-                               <div id="postBody">
-                               </div>
-                                   <input type="file" name="imgFile" hidden id="in2" />
-                                   @Html.ValidationMessageFor(m => m.imgFile)
-                             </div>
+                                @Html.TextAreaFor(p => p.Status, new { @rows = "12", @name = "post-text", @id = "textEditor", @placeholder = "What do you want to talk about?" })
+                                <div id="postBody">
+                                </div>
+                                <input type="file" name="imgFile" hidden id="in2" />
+                                @Html.ValidationMessageFor(m => m.imgFile)
+                            </div>
                             <div class="mypost-body_bottom">
                                 <div class="mypost-body_bottomContent">
                                     <button class="mypost-hashtag">Add hashtag</button>
